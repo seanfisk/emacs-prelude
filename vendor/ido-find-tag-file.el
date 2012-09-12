@@ -10,5 +10,3 @@
      (expand-file-name
       (ido-completing-read
        "Project file: " (tags-table-files) nil t)))))
-
-(define-key global-map (kbd "C-x p") 'ido-find-file-in-tag-files)

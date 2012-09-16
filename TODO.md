@@ -1,3 +1,5 @@
+- Use tabs for C, C++ and shell.
+- Up the font size for non-programming modes.
 - Turn off spell checking.
 - Change the README to a personal one.
 - Continue moving other parts of the config over from my old one.

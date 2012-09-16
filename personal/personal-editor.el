@@ -1,10 +1,9 @@
-;;; personal-global-keybindings.el --- Personal keybindings
+;;; personal-editor.el --- Custom editor functions
 ;;
-;; Filename: personal-global-keybindings.el
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: convenience, local
-;; Compatibility:
+;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -27,23 +26,10 @@
 ;;
 ;;; Code:
 
-;; default key to switch buffer is C-x b, but that's not easy enough
-(define-key global-map (kbd "C-x b") 'ido-switch-buffer)
-(define-key global-map (kbd "C-x C-c") 'ido-switch-buffer)
-(define-key global-map (kbd "C-x B") 'ibuffer)
-;; an easy shortcut is needed for this common task
-(define-key global-map (kbd "C-x j") 'kill-this-buffer)
-(define-key global-map (kbd "C-c r") 'rename-buffer)
+;; save my files for next time
+(desktop-save-mode t)
 
-(define-key global-map (kbd "RET") 'newline-and-indent)
-
-;; now that we've clobbered `kill-emacs', give a shortcut back
-(define-key global-map (kbd "C-x q") 'kill-emacs)
-
-(require 'ido-find-tagged-file)
-(define-key global-map (kbd "C-x p") 'ido-find-tagged-file)
-
-(provide 'personal-global-keybindings)
+(provide 'personal-editor)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; personal-global-keybindings.el ends here
+;;; personal-editor.el ends here

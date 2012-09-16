@@ -1,9 +1,10 @@
+- Turn off spell checking.
 - Change the README to a personal one.
 - Continue moving other parts of the config over from my old one.
-- Up the font size.
 - Get themes working correctly.
 - Test with a complete reinstall.
 - Fillcode package.
 - nxHTML package.
 - Python environment is especially important (Pymacs, etc.)
-- kill-this-buffer command
+- Try out viper-mode.
+- Consider bringing back `C-o` and `M-o`.

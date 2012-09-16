@@ -1,5 +1,39 @@
-;; Add Marmalade <http://marmalade-repo.org/>
+;;; personal-packages.el --- Personal list of package.el packages.
+;;
+;; Author: Sean Fisk
+;; Maintainer: Sean Fisk
+;; Keywords: local
+;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; List of packages to install using package.el from ELPA, Marmalade,
+;; and MELPA.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License as
+;; published by the Free Software Foundation; either version 3, or
+;; (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with this program; see the file COPYING.  If not, write to
+;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
+;; Floor, Boston, MA 02110-1301, USA.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Code:
 
+;; Add Marmalade <http://marmalade-repo.org/>
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -48,9 +82,6 @@
          flymake-python-pyflakes
          )))
 
-;; (package-refresh-contents)
-;; (package-initialize)
-
 ;; Add my own packages
 (require 'prelude-packages)
 (setq prelude-packages
@@ -91,28 +122,38 @@
 (prelude-install-packages)
 
 ;;; buffer-move
-(global-set-key (kbd "<C-S-up>")     'buf-move-up)
-(global-set-key (kbd "<C-S-down>")   'buf-move-down)
-(global-set-key (kbd "<C-S-left>")   'buf-move-left)
-(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+(define-key global-map (kbd "<C-S-up>")     'buf-move-up)
+(define-key global-map (kbd "<C-S-down>")   'buf-move-down)
+(define-key global-map (kbd "<C-S-left>")   'buf-move-left)
+(define-key global-map (kbd "<C-S-right>")  'buf-move-right)
+
+;; flymake-python-pyflakes
+(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+
+;; flymake-shell
+(add-hook 'sh-set-shell-hook 'flymake-shell-load)
 
 ;; goto-last-change
 ;; when using AZERTY keyboard, consider C-x C-_
-(global-set-key (kbd "C-x C-/") 'goto-last-change)
+(define-key (kbd "C-x C-/") 'goto-last-change)
 
 ;; smex
 (smex-initialize)
-(global-set-key (kbd "C-x C-m") 'execute-extended-command)
-(global-set-key [remap execute-extended-command] 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(define-key global-map (kbd "C-x C-m") 'execute-extended-command)
+(define-key global-map [remap execute-extended-command] 'smex)
+(define-key global-map (kbd "M-X") 'smex-major-mode-commands)
 ;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-;; solarized-theme
-(load-theme 'solarized-dark)
+(define-key global-map (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; whitespace-mode
 ;; having whitespace mode on bothers me
 (add-hook 'prelude-prog-mode-hook 'prelude-turn-off-whitespace t)
 
+;; dired-x
+;; C-x C-j opens dired with the cursor right on the file you're editing
+(require 'dired-x)
+
 (provide 'personal-packages)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; personal-packages.el ends here

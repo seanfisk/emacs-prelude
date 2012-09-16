@@ -1,10 +1,9 @@
-;;; personal-global-keybindings.el --- Personal keybindings
+;;; personal-visual.el --- Visual customizations
 ;;
-;; Filename: personal-global-keybindings.el
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
-;; Keywords: convenience, local
-;; Compatibility:
+;; Keywords: local
+;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -27,23 +26,24 @@
 ;;
 ;;; Code:
 
-;; default key to switch buffer is C-x b, but that's not easy enough
-(define-key global-map (kbd "C-x b") 'ido-switch-buffer)
-(define-key global-map (kbd "C-x C-c") 'ido-switch-buffer)
-(define-key global-map (kbd "C-x B") 'ibuffer)
-;; an easy shortcut is needed for this common task
-(define-key global-map (kbd "C-x j") 'kill-this-buffer)
-(define-key global-map (kbd "C-c r") 'rename-buffer)
+;; choose fonts
+(if (window-system)
+    ;; font size
+    (set-face-attribute 'default nil :height 180)
+    (condition-case nil
+        ;; use Inconsolata if we have it
+        (set-face-attribute 'default nil :family "Inconsolata")
+      (error
+       ;; otherwise default to Monospace
+       (set-face-attribute 'default nil :family "Monospace"))))
 
-(define-key global-map (kbd "RET") 'newline-and-indent)
+;; easy-on-the-eyes flymake
+(require 'flymake)
+(custom-set-faces
+ '(flymake-errline ((((class color)) (:underline "red"))))
+ '(flymake-warnline ((((class color)) (:underline "yellow")))))
 
-;; now that we've clobbered `kill-emacs', give a shortcut back
-(define-key global-map (kbd "C-x q") 'kill-emacs)
-
-(require 'ido-find-tagged-file)
-(define-key global-map (kbd "C-x p") 'ido-find-tagged-file)
-
-(provide 'personal-global-keybindings)
+(provide 'personal-visual)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; personal-global-keybindings.el ends here
+;;; personal-visual.el ends here

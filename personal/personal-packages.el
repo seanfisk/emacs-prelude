@@ -77,9 +77,10 @@
          prelude-xml
          ;; my MELPA packages
          edit-server
+         flymake-python-pyflakes
          js2-mode
          js2-refactor
-         flymake-python-pyflakes
+         smart-tabs-mode
          )))
 
 ;; Add my own packages
@@ -105,9 +106,10 @@
                 highlight-symbol
                 ido-ubiquitous
                 js2-refactor             ; MELPA
-                js2-mode                ; MELPA
+                js2-mode                 ; MELPA
                 mo-git-blame
                 rvm
+                smart-tabs-mode         ; MELPA
                 smex
                 smooth-scroll
                 ;; solarized theme that does not depend on color-theme
@@ -135,7 +137,7 @@
 
 ;; goto-last-change
 ;; when using AZERTY keyboard, consider C-x C-_
-(define-key (kbd "C-x C-/") 'goto-last-change)
+(define-key global-map (kbd "C-x C-/") 'goto-last-change)
 
 ;; smex
 (smex-initialize)
@@ -146,8 +148,9 @@
 (define-key global-map (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; whitespace-mode
-;; having whitespace mode on bothers me
-(add-hook 'prelude-prog-mode-hook 'prelude-turn-off-whitespace t)
+;; don't visualize newlines (with a $)
+(require 'whitespace)
+(setq whitespace-style (remove 'newline-mark whitespace-style))
 
 ;; dired-x
 ;; C-x C-j opens dired with the cursor right on the file you're editing

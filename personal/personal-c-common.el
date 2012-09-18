@@ -1,8 +1,8 @@
-;;; personal-visual.el --- Visual customizations
+;;; personal-c-common.el --- C and C++ customizations
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
-;; Keywords: local
+;; Keywords: c, languages, local
 ;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -26,28 +26,15 @@
 ;;
 ;;; Code:
 
-;; choose fonts
-(if (window-system)
-    ;; font size
-    (set-face-attribute 'default nil :height 180)
-    (condition-case nil
-        ;; use Inconsolata if we have it
-        (set-face-attribute 'default nil :family "Inconsolata")
-      (error
-       ;; otherwise default to Monospace
-       (set-face-attribute 'default nil :family "Monospace"))))
+(defun personal-c-common-hook ()
+  (setq c-default-style "bsd")
+  (setq c-basic-offset 2)
+  (setq indent-tabs-mode t)
+  (setq tab-width 2))
 
-;; easy-on-the-eyes flymake
-(require 'flymake)
-(set-face-attribute 'flymake-errline nil :underline "red")
-(set-face-attribute 'flymake-warnline nil :underline "yellow")
+(add-hook 'c-mode-common-hook 'personal-c-common-hook t)
 
-;; cursor
-(blink-cursor-mode -1)
-(setq-default x-stretch-cursor t)
-(setq-default cursor-type 'box)
-
-(provide 'personal-visual)
+(provide 'personal-c-common)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; personal-visual.el ends here
+;;; personal-c-common.el ends here

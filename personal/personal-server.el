@@ -1,8 +1,8 @@
-;;; personal-visual.el --- Visual customizations
+;;; personal-server.el --- Emacs server customizations
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
-;; Keywords: local
+;; Keywords: convenience, local, tools
 ;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -26,28 +26,18 @@
 ;;
 ;;; Code:
 
-;; choose fonts
-(if (window-system)
-    ;; font size
-    (set-face-attribute 'default nil :height 180)
-    (condition-case nil
-        ;; use Inconsolata if we have it
-        (set-face-attribute 'default nil :family "Inconsolata")
-      (error
-       ;; otherwise default to Monospace
-       (set-face-attribute 'default nil :family "Monospace"))))
+(defun personal-server-hook ()
+  (when (current-local-map)
+    (use-local-map (copy-keymap (current-local-map))))
+  (when server-buffer-clients
+    ;; use the same shortcut as kill-this-buffer
+    (local-set-key [remap kill-this-buffer] 'server-edit)))
 
-;; easy-on-the-eyes flymake
-(require 'flymake)
-(set-face-attribute 'flymake-errline nil :underline "red")
-(set-face-attribute 'flymake-warnline nil :underline "yellow")
+(add-hook 'server-switch-hook 'personal-server-hook t)
 
-;; cursor
-(blink-cursor-mode -1)
-(setq-default x-stretch-cursor t)
-(setq-default cursor-type 'box)
+(server-start) ; boot the emacs server for use with emacsclient
 
-(provide 'personal-visual)
+(provide 'personal-server)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; personal-visual.el ends here
+;;; personal-server.el ends here

@@ -1,8 +1,9 @@
-;;; personal-visual.el --- Visual customizations
+;;; personal-isearch.el --- Cursor at the end of isearch
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
-;; Keywords: local
+;; URL: http://www.emacswiki.org/emacs/IsearchOtherEnd
+;; Keywords: convenience, local
 ;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -26,28 +27,12 @@
 ;;
 ;;; Code:
 
-;; choose fonts
-(if (window-system)
-    ;; font size
-    (set-face-attribute 'default nil :height 180)
-    (condition-case nil
-        ;; use Inconsolata if we have it
-        (set-face-attribute 'default nil :family "Inconsolata")
-      (error
-       ;; otherwise default to Monospace
-       (set-face-attribute 'default nil :family "Monospace"))))
+(defun personal-isearch-goto-match-beginning ()
+  (when isearch-forward (goto-char isearch-other-end)))
 
-;; easy-on-the-eyes flymake
-(require 'flymake)
-(set-face-attribute 'flymake-errline nil :underline "red")
-(set-face-attribute 'flymake-warnline nil :underline "yellow")
+(add-hook 'isearch-mode-end-hook 'personal-isearch-goto-match-beginning t)
 
-;; cursor
-(blink-cursor-mode -1)
-(setq-default x-stretch-cursor t)
-(setq-default cursor-type 'box)
-
-(provide 'personal-visual)
+(provide 'personal-isearch)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; personal-visual.el ends here
+;;; personal-isearch.el ends here

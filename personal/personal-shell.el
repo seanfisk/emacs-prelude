@@ -29,7 +29,9 @@
 (defun personal-sh-hook ()
   (setq sh-basic-offset 2)
   (setq tab-width 2)
-  (setq indent-tabs-mode t))
+  (setq indent-tabs-mode t)
+  ;; this is necessary to refresh local `whitespace-mode' variables
+  (whitespace-mode t))
 
 (add-hook 'sh-mode-hook 'personal-sh-hook t)
 

@@ -1,6 +1,8 @@
 - Use tabs for C, C++ and shell.
 - Up the font size for non-programming modes.
-- Turn off spell checking.
+- Add note about getting spell checking working on Mac OS X with
+  homebrew by using `brew install aspell --lang=en`
+- Consider switching spellchecker to Hunspell.
 - Change the README to a personal one.
 - Continue moving other parts of the config over from my old one.
 - Get themes working correctly.

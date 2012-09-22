@@ -26,16 +26,21 @@
 ;;
 ;;; Code:
 
+;; based on <http://emacswiki.org/emacs/SetFonts#toc9>
+(require 'cl)
+(defun font-candidate (&rest fonts)
+  "Return the first available font."
+  (find-if (lambda (font-name) (find-font (font-spec :name font-name))) fonts))
+
 ;; choose fonts
-(if (window-system)
-    ;; font size
-    (set-face-attribute 'default nil :height 180)
-    (condition-case nil
-        ;; use Inconsolata if we have it
-        (set-face-attribute 'default nil :family "Inconsolata")
-      (error
-       ;; otherwise default to Monospace
-       (set-face-attribute 'default nil :family "Monospace"))))
+(when (display-graphic-p)
+  ;; font size
+  (if (featurep 'aquamacs)
+      ;; on my Mac, the font size seems small, so make it bigger
+      (set-face-attribute 'default nil :height 180)
+    (set-face-attribute 'default nil :height 140))
+  (set-face-attribute 'default nil :family
+                      (font-candidate "Inconsolata" "Monospace")))
 
 ;; easy-on-the-eyes flymake
 (require 'flymake)

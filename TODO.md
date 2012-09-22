@@ -1,3 +1,5 @@
+- Learn org-mode.
+- Get `switch-window` package working.
 - Use tabs for C, C++ and shell.
 - Up the font size for non-programming modes.
 - Add note about getting spell checking working on Mac OS X with

@@ -108,7 +108,6 @@
                 js2-refactor             ; MELPA
                 js2-mode                 ; MELPA
                 mo-git-blame
-                rvm
                 smart-tabs-mode         ; MELPA
                 smex
                 smooth-scroll

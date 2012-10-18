@@ -37,7 +37,7 @@
   ;; font size
   (if (featurep 'aquamacs)
       ;; on my Mac, the font size seems small, so make it bigger
-      (set-face-attribute 'default nil :height 180)
+      (set-face-attribute 'default nil :height 240)
     (set-face-attribute 'default nil :height 140))
   (set-face-attribute 'default nil :family
                       (font-candidate "Inconsolata" "Monospace")))

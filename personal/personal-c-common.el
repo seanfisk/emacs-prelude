@@ -30,7 +30,11 @@
   (setq c-default-style "bsd")
   (setq c-basic-offset 2)
   (setq indent-tabs-mode t)
-  (setq tab-width 2))
+  (setq tab-width 2)
+  ;; correct for a bug in `whitespace.el'
+  ;; shouldn't have to do this, but make sure we use tabs even in
+  ;; `whitespace-cleanup'
+  (setq whitespace-indent-tabs-mode indent-tabs-mode))
 
 (add-hook 'c-mode-common-hook 'personal-c-common-hook t)
 

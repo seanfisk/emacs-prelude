@@ -35,15 +35,18 @@
 ;; choose fonts
 (when (display-graphic-p)
   ;; font size
-  (if (featurep 'aquamacs)
-      ;; on my Mac, the font size seems small, so make it bigger
-      (set-face-attribute 'default nil :height 240)
-    (set-face-attribute 'default nil :height 140))
+  (let ((height nil)) (if (featurep 'aquamacs)
+              ;; on my Mac, the font size seems small, so make it bigger
+              (setq height 240)
+            (setq height 140))
+       (loop for face in '(default text-mode-default) do
+             (set-face-attribute face nil :height height)))
   (set-face-attribute 'default nil :family
-                      (font-candidate "Inconsolata" "Monospace")))
+                      (font-candidate "Inconsolata" "Monospace"))
 
-;; easy-on-the-eyes flymake
-(require 'flymake)
+  ;; easy-on-the-eyes flymake
+  (require 'flymake))
+
 (set-face-attribute 'flymake-errline nil :underline "red")
 (set-face-attribute 'flymake-warnline nil :underline "yellow")
 

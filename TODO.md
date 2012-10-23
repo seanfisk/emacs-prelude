@@ -1,12 +1,10 @@
-- Learn org-mode.
+- Get railscasts theme in the new theme variety.
 - Get `switch-window` package working.
-- Use tabs for C, C++ and shell.
 - Add note about getting spell checking working on Mac OS X with
   homebrew by using `brew install aspell --lang=en`
 - Consider switching spellchecker to Hunspell.
 - Change the README to a personal one.
 - Continue moving other parts of the config over from my old one.
-- Get themes working correctly.
 - Test with a complete reinstall.
 - Fillcode package.
 - nxHTML package.

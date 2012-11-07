@@ -18,7 +18,7 @@ def ${1:name}(self, $2):
             (mapconcat
              '(lambda (x)
       	  (if (not (string= (nth 0 x) ""))
-      	      (concat ":param " (nth 0 x) ": " indent ":type " (nth 0 x) ": ")))
+             (concat ":param " (nth 0 x) ": " indent ":type " (nth 0 x) ": :class:\`\`")))
              (mapcar
       	'(lambda (x)
       	   (mapcar

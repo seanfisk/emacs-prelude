@@ -56,6 +56,9 @@
 (setq-default x-stretch-cursor t)
 (setq-default cursor-type 'box)
 
+;; theme
+(load-theme 'solarized-light)
+
 (provide 'personal-visual)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

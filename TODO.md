@@ -1,3 +1,5 @@
+- Get auto-complete and auto-complete clang back
+- Fixed width font for rst-mode
 - Get railscasts theme in the new theme variety.
 - Get `switch-window` package working.
 - Add note about getting spell checking working on Mac OS X with

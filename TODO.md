@@ -1,4 +1,5 @@
 - Get auto-complete and auto-complete clang back
+- cython-mode
 - Fixed width font for rst-mode
 - Get railscasts theme in the new theme variety.
 - Get `switch-window` package working.

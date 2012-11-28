@@ -155,6 +155,11 @@
 ;; C-x C-j opens dired with the cursor right on the file you're editing
 (require 'dired-x)
 
+;; require vendorized code
+(require 'plist)
+(require 'json-format)
+(require 'cython-mode)
+
 (provide 'personal-packages)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

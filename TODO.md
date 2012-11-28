@@ -1,5 +1,4 @@
 - Get auto-complete and auto-complete clang back
-- cython-mode
 - Fixed width font for rst-mode
 - multiple-cursors.el - <https://github.com/magnars/multiple-cursors.el>
 - Get railscasts theme in the new theme variety.

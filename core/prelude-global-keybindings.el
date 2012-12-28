@@ -39,8 +39,8 @@
 (global-set-key (kbd "C-x \\") 'align-regexp)
 
 ;; Font size
-(define-key global-map (kbd "C-+") 'text-scale-increase)
-(define-key global-map (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
 
 ;; Window switching. (C-x o goes to the next window)
 (global-set-key (kbd "C-x O") (lambda ()
@@ -65,8 +65,12 @@
 ;; If you want to be able to M-x without meta
 (global-set-key (kbd "C-x C-m") 'execute-extended-command)
 
-;; A complementary binding to the apropos-command(C-h a)
-(global-set-key (kbd "C-h A") 'apropos)
+;; A complementary binding to the apropos-command (C-h a)
+(define-key 'help-command "A" 'apropos)
+
+;; a complement to the zap-to-char command, that doesn't eat up the target character
+(autoload 'zap-up-to-char "misc" "Kill up to, but not including ARGth occurrence of CHAR.")
+(global-set-key (kbd "M-Z") 'zap-up-to-char)
 
 ;; Activate occur easily inside isearch
 (define-key isearch-mode-map (kbd "C-o")
@@ -89,6 +93,11 @@
 
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C-c w") (make-repeatable-command 'er/expand-region))
+
+;; make C-x C-x usable with transient-mark-mode
+(define-key global-map
+  [remap exchange-point-and-mark]
+  'prelude-exchange-point-and-mark)
 
 (provide 'prelude-global-keybindings)
 

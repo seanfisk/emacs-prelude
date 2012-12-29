@@ -55,13 +55,13 @@
          melpa
          rainbow-mode
          yasnippet                 ; the Marmalde version is quite old
-         ;; my MELPA packages
+         ;; My MELPA packages
          edit-server
          flymake-python-pyflakes
          smart-tabs-mode
          )))
 
-;; Add my own packages
+;; Add my own packages.
 (require 'prelude-packages)
 (setq prelude-packages
       (append '(
@@ -101,17 +101,17 @@
 (define-key global-map (kbd "<C-S-left>")   'buf-move-left)
 (define-key global-map (kbd "<C-S-right>")  'buf-move-right)
 
-;; flymake-python-pyflakes
+;;; flymake-python-pyflakes
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 
-;; flymake-shell
+;;; flymake-shell
 (add-hook 'sh-set-shell-hook 'flymake-shell-load)
 
-;; goto-last-change
+;;; goto-last-change
 ;; when using AZERTY keyboard, consider C-x C-_
 (define-key global-map (kbd "C-x C-/") 'goto-last-change)
 
-;; smex
+;;; smex
 (smex-initialize)
 (define-key global-map (kbd "C-x C-m") 'execute-extended-command)
 (define-key global-map [remap execute-extended-command] 'smex)
@@ -119,18 +119,17 @@
 ;; This is your old M-x.
 (define-key global-map (kbd "C-c C-c M-x") 'execute-extended-command)
 
-;; whitespace-mode
-;; first, enable whitespace (it's disabled by default)
+;;; whitespace-mode
+;; Enable whitespace-mode, since it's disabled by default. The default
+;; visualizations for whitespace mode are now pretty sane, so no need
+;; to change them.
 (setq prelude-whitespace t)
-;; don't visualize newlines (with a $)
-(require 'whitespace)
-(setq whitespace-style (remove 'newline-mark whitespace-style))
 
-;; dired-x
+;;; dired-x
 ;; C-x C-j opens dired with the cursor right on the file you're editing
 (require 'dired-x)
 
-;; require vendorized code
+;; Require vendorized code.
 (require 'plist)
 (require 'json-format)
 (require 'cython-mode)

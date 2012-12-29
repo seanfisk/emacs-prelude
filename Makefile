@@ -28,7 +28,8 @@ aquamacs : install-dirs
 
 install-dirs :
 	$(INSTALL_DIRECTORY) "$(prefix)"
-	$(INSTALL_RECURSIVE) prelude "$(prefix)"
+	$(INSTALL_RECURSIVE) core "$(prefix)"
+	$(INSTALL_RECURSIVE) modules "$(prefix)"
 	$(INSTALL_RECURSIVE) snippets "$(prefix)"
 	$(INSTALL_RECURSIVE) themes "$(prefix)"
 	$(INSTALL_RECURSIVE) personal "$(prefix)"

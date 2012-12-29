@@ -43,10 +43,10 @@
     (loop for face in '(default text-mode-default) do
           (set-face-attribute face nil :height height)))
   (set-face-attribute 'default nil :family
-                      (font-candidate "Inconsolata" "Monospace"))
+                      (font-candidate "Inconsolata" "Monospace")))
 
-  ;; easy-on-the-eyes flymake
-  (require 'flymake))
+;; easy-on-the-eyes flymake
+(require 'flymake)
 
 (set-face-attribute 'flymake-errline nil :underline "red")
 (set-face-attribute 'flymake-warnline nil :underline "yellow")
@@ -57,7 +57,7 @@
 (setq-default cursor-type 'box)
 
 ;; theme
-(load-theme 'solarized-light)
+;; (load-theme 'solarized-light)
 
 (provide 'personal-visual)
 

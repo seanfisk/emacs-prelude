@@ -30,8 +30,10 @@
   (setq sh-basic-offset 2)
   (setq tab-width 2)
   (setq indent-tabs-mode t)
-  ;; this is necessary to refresh local `whitespace-mode' variables
-  (whitespace-mode t))
+  ;; correct for a bug in `whitespace.el'
+  ;; shouldn't have to do this, but make sure we use tabs even in
+  ;; `whitespace-cleanup'
+  (setq whitespace-indent-tabs-mode indent-tabs-mode))
 
 (add-hook 'sh-mode-hook 'personal-sh-hook t)
 

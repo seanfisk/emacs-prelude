@@ -55,31 +55,9 @@
          melpa
          rainbow-mode
          yasnippet                 ; the Marmalde version is quite old
-         ;; Prelude MELPA packages
-         prelude-c
-         prelude-clojure
-         prelude-coffee
-         prelude-common-lisp
-         prelude-css
-         prelude-emacs-lisp
-         prelude-erlang
-         prelude-haskell
-         prelude-js
-         prelude-latex
-         prelude-lisp
-         prelude-mediawiki
-         prelude-perl
-         prelude-programming
-         prelude-python
-         prelude-ruby
-         prelude-scheme
-         prelude-scss
-         prelude-xml
          ;; my MELPA packages
          edit-server
          flymake-python-pyflakes
-         js2-mode
-         js2-refactor
          smart-tabs-mode
          )))
 
@@ -92,27 +70,22 @@
                 auto-complete
                 auto-complete-clang
                 buffer-move
-                cmake-mode
                 dtrt-indent
-                ecb
+                ;; ecb
                 edit-server             ; MELPA
                 fill-column-indicator
                 flymake-cursor
                 flymake-python-pyflakes ; MELPA
-                flymake-ruby
+                ;; flymake-ruby
                 flymake-shell
                 goto-last-change
                 header2
                 highlight-symbol
                 ido-ubiquitous
-                js2-refactor             ; MELPA
-                js2-mode                 ; MELPA
                 mo-git-blame
                 smart-tabs-mode         ; MELPA
                 smex
                 smooth-scroll
-                ;; solarized theme that does not depend on color-theme
-                solarized-theme
                 switch-window
                 undo-tree
                 whole-line-or-region
@@ -147,6 +120,8 @@
 (define-key global-map (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; whitespace-mode
+;; first, enable whitespace (it's disabled by default)
+(setq prelude-whitespace t)
 ;; don't visualize newlines (with a $)
 (require 'whitespace)
 (setq whitespace-style (remove 'newline-mark whitespace-style))
@@ -159,6 +134,9 @@
 (require 'plist)
 (require 'json-format)
 (require 'cython-mode)
+
+;; Disable flyspell - it slows down editing. That's the last thing I need.
+(setq prelude-flyspell nil)
 
 (provide 'personal-packages)
 

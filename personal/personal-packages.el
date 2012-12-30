@@ -58,6 +58,7 @@
          yasnippet                 ; the Marmalde version is quite old
          ;; My MELPA packages
          edit-server
+         elpy
          smart-tabs-mode
          )))
 

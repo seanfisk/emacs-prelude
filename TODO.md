@@ -1,4 +1,6 @@
 - Get auto-complete and auto-complete clang back
+- Fix isearch history thing. Pretty sure it's my custom crap messing
+  it up.
 - Fixed width font for rst-mode
 - Add note about getting spell checking working on Mac OS X with
   homebrew by using `brew install aspell --lang=en`

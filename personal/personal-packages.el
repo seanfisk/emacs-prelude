@@ -118,6 +118,9 @@
 ;; `fill-column'.
 (add-hook 'prog-mode-hook 'turn-on-fci-mode)
 
+;;; flymake-cursor
+(eval-after-load 'flymake '(require 'flymake-cursor))
+
 ;;; flymake-shell
 (add-hook 'sh-set-shell-hook 'flymake-shell-load)
 

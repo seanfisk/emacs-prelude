@@ -88,7 +88,7 @@
                 multiple-cursors        ; MELPA
                 smart-tabs-mode         ; MELPA
                 smex
-                smooth-scroll
+                smooth-scrolling
                 switch-window
                 undo-tree
                 whole-line-or-region
@@ -128,6 +128,18 @@
 (define-key global-map (kbd "M-X") 'smex-major-mode-commands)
 ;; This is your old M-x.
 (define-key global-map (kbd "C-c C-c M-x") 'execute-extended-command)
+
+;;; smooth-scrolling
+;; The difference between `smooth-scroll' and `smooth-scrolling' is
+;; this: `smooth-scroll' changes "Page Up" and "Page Down" to show all
+;; the area scrolled when using those operations. I don't like
+;; this. `smooth-scrolling' prevents the cursor from hitting the
+;; bottom or top of the screen when using next and previous line. This
+;; is what I want, because it allows viewing the context of the line
+;; with the cursor.
+
+;; This package has no autoloads, it just needs to be required.
+(require 'smooth-scrolling)
 
 ;;; switch-window
 ;; This package has no autoloads, so it doesn't "do" anything when

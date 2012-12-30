@@ -60,7 +60,7 @@
          auto-complete-clang
          edit-server
          elpy
-         smart-tabs-mode
+         ;; smart-tabs-mode
          )))
 
 ;; Add my own packages.
@@ -71,6 +71,7 @@
                 ;; fillcode
                 ;; flymake-ruby
                 ;; nxhtml
+                ;; smart-tabs-mode         ; MELPA
                 auto-complete
                 auto-complete-clang     ; MELPA
                 buffer-move
@@ -86,7 +87,6 @@
                 ido-ubiquitous
                 mo-git-blame
                 multiple-cursors        ; MELPA
-                smart-tabs-mode         ; MELPA
                 smex
                 smooth-scrolling
                 switch-window
@@ -120,6 +120,10 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this-dwim)
+
+;;; smart-tabs-mode
+;; Use the convenience function to load these automatically.
+;; (smart-tabs-insinuate 'c)
 
 ;;; smex
 (smex-initialize)

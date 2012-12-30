@@ -11,3 +11,5 @@
 - Fillcode package.
 - nxHTML package.
 - Try out viper-mode.
+- buffer-move and switch-window are very similar. Consider nuking one
+  of them.

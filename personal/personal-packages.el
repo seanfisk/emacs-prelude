@@ -98,6 +98,11 @@
 ;; Install all of the packages
 (prelude-install-packages)
 
+;;; auto-complete
+;; No autoloads.
+(require 'auto-complete)
+(global-auto-complete-mode +1)
+
 ;;; buffer-move
 (autoload 'buf-move-up "buffer-move" nil t)
 (autoload 'buf-move-down "buffer-move" nil t)

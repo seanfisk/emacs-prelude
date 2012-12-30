@@ -11,4 +11,3 @@
 - Fillcode package.
 - nxHTML package.
 - Try out viper-mode.
-- Consider bringing back `C-o` and `M-o`.

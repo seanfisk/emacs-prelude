@@ -133,6 +133,7 @@
 (require 'plist)
 (require 'json-format)
 (require 'cython-mode)
+(require 'open-next-line)
 
 ;; Disable flyspell - it slows down editing. That's the last thing I need.
 (setq prelude-flyspell nil)

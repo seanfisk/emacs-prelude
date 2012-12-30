@@ -1,7 +1,6 @@
 - Get auto-complete and auto-complete clang back
 - Fixed width font for rst-mode
 - multiple-cursors.el - <https://github.com/magnars/multiple-cursors.el>
-- Get railscasts theme in the new theme variety.
 - Get `switch-window` package working.
 - Add note about getting spell checking working on Mac OS X with
   homebrew by using `brew install aspell --lang=en`
@@ -11,6 +10,5 @@
 - Test with a complete reinstall.
 - Fillcode package.
 - nxHTML package.
-- Python environment is especially important (Pymacs, etc.)
 - Try out viper-mode.
 - Consider bringing back `C-o` and `M-o`.

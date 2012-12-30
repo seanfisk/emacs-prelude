@@ -57,7 +57,6 @@
          yasnippet                 ; the Marmalde version is quite old
          ;; My MELPA packages
          edit-server
-         ;; flymake-python-pyflakes
          smart-tabs-mode
          )))
 
@@ -65,19 +64,18 @@
 (require 'prelude-packages)
 (setq prelude-packages
       (append '(
+                ;; ecb
                 ;; fillcode
+                ;; flymake-ruby
                 ;; nxhtml
                 auto-complete
                 auto-complete-clang
                 buffer-move
                 dtrt-indent
-                ;; ecb
                 edit-server             ; MELPA
+                elpy
                 fill-column-indicator
                 flymake-cursor
-                ;; elpy
-                ;; flymake-python-pyflakes ; MELPA
-                ;; flymake-ruby
                 flymake-shell
                 goto-last-change
                 header2
@@ -103,12 +101,8 @@
 (define-key global-map (kbd "<C-S-right>")  'buf-move-right)
 
 ;;; elpy
-(require 'elpy)
 (setq python-check-command "flake8")
 (elpy-enable)
-
-;;; flymake-python-pyflakes
-;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 
 ;;; flymake-shell
 (add-hook 'sh-set-shell-hook 'flymake-shell-load)

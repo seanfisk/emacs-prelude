@@ -47,16 +47,17 @@
 ;; MELPA whenever possible. MELPA packages will be specifically
 ;; included whenever needed.
 (require 'melpa)
-(setq package-archive-include-alist
+(setq package-archive-enable-alist
       '(("melpa"
          ;; Prelude packages
          helm
          helm-projectile
          melpa
-         multiple-cursors
+         multiple-cursors               ; experimental, so stay up to date
          rainbow-mode
          yasnippet                 ; the Marmalde version is quite old
          ;; My MELPA packages
+         auto-complete-clang
          edit-server
          elpy
          smart-tabs-mode
@@ -71,7 +72,7 @@
                 ;; flymake-ruby
                 ;; nxhtml
                 auto-complete
-                auto-complete-clang
+                auto-complete-clang     ; MELPA
                 buffer-move
                 dtrt-indent
                 edit-server             ; MELPA

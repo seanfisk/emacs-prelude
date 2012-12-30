@@ -119,6 +119,12 @@
 ;; This is your old M-x.
 (define-key global-map (kbd "C-c C-c M-x") 'execute-extended-command)
 
+;;; switch-window
+;; This package has no autoloads, so it doesn't "do" anything when
+;; it's just installed through ELPA. It needs to be required, at which
+;; point it takes over the `C-x o' binding.
+(require 'switch-window)
+
 ;;; whitespace-mode
 ;; Enable whitespace-mode, since it's disabled by default. The default
 ;; visualizations for whitespace mode are now pretty sane, so no need

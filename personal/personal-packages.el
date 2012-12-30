@@ -112,6 +112,12 @@
 (setq python-check-command "flake8")
 (elpy-enable)
 
+;;; fill-column-indicator
+;; Specifically *don't* set `fci-fill-column' (the column at which the
+;; line is shown). `fci-mode' will then default to using the value of
+;; `fill-column'.
+(add-hook 'prog-mode-hook 'turn-on-fci-mode)
+
 ;;; flymake-shell
 (add-hook 'sh-set-shell-hook 'flymake-shell-load)
 

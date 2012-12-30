@@ -142,9 +142,6 @@
 ;; is what I want, because it allows viewing the context of the line
 ;; with the cursor.
 
-;; This package has no autoloads, it just needs to be required.
-(require 'smooth-scrolling)
-
 ;;; switch-window
 ;; This package has no autoloads, so it doesn't "do" anything when
 ;; it's just installed through ELPA. It needs to be required, at which

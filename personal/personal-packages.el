@@ -99,10 +99,14 @@
 (prelude-install-packages)
 
 ;;; buffer-move
-(define-key global-map (kbd "<C-S-up>")     'buf-move-up)
-(define-key global-map (kbd "<C-S-down>")   'buf-move-down)
-(define-key global-map (kbd "<C-S-left>")   'buf-move-left)
-(define-key global-map (kbd "<C-S-right>")  'buf-move-right)
+(autoload 'buf-move-up "buffer-move" nil t)
+(autoload 'buf-move-down "buffer-move" nil t)
+(autoload 'buf-move-left "buffer-move" nil t)
+(autoload 'buf-move-right "buffer-move" nil t)
+(define-key global-map (kbd "<C-S-up>") 'buf-move-up)
+(define-key global-map (kbd "<C-S-down>") 'buf-move-down)
+(define-key global-map (kbd "<C-S-left>") 'buf-move-left)
+(define-key global-map (kbd "<C-S-right>") 'buf-move-right)
 
 ;;; elpy
 (setq python-check-command "flake8")

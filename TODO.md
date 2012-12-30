@@ -7,9 +7,10 @@
 - Consider switching spellchecker to Hunspell.
 - Change the README to a personal one.
 - Continue moving other parts of the config over from my old one.
-- Test with a complete reinstall.
 - Fillcode package.
 - nxHTML package.
 - Try out viper-mode.
+- When loading different themes, the text size should stay the same.
+- Check out automatic tag file switching.
 - buffer-move and switch-window are very similar. Consider nuking one
   of them.

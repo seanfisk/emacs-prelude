@@ -1,6 +1,5 @@
 - Get auto-complete and auto-complete clang back
 - Fixed width font for rst-mode
-- multiple-cursors.el - <https://github.com/magnars/multiple-cursors.el>
 - Add note about getting spell checking working on Mac OS X with
   homebrew by using `brew install aspell --lang=en`
 - Consider switching spellchecker to Hunspell.

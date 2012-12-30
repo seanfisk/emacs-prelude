@@ -53,6 +53,7 @@
          helm
          helm-projectile
          melpa
+         multiple-cursors
          rainbow-mode
          yasnippet                 ; the Marmalde version is quite old
          ;; My MELPA packages
@@ -82,6 +83,7 @@
                 highlight-symbol
                 ido-ubiquitous
                 mo-git-blame
+                multiple-cursors        ; MELPA
                 smart-tabs-mode         ; MELPA
                 smex
                 smooth-scroll
@@ -110,6 +112,12 @@
 ;;; goto-last-change
 ;; when using AZERTY keyboard, consider C-x C-_
 (define-key global-map (kbd "C-x C-/") 'goto-last-change)
+
+;;; multiple-cursors
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this-dwim)
 
 ;;; smex
 (smex-initialize)

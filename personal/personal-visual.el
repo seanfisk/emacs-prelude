@@ -56,7 +56,13 @@
 (setq-default x-stretch-cursor t)
 (setq-default cursor-type 'box)
 
-;; theme
+;;; Themes
+;; For some reason Prelude provides a themes directory, but apparently
+;; doesn't add it to the themes path. Let's do it ourselves.
+(defvar prelude-themes-dir (expand-file-name  "themes" prelude-dir)
+  "This directory houses all of the user themes.")
+(add-to-list 'custom-theme-load-path prelude-themes-dir)
+
 ;; (load-theme 'solarized-light)
 
 (provide 'personal-visual)

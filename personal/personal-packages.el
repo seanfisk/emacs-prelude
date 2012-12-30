@@ -133,6 +133,13 @@
 ;; when using AZERTY keyboard, consider C-x C-_
 (define-key global-map (kbd "C-x C-/") 'goto-last-change)
 
+;;; highlight-symbol
+(defun my-highlight-symbol ()
+  (highlight-symbol-mode +1)
+  (local-set-key (kbd "M-n") 'highlight-symbol-next)
+  (local-set-key (kbd "M-p") 'highlight-symbol-prev))
+(add-hook 'prog-mode-hook 'my-highlight-symbol)
+
 ;;; multiple-cursors
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)

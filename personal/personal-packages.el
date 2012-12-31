@@ -179,6 +179,9 @@
 ;; to change them.
 (setq prelude-whitespace t)
 
+;;; undo-tree
+(global-undo-tree-mode)
+
 ;;; whole-line-or-region
 ;; Hopefully this turns it on globally.
 (whole-line-or-region-mode +1)

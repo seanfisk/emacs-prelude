@@ -179,6 +179,10 @@
 ;; to change them.
 (setq prelude-whitespace t)
 
+;;; whole-line-or-region
+;; Hopefully this turns it on globally.
+(whole-line-or-region-mode +1)
+
 ;;; dired-x
 ;; C-x C-j opens dired with the cursor right on the file you're editing
 (require 'dired-x)

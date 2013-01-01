@@ -15,3 +15,5 @@
 - buffer-move and switch-window are very similar. Consider nuking one
   of them.
 - Get highlight-symbol to actually highlight the symbol on delay.
+- Check out ace-jump mode.
+- Check out jump-char https://github.com/lewang/jump-char

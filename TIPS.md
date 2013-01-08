@@ -1,4 +1,12 @@
-* Press `C-;` to toggle whether Option key means Meta or Option. This can be used to get rid of the annoying insertion of symbols when I tap it accidentally.
+* Press `C-;` to toggle whether Option key means Meta or Option. This
+  can be used to get rid of the annoying insertion of symbols when I
+  tap it accidentally.
+* If Aquamacs dies and you get the "Send Error Report" dialog, this
+  can cause nightly builds (as of 2012-12-08) to crash when the dialog
+  buttons are clicked. Directly run the executable in the app bundle
+  to see the errors. To fix it, I put Aquamacs-2.4 back into
+  /Applications, opened Aquamacs, closed the dialogs, then put nightly
+  Aquamacs back into /Applications (overwriting 2.4). Ugly, but it works.
 * Use registers and bookmarks
 * When rebuilding the config for Aquamacs, you can...
     * Check progress by looking at the **Window** menu. There should be a bunch of `*-autoloads.el` open. As long as those keep opening, it's going good. When a backtrace buffer appears, it started failing.

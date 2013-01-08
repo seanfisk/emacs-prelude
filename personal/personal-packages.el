@@ -115,7 +115,7 @@
 
 ;;; elpy
 (setq python-check-command "flake8")
-(elpy-enable)
+;; (elpy-enable)
 
 ;;; fill-column-indicator
 ;; Specifically *don't* set `fci-fill-column' (the column at which the

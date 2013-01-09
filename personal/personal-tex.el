@@ -36,7 +36,7 @@
                   ;; to modify the command.
 
                   ;; The second `t' enables for all TeX modes.
-                  '("SCons" "scons %o" TeX-run-command nil t
+                  '("SCons" "scons %o" TeX-run-TeX nil t
                     :help "Run Scons in the current directory") t)
      (add-to-list 'TeX-command-list '("SCons-Clean" "scons --clean"
                                       TeX-run-command nil t) t)))

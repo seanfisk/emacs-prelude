@@ -10,6 +10,7 @@
   works.
 * Use `M-x finder-list-keywords` to get a list of keywords that can be
   used in Emacs Lisp file headers.
+* Use directory variables by creating a `.dir-locals.el` file.
 * Use registers and bookmarks
 * When rebuilding the config for Aquamacs, you can...
     * Check progress by looking at the **Window** menu. There should be a bunch of `*-autoloads.el` open. As long as those keep opening, it's going good. When a backtrace buffer appears, it started failing.

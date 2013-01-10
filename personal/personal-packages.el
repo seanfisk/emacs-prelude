@@ -195,6 +195,7 @@
 (require 'json-format)
 (require 'cython-mode)
 (require 'open-next-line)
+(require 'url-insert-contents-at-point)
 
 ;; Disable flyspell - it slows down editing. That's the last thing I need.
 (setq prelude-flyspell nil)

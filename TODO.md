@@ -1,3 +1,4 @@
+- Learn how to use RefTeX.
 - Get auto-complete and auto-complete clang back
 - Fix isearch history thing. Pretty sure it's my custom crap messing
   it up.

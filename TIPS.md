@@ -10,6 +10,8 @@
   works.
 * Use `M-x finder-list-keywords` to get a list of keywords that can be
   used in Emacs Lisp file headers.
+* Open multiple info buffers by giving a prefix argument to info,
+  e.g., `C-u 5 C-h i`.
 * Use directory variables by creating a `.dir-locals.el` file.
 * Use registers and bookmarks
 * When rebuilding the config for Aquamacs, you can...

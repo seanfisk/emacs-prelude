@@ -114,8 +114,15 @@
 (define-key global-map (kbd "<C-S-right>") 'buf-move-right)
 
 ;;; elpy
+;; For elpy to work correctly, the following packages need to be
+;; installed to the _system_ Python. They can be installed in the user
+;; site directory, though.
+;;
+;;     pip install --user git+https://github.com/pinard/Pymacs.git \
+;;         rope ropemode ropemacs flake8
+;;
 (setq python-check-command "flake8")
-;; (elpy-enable)
+(elpy-enable)
 
 ;;; fill-column-indicator
 ;; Specifically *don't* set `fci-fill-column' (the column at which the

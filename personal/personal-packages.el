@@ -103,6 +103,12 @@
 (require 'auto-complete)
 (global-auto-complete-mode +1)
 
+;;; auto-complete-clang
+(defun personal-ac-cc-mode-setup ()
+  (require 'auto-complete-clang)
+  (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
+(add-hook 'c-mode-common-hook 'personal-ac-cc-mode-setup)
+
 ;;; buffer-move
 (autoload 'buf-move-up "buffer-move" nil t)
 (autoload 'buf-move-down "buffer-move" nil t)

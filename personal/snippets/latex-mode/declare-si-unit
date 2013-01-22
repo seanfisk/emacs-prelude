@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: declare-si-unit
+# key: declaresi
+# --
+\\DeclareSIUnit\\$1\{$1\}
+\\DeclareSIUnit\\$1s\{$1s\}

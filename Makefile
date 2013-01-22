@@ -28,6 +28,7 @@ aquamacs : install-dirs
 
 install-dirs :
 	$(INSTALL_DIRECTORY) "$(prefix)"
+	$(INSTALL_DATA)      prelude-modules.el "$(prefix)"
 	$(INSTALL_RECURSIVE) core "$(prefix)"
 	$(INSTALL_RECURSIVE) modules "$(prefix)"
 	$(INSTALL_RECURSIVE) snippets "$(prefix)"

@@ -53,9 +53,10 @@
          helm
          helm-projectile
          melpa
-         multiple-cursors               ; experimental, so stay up to date
+         multiple-cursors           ; experimental, so stay up to date
          rainbow-mode
-         yasnippet                 ; the Marmalde version is quite old
+         yaml-mode                 ; the Marmalade version is quite old
+         yasnippet                 ; the Marmalade version is quite old
          ;; My MELPA packages
          auto-complete-clang
          edit-server

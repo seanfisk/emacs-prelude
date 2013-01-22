@@ -1,3 +1,4 @@
+- Don't load a theme when in terminal mode.
 - Learn how to use RefTeX.
 - Get auto-complete and auto-complete clang back
 - Only enable elpy if the required packages are installed.

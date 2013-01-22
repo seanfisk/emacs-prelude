@@ -1,6 +1,6 @@
 ;;; prelude-core.el --- Emacs Prelude: core Prelude defuns.
 ;;
-;; Copyright (c) 2011-2012 Bozhidar Batsov
+;; Copyright © 2011-2013 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: http://batsov.com/emacs-prelude
@@ -161,7 +161,7 @@ there's a region, all lines that region covers will be duplicated."
     (setq end (line-end-position))
     (let ((region (buffer-substring-no-properties beg end)))
       (-dotimes arg
-                (lambda ()
+                (lambda (n)
                   (goto-char end)
                   (newline)
                   (insert region)

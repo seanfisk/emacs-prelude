@@ -15,4 +15,6 @@ custom.el
 places
 .smex-items
 savefile/
+/prelude-modules.el
+
 TAGS

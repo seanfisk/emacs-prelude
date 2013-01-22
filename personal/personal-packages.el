@@ -147,11 +147,11 @@
 (define-key global-map (kbd "C-x C-/") 'goto-last-change)
 
 ;;; highlight-symbol
-(defun my-highlight-symbol ()
+(defun personal-highlight-symbol-setup ()
   (highlight-symbol-mode +1)
   (local-set-key (kbd "M-n") 'highlight-symbol-next)
   (local-set-key (kbd "M-p") 'highlight-symbol-prev))
-(add-hook 'prog-mode-hook 'my-highlight-symbol)
+(add-hook 'prog-mode-hook 'personal-highlight-symbol-setup)
 
 ;;; multiple-cursors
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)

@@ -26,6 +26,11 @@
 ;;
 ;;; Code:
 
+;; If previews for preview-latex don't work, see this post on the TeX
+;; Stack Exchange:
+;;
+;; <http://tex.stackexchange.com/questions/28458/preview-latex-in-emacs-auctex-empty-boxes>
+
 (eval-after-load "tex"
   '(progn
      (add-to-list 'TeX-command-list

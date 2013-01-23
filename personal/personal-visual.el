@@ -36,11 +36,11 @@
 (when (display-graphic-p)
   ;; font size
   (let ((height nil))
-    (if (featurep 'aquamacs)
+    (if (eq system-type 'darwin)
         ;; on my Mac, the font size seems small, so make it bigger
         (setq height 240)
       (setq height 140))
-    (loop for face in '(default text-mode-default) do
+    (loop for face in '(default) do
           (set-face-attribute face nil :height height)))
   (set-face-attribute 'default nil :family
                       (font-candidate "Inconsolata" "Monospace")))

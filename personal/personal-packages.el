@@ -82,6 +82,7 @@
                 fill-column-indicator
                 flymake-cursor
                 flymake-shell
+                flyspell-lazy
                 goto-last-change
                 header2
                 highlight-symbol
@@ -214,8 +215,10 @@
 (require 'open-next-line)
 (require 'url-insert-contents-at-point)
 
-;; Disable flyspell - it slows down editing. That's the last thing I need.
-;; (setq prelude-flyspell nil)
+;;; flyspell
+;; Out of the box, it slows down editing. That's the last thing I
+;; need. flyspell-lazy runs flyspell only when idle, preventing lag.
+(flyspell-lazy-mode +1)
 
 (provide 'personal-packages)
 

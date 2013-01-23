@@ -1,3 +1,5 @@
+- Make sure Emacs for OS X is functioning correctly.
+- Learn about flycheck as a substitute for flymake.
 - Don't load a theme when in terminal mode.
 - Learn how to use RefTeX.
 - Get auto-complete and auto-complete clang back

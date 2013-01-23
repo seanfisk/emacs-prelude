@@ -44,7 +44,10 @@
                   '("SCons" "scons %o" TeX-run-TeX nil t
                     :help "Run Scons in the current directory") t)
      (add-to-list 'TeX-command-list '("SCons-Clean" "scons --clean"
-                                      TeX-run-command nil t) t)))
+                                      TeX-run-command nil t) t)
+     (add-to-list 'TeX-command-list
+                  '("DocView" "(find-file \"%o\")" TeX-run-function
+                    nil t :help "Open document in Emacs DocView") t)))
 
 (provide 'personal-tex)
 

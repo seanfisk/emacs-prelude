@@ -33,17 +33,19 @@
   (find-if (lambda (font-name) (find-font (font-spec :name font-name))) fonts))
 
 ;; choose fonts
-(when (display-graphic-p)
-  ;; font size
-  (let ((height nil))
-    (if (eq system-type 'darwin)
-        ;; on my Mac, the font size seems small, so make it bigger
-        (setq height 240)
-      (setq height 140))
-    (loop for face in '(default) do
-          (set-face-attribute face nil :height height)))
-  (set-face-attribute 'default nil :family
-                      (font-candidate "Inconsolata" "Monospace")))
+(if (display-graphic-p)
+    (progn
+      ;; font size
+      (let ((height nil))
+        (if (eq system-type 'darwin)
+            ;; on my Mac, the font size seems small, so make it bigger
+            (setq height 240)
+          (setq height 140))
+        (loop for face in '(default) do
+              (set-face-attribute face nil :height height)))
+      (set-face-attribute 'default nil :family
+                          (font-candidate "Inconsolata" "Monospace")))
+  (disable-theme 'zenburn))
 
 ;; easy-on-the-eyes flymake
 (require 'flymake)

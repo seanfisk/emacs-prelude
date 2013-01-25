@@ -1,5 +1,4 @@
 - Learn about flycheck as a substitute for flymake.
-- Don't load a theme when in terminal mode.
 - Learn how to use RefTeX.
 - Only enable elpy if the required packages are installed.
 - Fixed width font for rst-mode

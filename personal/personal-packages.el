@@ -208,7 +208,7 @@
 (setq prelude-whitespace t)
 
 ;;; undo-tree
-(global-undo-tree-mode)
+(global-undo-tree-mode +1)
 
 ;;; whole-line-or-region
 ;; Hopefully this turns it on globally.

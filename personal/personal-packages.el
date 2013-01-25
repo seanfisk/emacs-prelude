@@ -180,8 +180,8 @@
 
 ;;; smex
 (smex-initialize)
-(define-key global-map (kbd "C-x C-m") 'execute-extended-command)
-(define-key global-map [remap execute-extended-command] 'smex)
+(define-key global-map (kbd "C-x C-m") 'smex)
+(define-key global-map (kbd "M-x") 'smex)
 (define-key global-map (kbd "M-X") 'smex-major-mode-commands)
 ;; This is your old M-x.
 (define-key global-map (kbd "C-c C-c M-x") 'execute-extended-command)

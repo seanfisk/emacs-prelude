@@ -25,3 +25,6 @@
 * Press `C-h` after a key prefix to see all the keys defined for that
   prefix. For example, `C-x C-h` shows all keys bound with a prefix of
   `C-x`. Ditto for `C-c C-h`.
+* zsh adds a bunch of entries to the MANPATH that it somehow
+  finds. Starting Emacs from zsh on my Mac OS X allows man and WoMan
+  to find a bunch more manuals than starting from bash.

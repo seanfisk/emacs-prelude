@@ -87,6 +87,7 @@
                 header2
                 highlight-symbol
                 ido-ubiquitous
+                jump-char
                 mo-git-blame
                 multiple-cursors        ; MELPA
                 smex
@@ -150,6 +151,10 @@
 ;;; goto-last-change
 ;; when using AZERTY keyboard, consider C-x C-_
 (define-key global-map (kbd "C-x C-/") 'goto-last-change)
+
+;;; jump-char
+(define-key global-map (kbd "M-j") 'jump-char-forward)
+(define-key global-map (kbd "M-S-j") 'jump-char-backward)
 
 ;;; highlight-symbol
 (defun personal-highlight-symbol-setup ()

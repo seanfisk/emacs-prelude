@@ -21,3 +21,4 @@
 * Use keyboard macros (`start-kb-macro`, `end-kbd-macro`, `call-last-kbd-macro`, etc. `C-h a kbd-macro` too see all)
 * Use more snippets (and include Emacs Lisp transforms)
 * Check out expand region
+* AFAIK, it's not really possible to automatically autoload vendorized code.

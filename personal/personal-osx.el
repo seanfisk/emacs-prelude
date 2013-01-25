@@ -26,10 +26,9 @@
 ;;
 ;;; Code:
 
-;; Override Prelude. Aquamacs takes care of this, don't interfere with
-;; it.
+;; Override Prelude.
 
-(setq mac-command-modifier 'alt)
+(setq mac-command-modifier 'super)
 (setq mac-option-modifier 'meta)
 
 (provide 'personal-osx)

@@ -27,10 +27,10 @@
 ;;; Code:
 
 ;; based on <http://emacswiki.org/emacs/SetFonts#toc9>
-(require 'cl)
+(require 'dash)
 (defun font-candidate (&rest fonts)
   "Return the first available font."
-  (find-if (lambda (font-name) (find-font (font-spec :name font-name))) fonts))
+  (--first (find-font (font-spec :name it)) fonts))
 
 ;; choose fonts
 (if (display-graphic-p)

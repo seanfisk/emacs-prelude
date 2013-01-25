@@ -12,3 +12,4 @@
 - Check out automatic tag file switching.
 - buffer-move and switch-window are very similar. Consider nuking one
   of them.
+- On my Mac, start Emacs maximized or in fullscreen.

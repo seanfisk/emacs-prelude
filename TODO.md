@@ -1,12 +1,14 @@
-- Learn about flycheck as a substitute for flymake.
+- Keybinds for jump-char and ace-jump-mode conflict with
+  org-mode. Figure something out.
 - Fix suboptimal configuration of `comment-or-uncomment-region-or-line`.
-- Learn how to use RefTeX.
 - Only enable elpy if the required packages are installed.
+- Learn how to use RefTeX.
+- Learn about flycheck as a substitute for flymake.
+- Fillcode package.
 - Fixed width font for rst-mode
 - Add note about getting spell checking working on Mac OS X with
   homebrew by using `brew install aspell --lang=en`
 - Change the README to a personal one.
-- Fillcode package.
 - nxHTML package.
 - Try out viper-mode.
 - Check out automatic tag file switching.

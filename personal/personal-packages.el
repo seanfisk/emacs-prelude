@@ -148,6 +148,11 @@
 ;;; flymake-shell
 (add-hook 'sh-set-shell-hook 'flymake-shell-load)
 
+;;; flyspell
+;; Out of the box, it slows down editing. That's the last thing I
+;; need. flyspell-lazy runs flyspell only when idle, preventing lag.
+(flyspell-lazy-mode +1)
+
 ;;; goto-last-change
 ;; when using AZERTY keyboard, consider C-x C-_
 (define-key global-map (kbd "C-x C-/") 'goto-last-change)
@@ -219,11 +224,16 @@
 (require 'cython-mode)
 (require 'open-next-line)
 (require 'url-insert-contents-at-point)
+(require 'comment-or-uncomment-region-or-line)
 
-;;; flyspell
-;; Out of the box, it slows down editing. That's the last thing I
-;; need. flyspell-lazy runs flyspell only when idle, preventing lag.
-(flyspell-lazy-mode +1)
+;;; comment-or-uncomment-line-or-region
+;; This should be set to `C-;' or `C-c C-c'. Right now flyspell is
+;; overiding the first one. See
+;; <http://stackoverflow.com/questions/683425/globally-override-key-binding-in-emacs>
+;; for a way to fix it.
+;;
+;; This should also be in prog-mode map instead of the global map.
+(define-key global-map (kbd "C-c C-;") 'comment-or-uncomment-region-or-line)
 
 (provide 'personal-packages)
 

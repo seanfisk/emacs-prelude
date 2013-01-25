@@ -1,4 +1,5 @@
 - Learn about flycheck as a substitute for flymake.
+- Fix suboptimal configuration of `comment-or-uncomment-region-or-line`.
 - Learn how to use RefTeX.
 - Only enable elpy if the required packages are installed.
 - Fixed width font for rst-mode

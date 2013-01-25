@@ -22,3 +22,6 @@
 * Use more snippets (and include Emacs Lisp transforms)
 * Check out expand region
 * AFAIK, it's not really possible to automatically autoload vendorized code.
+* Press `C-h` after a key prefix to see all the keys defined for that
+  prefix. For example, `C-x C-h` shows all keys bound with a prefix of
+  `C-x`. Ditto for `C-c C-h`.

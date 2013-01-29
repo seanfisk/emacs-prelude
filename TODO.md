@@ -1,6 +1,9 @@
-- Keybinds for jump-char and ace-jump-mode conflict with
+- Keybindings for jump-char and ace-jump-mode conflict with
   org-mode. Figure something out.
+- Check out use-package https://github.com/jwiegley/use-package
+- Org-mode ELPA http://orgmode.org/elpa.html
 - Fix suboptimal configuration of `comment-or-uncomment-region-or-line`.
+- Elpy is changing. Investigate changes/other packages.
 - Only enable elpy if the required packages are installed.
 - Learn how to use RefTeX.
 - Learn about flycheck as a substitute for flymake.

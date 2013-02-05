@@ -158,14 +158,14 @@
 (define-key global-map (kbd "C-x C-/") 'goto-last-change)
 
 ;;; jump-char
-(define-key global-map (kbd "M-j") 'jump-char-forward)
-(define-key global-map (kbd "M-S-j") 'jump-char-backward)
+(define-key global-map (kbd "M-n") 'jump-char-forward)
+(define-key global-map (kbd "M-p") 'jump-char-backward)
 
 ;;; highlight-symbol
 (defun personal-highlight-symbol-setup ()
   (highlight-symbol-mode +1)
-  (local-set-key (kbd "M-n") 'highlight-symbol-next)
-  (local-set-key (kbd "M-p") 'highlight-symbol-prev))
+  (local-set-key (kbd "C-c C-n") 'highlight-symbol-next)
+  (local-set-key (kbd "C-c C-p") 'highlight-symbol-prev))
 (add-hook 'prog-mode-hook 'personal-highlight-symbol-setup)
 
 ;;; multiple-cursors

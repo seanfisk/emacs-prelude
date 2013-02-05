@@ -28,3 +28,4 @@
 * zsh adds a bunch of entries to the MANPATH that it somehow
   finds. Starting Emacs from zsh on my Mac OS X allows man and WoMan
   to find a bunch more manuals than starting from bash.
+* `C-S-backspace` runs `kill-whole-line`, which is very useful.

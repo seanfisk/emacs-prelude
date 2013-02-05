@@ -104,10 +104,10 @@
 ;;; auto-complete
 ;; No autoloads.
 (require 'auto-complete)
-(global-auto-complete-mode +1)
 (defun personal-auto-complete-mode-setup ()
   (local-set-key (kbd "M-/") 'auto-complete))
 (add-hook 'auto-complete-mode-hook 'personal-auto-complete-mode-setup)
+(global-auto-complete-mode +1)
 
 ;;; auto-complete-clang
 (defun personal-ac-cc-mode-setup ()

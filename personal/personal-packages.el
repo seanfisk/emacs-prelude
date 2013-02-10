@@ -33,10 +33,13 @@
 ;;
 ;;; Code:
 
-;; Add Marmalade <http://marmalade-repo.org/>
 (require 'package)
+;; Add Marmalade <http://marmalade-repo.org/>
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
+;; Add org ELPA <http://orgmode.org/elpa.html>
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 ;; The decision here is whether to use packages from MELPA or from
 ;; Marmalade. I'd like to use MELPA exclusively because I believe it's
@@ -90,6 +93,7 @@
                 jump-char
                 mo-git-blame
                 multiple-cursors        ; MELPA
+                org
                 smex
                 smooth-scrolling
                 switch-window

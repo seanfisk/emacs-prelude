@@ -131,11 +131,12 @@
 
 ;;; elpy
 ;; For elpy to work correctly, the following packages need to be
-;; installed to the _system_ Python. They can be installed in the user
-;; site directory, though.
+;; installed. They should be installed in the user site directory for
+;; the system Python. If using a virtualenv, install to the virtualenv
+;; and have elpy restart in that virtualenv. Don't include --user for
+;; a virtualenv.
 ;;
-;;     pip install --user git+https://github.com/pinard/Pymacs.git \
-;;         rope ropemode ropemacs flake8
+;;     pip install [--user] elpy rope jedi pyflakes pep8
 ;;
 (setq python-check-command "flake8")
 (elpy-enable)

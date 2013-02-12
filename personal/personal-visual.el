@@ -61,7 +61,7 @@
   "This directory houses all of the user themes.")
 (add-to-list 'custom-theme-load-path prelude-themes-dir)
 
-;; (load-theme 'solarized-light)
+(load-theme 'solarized-dark t)
 
 (provide 'personal-visual)
 

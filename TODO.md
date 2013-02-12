@@ -3,16 +3,18 @@
   `fill-paragraph` to play nicely together.
 - Keybindings for jump-char and ace-jump-mode conflict with
   org-mode and others. Figure something out.
-- Check out use-package https://github.com/jwiegley/use-package
+- Keep working on SyncTeX with AUCTeX and Skim.
+- Try out the new Aquamacs nightly build. Consider donating if it's good.
 - Fix suboptimal keybinding configuration of
   `comment-or-uncomment-region-or-line`.
-- Learn how to use RefTeX.
 - Learn about flycheck as a substitute for flymake (with elpy).
 - Fillcode package.
+- Check out use-package https://github.com/jwiegley/use-package
+- Change the README to a personal one.
+- Learn how to use RefTeX.
 - Fixed width font for rst-mode
 - Add note about getting spell checking working on Mac OS X with
   homebrew by using `brew install aspell --lang=en`
-- Change the README to a personal one.
 - nxHTML package.
 - Try out viper-mode.
 - Check out automatic tag file switching.

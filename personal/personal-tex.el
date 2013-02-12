@@ -69,15 +69,21 @@
      ;; `TeX-run-function' works just fine, but that would prevent
      ;; other viewers from being used. Argh. This is just simpler.
      (when (eq system-type 'darwin)
-       ;; Named Skim-displayline so as not to conflict with Skim in Aquamacs.
-       (add-to-list 'TeX-view-program-list '("Skim-displayline" "/Applications/Skim.app/Contents/SharedSupport/displayline -readingbar %n %o %b"))
-       ;; Now we want Skim-displayline to be the default viewer for
-       ;; PDFs. Both Aquamacs and Prelude overwrite
-       ;; `TeX-view-program-selection'. I want to replace the cons
-       ;; cell for `output-pdf'. Let the games begin.
-       (setq TeX-view-program-selection
-             (cons '(output-pdf "Skim-displayline")
-                   (assq-delete-all 'output-pdf TeX-view-program-selection))))))
+       (let ((skim-displayline-path
+              "/Applications/Skim.app/Contents/SharedSupport/displayline")
+             (skim-view-program-name "Skim-displayline"))
+         (when (file-executable-p skim-displayline-path)
+           ;; Named Skim-displayline so as not to conflict with Skim in Aquamacs.
+           (add-to-list 'TeX-view-program-list
+                        `(,skim-view-program-name
+                          (,skim-displayline-path " -readingbar %n %o %b")))
+           ;; Now we want Skim-displayline to be the default viewer for
+           ;; PDFs. Both Aquamacs and Prelude overwrite
+           ;; `TeX-view-program-selection'. I want to replace the cons
+           ;; cell for `output-pdf'. Let the games begin.
+           (setq TeX-view-program-selection
+                 (cons `(output-pdf ,skim-view-program-name)
+                       (assq-delete-all 'output-pdf TeX-view-program-selection))))))))
 
 (provide 'personal-tex)
 

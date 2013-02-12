@@ -25,3 +25,4 @@
 - Report and send in patches for getting Skim to work with SyncTeX.
 - Send in patch to Prelude for not overwriting values.
 - Send in patch to Prelude for SyncTeX.
+- Check out diminish.el for cutting down on that mode line.

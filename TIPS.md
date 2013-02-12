@@ -1,3 +1,8 @@
+* Using Aquamacs, Skim, and SyncTeX together allows forward and
+  backward jumping through the TeX source and output. But it's only
+  working with *my config* when I change the View command in
+  `TeX-command-list` from `TeX-run-discard-or-function` to
+  `TeX-run-function`. Not sure how to fix this yet.
 * Press `C-;` to toggle whether Option key means Meta or Option. This
   can be used to get rid of the annoying insertion of symbols when I
   tap it accidentally.

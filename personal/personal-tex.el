@@ -55,7 +55,29 @@
                                       TeX-run-command nil t) t)
      (add-to-list 'TeX-command-list
                   '("DocView" "(find-file \"%o\")" TeX-run-function
-                    nil t :help "Open document in Emacs DocView") t)))
+                    nil t :help "Open document in Emacs DocView") t)
+     ;; This was compiled from the following sources:
+     ;; /Applications/Aquamacs.app/Contents/Resources/lisp/aquamacs/auctex-config.el
+     ;; <http://www.cs.berkeley.edu/~prmohan/emacs/latex.html>
+     ;;
+     ;; In the file mentioned above, Aquamacs uses AppleScript to talk
+     ;; to Skim and has some other operations. However, there is a bug
+     ;; in the implementation. Adding the function call to
+     ;; `aquamacs-call-viewer' to the viewers list does not actually
+     ;; call the function, because `TeX-run-discard-or-function' is
+     ;; looking for a function _name_, not an S-Expression. Using
+     ;; `TeX-run-function' works just fine, but that would prevent
+     ;; other viewers from being used. Argh. This is just simpler.
+     (when (eq system-type 'darwin)
+       ;; Named Skim-displayline so as not to conflict with Skim in Aquamacs.
+       (add-to-list 'TeX-view-program-list '("Skim-displayline" "/Applications/Skim.app/Contents/SharedSupport/displayline -readingbar %n %o %b"))
+       ;; Now we want Skim-displayline to be the default viewer for
+       ;; PDFs. Both Aquamacs and Prelude overwrite
+       ;; `TeX-view-program-selection'. I want to replace the cons
+       ;; cell for `output-pdf'. Let the games begin.
+       (setq TeX-view-program-selection
+             (cons '(output-pdf "Skim-displayline")
+                   (assq-delete-all 'output-pdf TeX-view-program-selection))))))
 
 (provide 'personal-tex)
 

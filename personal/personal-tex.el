@@ -31,6 +31,14 @@
 ;;
 ;; <http://tex.stackexchange.com/questions/28458/preview-latex-in-emacs-auctex-empty-boxes>
 
+;; Recommended by the AUCTeX manual.
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+
+;; Make PDFs.
+(setq TeX-PDF-mode t)
+
 (eval-after-load "tex"
   '(progn
      (add-to-list 'TeX-command-list

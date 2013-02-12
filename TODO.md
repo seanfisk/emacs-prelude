@@ -1,4 +1,4 @@
-- Fix wrap, width aligment, etc. for Python-mode. It *should* be at 79
+- Fix wrap, width alignment, etc. for Python-mode. It *should* be at 79
   characters. Get `whitespace-mode`, `fill-column-indicator`, and
   `fill-paragraph` to play nicely together.
 - Keybindings for jump-char and ace-jump-mode conflict with
@@ -21,3 +21,5 @@
 - buffer-move and switch-window are very similar. Consider nuking one
   of them.
 - On my Mac, start Emacs maximized or in fullscreen.
+- Report Aquamacs crashing during crash report.
+- Report and send in patches for getting Skim to work with SyncTeX.

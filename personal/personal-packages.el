@@ -232,13 +232,20 @@
 (require 'comment-or-uncomment-region-or-line)
 
 ;;; comment-or-uncomment-line-or-region
-;; This should be set to `C-;' or `C-c C-c'. Right now flyspell is
-;; overiding the first one. See
+;; I'd like this set to `C-;' or `C-c C-c'. Right now flyspell is
+;; overriding the first one. See
 ;; <http://stackoverflow.com/questions/683425/globally-override-key-binding-in-emacs>
 ;; for a way to fix it.
 ;;
 ;; This should also be in prog-mode map instead of the global map.
-(define-key global-map (kbd "C-c C-;") 'comment-or-uncomment-region-or-line)
+;;
+;; This is overriding `comment-dwim' right now. The only thing that
+;; `comment-dwim' does that `comment-or-uncomment-region-or-line' does
+;; is add trailing comments, which I use sparingly anyway. And this
+;; function also works on lines when no region is activated. However,
+;; I don't like overriding this key binding, so consider changing it
+;; later.
+(define-key global-map (kbd "M-;") 'comment-or-uncomment-region-or-line)
 
 (provide 'personal-packages)
 

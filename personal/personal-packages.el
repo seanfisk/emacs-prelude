@@ -208,9 +208,16 @@
 
 ;;; whitespace-mode
 ;; Enable whitespace-mode, since it's disabled by default. The default
-;; visualizations for whitespace mode are now pretty sane, so no need
-;; to change them.
+;; visualizations for whitespace mode are now pretty sane, but we want
+;; to tweak them a bit.
 (setq prelude-whitespace t)
+;; Annoyingly, Prelude sets the whitespace column limit to 80. Set
+;; back to nil to just inherit from `fill-column'. We are not really
+;; using this, but just do it anyway.
+(setq whitespace-line-column nil)
+;; fill-column-indicator can be used to indicate long lines, so
+;; whitespace mode is not needed.
+(setq whitespace-style '(face tabs empty trailing))
 
 ;;; undo-tree
 (global-undo-tree-mode +1)

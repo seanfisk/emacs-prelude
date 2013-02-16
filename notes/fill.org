@@ -1,0 +1,13 @@
+Notes About Filling
+
+Mostly, this has to do with fixing the Python =fill-column= (or column
+limit, or wrap width, or what-have-you) to use 79 characters instead
+of 80, or 70, etc. It needs to be consistent between the following
+things:
+
+- fill-column
+- fill-column-indicator
+  Influential variable is =fci-rule-column=.
+- whitespace-mode
+
+Looks like fill-column-indicator will cooperate with fill-column by default.

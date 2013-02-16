@@ -1,30 +1,30 @@
 Emacs Configuration TODO List
 
-* TODO Keybindings for jump-char and ace-jump-mode
+* TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
+* TODO [#A] Fillcode package.
+* TODO [#A] Change the README to a personal one.
+* TODO [#A] On my Mac, start Emacs maximized or in fullscreen.
+* TODO [#A] Check out [[https://github.com/jwiegley/use-package][use-package]].
+* TODO [#B] Check out diminish.el for cutting down on the mode line.
+* TODO [#B] Keybindings for jump-char and ace-jump-mode
   They conflict with org-mode and others. Figure something out.
-* TODO Keep working on SyncTeX with AUCTeX and Skim.
-* TODO Try out the new Aquamacs nightly build.
-  Consider donating if it's good.
-* TODO Fix suboptimal keybinding configuration of =comment-or-uncomment-region-or-line=.
-* TODO Learn about flycheck as a substitute for flymake (with elpy).
-* TODO Fillcode package.
-* TODO Check out [[https://github.com/jwiegley/use-package][use-package]].
-* TODO Change the README to a personal one.
-* TODO Learn how to use RefTeX.
-* TODO Fixed width font for rst-mode.
-* TODO Add note about getting spell checking working on Mac OS X.
-  Done with homebrew by using =brew install aspell --lang=en=.
-* TODO nxHTML package.
-* TODO Try out viper-mode.
-* TODO Check out automatic tag file switching.
-* TODO buffer-move and switch-window are very similar.
-  Consider nuking one of them.
-* TODO On my Mac, start Emacs maximized or in fullscreen.
-* TODO Report Aquamacs crashing during crash report.
-* TODO Report and send in patches for getting Skim to work with SyncTeX.
-* TODO Send in patch to Prelude for not overwriting values.
-* TODO Send in patch to Prelude for SyncTeX.
-* TODO Check out diminish.el for cutting down on the mode line.
+* TODO [#B] Fix suboptimal keybinding configuration of =comment-or-uncomment-region-or-line=.
+* TODO [#B] Check out automatic tag file switching.
+* TODO [#B] Report Aquamacs crashing during crash report.
+* TODO [#B] Report and send in patches for getting Skim to work with SyncTeX.
+* TODO [#B] Send in patch to Prelude for not overwriting values for TeX builder.
+* TODO [#B] Send in patch to Prelude for SyncTeX.
 * DONE Fix wrap, width alignment, etc. for Python-mode.
   CLOSED: [2013-02-16 Sat 15:42]
   It *should* be at 79 characters. Get =whitespace-mode=, =fill-column-indicator=, and =fill-paragraph= to play nicely together.
+* TODO [#C] Keep working on SyncTeX with AUCTeX and Skim.
+* TODO [#C] Try out the new Aquamacs nightly build.
+  Consider donating if it's good.
+* TODO [#C] Learn how to use RefTeX.
+* TODO [#C] Fixed width font for rst-mode.
+* TODO [#C] Add note about getting spell checking working on Mac OS X.
+  Done with homebrew by using =brew install aspell --lang=en=.
+* TODO [#C] nxHTML package.
+* TODO [#C] Try out viper-mode.
+* TODO [#C] buffer-move and switch-window are very similar.
+  Consider nuking one of them.

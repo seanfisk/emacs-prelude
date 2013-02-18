@@ -105,6 +105,10 @@
 ;; Install all of the packages
 (prelude-install-packages)
 
+;;; guru-mode
+;; Turn off guru mode. I'll be a guru when I want to be.
+(setq prelude-guru nil)
+
 ;;; auto-complete
 ;; No autoloads.
 (require 'auto-complete)

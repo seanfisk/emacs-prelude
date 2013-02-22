@@ -1,15 +1,21 @@
 Emacs Configuration TODO List
 
 * TODO [#A] Fix keybindings for highlight-symbol for only in highlight-symbol mode.
+  This might not be possible, because highlight-symbol doesn't have a
+  mode map or even a hook.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
-* TODO [#A] Fillcode package.
 * TODO [#A] Change the README to a personal one.
 * TODO [#A] On my Mac, start Emacs maximized or in fullscreen.
+  Fullscreen would be easy, just call =ns-toggle-fullscreen=. However,
+  I'm prefer maximized.
 * TODO [#A] Check out [[https://github.com/jwiegley/use-package][use-package]].
-* TODO [#B] Check out diminish.el for cutting down on the mode line.
-* TODO [#B] Keybindings for jump-char and ace-jump-mode
+* TODO [#A] Keybindings for jump-char and ace-jump-mode
   They conflict with org-mode and others. Figure something out.
-* TODO [#B] Fix suboptimal keybinding configuration of =comment-or-uncomment-region-or-line=.
+** Solution
+   - Vendorize Drew Adams' misc-cmds.el.
+   - Map =C-a= to toggle between indentation or beginning of line.
+   - Remap =jump-char-forward= to =M-m= and =jump-char-backward= to =M-M=.
+* TODO [#B] Check out diminish.el for cutting down on the mode line.
 * TODO [#B] Check out automatic tag file switching.
 * TODO [#B] Report Aquamacs crashing during crash report.
 * TODO [#B] Report and send in patches for getting Skim to work with SyncTeX.
@@ -18,6 +24,11 @@ Emacs Configuration TODO List
 * DONE Fix wrap, width alignment, etc. for Python-mode.
   CLOSED: [2013-02-16 Sat 15:42]
   It *should* be at 79 characters. Get =whitespace-mode=, =fill-column-indicator=, and =fill-paragraph= to play nicely together.
+* TODO [#C] Fillcode package.
+  May not be necessary, code is filling alright using elpy.
+* TODO [#C] Fix suboptimal keybinding configuration of =comment-or-uncomment-region-or-line=.
+  Not sure if it's suboptimal. I bound it to =M-;=, and I haven't been
+  in want of =comment-region= yet.
 * TODO [#C] Keep working on SyncTeX with AUCTeX and Skim.
 * TODO [#C] Try out the new Aquamacs nightly build.
   Consider donating if it's good.

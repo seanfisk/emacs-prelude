@@ -168,8 +168,8 @@
 (define-key global-map (kbd "C-x C-/") 'goto-last-change)
 
 ;;; jump-char
-(define-key global-map (kbd "M-n") 'jump-char-forward)
-(define-key global-map (kbd "M-p") 'jump-char-backward)
+(define-key global-map (kbd "M-m") 'jump-char-forward)
+(define-key global-map (kbd "M-S-m") 'jump-char-backward)
 
 ;;; highlight-symbol
 (defun personal-highlight-symbol-setup ()

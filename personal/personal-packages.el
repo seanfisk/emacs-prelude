@@ -55,6 +55,7 @@
          ;; Prelude packages
          helm
          helm-projectile
+         jump-char                      ; Marmalade version is old
          melpa
          multiple-cursors           ; experimental, so stay up to date
          rainbow-mode

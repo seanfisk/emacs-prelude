@@ -1,5 +1,6 @@
 Emacs Configuration TODO List
 
+* TODO [#A] Fix keybindings for highlight-symbol for only in highlight-symbol mode.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#A] Fillcode package.
 * TODO [#A] Change the README to a personal one.

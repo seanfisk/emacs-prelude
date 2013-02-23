@@ -1,28 +1,16 @@
 Emacs Configuration TODO List
 
-* TODO [#A] Fix keybindings for highlight-symbol for only in highlight-symbol mode.
-  This might not be possible, because highlight-symbol doesn't have a
-  mode map or even a hook.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#A] Change the README to a personal one.
-* TODO [#A] On my Mac, start Emacs maximized or in fullscreen.
-  - Fullscreen would be easy, just call
-    =ns-toggle-fullscreen=. However, I'd prefer maximized.
-  - Got it to work with [[https://github.com/rmm5t/maxframe.el][maxframe.el]]. However, only the first frame
-    created opens up maximized. Further frames can be maximized with
-    =maximize frame= or its alias =mf=. Luckily I mostly use one
-    frame.
-* TODO [#A] Keybindings for jump-char and ace-jump-mode
-  They conflict with org-mode and others. Figure something out.
-** Solution
-   - Vendorize Drew Adams' misc-cmds.el.
-   - Map =C-a= to toggle between indentation or beginning of line.
-   - Remap =jump-char-forward= to =M-m= and =jump-char-backward= to =M-M=.
 * TODO [#B] Check out automatic tag file switching.
 * TODO [#B] Report Aquamacs crashing during crash report.
 * TODO [#B] Report and send in patches for getting Skim to work with SyncTeX.
 * TODO [#B] Send in patch to Prelude for not overwriting values for TeX builder.
 * TODO [#B] Send in patch to Prelude for SyncTeX.
+* TODO [#C] Fix keybindings for highlight-symbol for only in highlight-symbol mode.
+  - This might not be possible, because highlight-symbol doesn't have a
+    mode map or even a hook.
+  - Right now they are just global.
 * TODO [#C] Fillcode package.
   May not be necessary, code is filling alright using elpy.
 * TODO [#C] Fix suboptimal keybinding configuration of =comment-or-uncomment-region-or-line=.
@@ -39,11 +27,27 @@ Emacs Configuration TODO List
 * TODO [#C] Try out viper-mode.
 * TODO [#C] buffer-move and switch-window are very similar.
   Consider nuking one of them.
+* TODO [#C] Consider byte compilation of init files and vendorized code.
+* DONE [#A] On my Mac, start Emacs maximized or in fullscreen.
+  CLOSED: [2013-02-22 Fri 21:31]
+  - Fullscreen would be easy, just call
+    =ns-toggle-fullscreen=. However, I'd prefer maximized.
+  - Got it to work with [[https://github.com/rmm5t/maxframe.el][maxframe.el]]. However, only the first frame
+    created opens up maximized. Further frames can be maximized with
+    =maximize frame= or its alias =mf=. Luckily I mostly use one
+    frame.
+* DONE [#A] Keybindings for jump-char and ace-jump-mode
+  CLOSED: [2013-02-22 Fri 21:30]
+  They conflict with org-mode and others. Figure something out.
+** Solution
+   - Vendorize Drew Adams' misc-cmds.el.
+   - Map =C-a= to toggle between indentation or beginning of line.
+   - Remap =jump-char-forward= to =M-m= and =jump-char-backward= to =M-M=.
+* DONE [#A] Check out [[https://github.com/jwiegley/use-package][use-package]].
+  CLOSED: [2013-02-22 Fri 20:20]
 * DONE [#B] Check out diminish.el for cutting down on the mode line.
   CLOSED: [2013-02-22 Fri 20:21]
   Done as part of use-package update.
-* DONE [#A] Check out [[https://github.com/jwiegley/use-package][use-package]].
-  CLOSED: [2013-02-22 Fri 20:20]
 * DONE Fix wrap, width alignment, etc. for Python-mode.
   CLOSED: [2013-02-16 Sat 15:42]
   It *should* be at 79 characters. Get =whitespace-mode=, =fill-column-indicator=, and =fill-paragraph= to play nicely together.

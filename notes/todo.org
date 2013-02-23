@@ -14,6 +14,7 @@ Emacs Configuration TODO List
   - http://www.gnu.org/software/emacs/manual/html_node/emacs/Defining-Fontsets.html
   - See =aquamacs/src/site-lisp/macosx/aquamacs-mac-fontsets.el= in
     the Aquamacs distribution.
+* TODO [#B] Add a command to directly open up the Emacs configuration repo.
 * TODO [#C] Fix keybindings for highlight-symbol for only in highlight-symbol mode.
   - This might not be possible, because highlight-symbol doesn't have a
     mode map or even a hook.

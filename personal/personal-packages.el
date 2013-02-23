@@ -186,6 +186,10 @@
   :bind (("M-m" . jump-char-forward)
          ("M-M" . jump-char-backward)))
 
+(use-package maxframe
+  :ensure t
+  :config (add-hook 'window-setup-hook 'maximize-frame t))
+
 (use-package mo-git-blame
   :ensure t)
 

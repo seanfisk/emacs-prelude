@@ -6,8 +6,12 @@ Emacs Configuration TODO List
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#A] Change the README to a personal one.
 * TODO [#A] On my Mac, start Emacs maximized or in fullscreen.
-  Fullscreen would be easy, just call =ns-toggle-fullscreen=. However,
-  I'm prefer maximized.
+  - Fullscreen would be easy, just call
+    =ns-toggle-fullscreen=. However, I'd prefer maximized.
+  - Got it to work with [[https://github.com/rmm5t/maxframe.el][maxframe.el]]. However, only the first frame
+    created opens up maximized. Further frames can be maximized with
+    =maximize frame= or its alias =mf=. Luckily I mostly use one
+    frame.
 * TODO [#A] Keybindings for jump-char and ace-jump-mode
   They conflict with org-mode and others. Figure something out.
 ** Solution

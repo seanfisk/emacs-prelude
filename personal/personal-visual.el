@@ -32,25 +32,27 @@
   "Return the first available font."
   (--first (find-font (font-spec :name it)) fonts))
 
-;; choose fonts
-(if (display-graphic-p)
-    (progn
-      ;; Font size
-      ;; On my Mac, the font size seems small, so make it bigger.
-      (set-face-attribute 'default nil :height
-                          (if (eq system-type 'darwin) 240 140))
-      (set-face-attribute 'default nil :family
-                          (font-candidate "Inconsolata" "Monospace")))
-  (disable-theme 'zenburn)
+(when (display-graphic-p)
+  ;; Choose fonts
+  ;; On my Mac, the font size seems small, so make it bigger.
+  (set-face-attribute 'default nil :height
+                      (if (eq system-type 'darwin) 240 140))
+  (set-face-attribute 'default nil :family
+                      (font-candidate "Inconsolata" "Monospace"))
+  ;; Set theme.
   (load-theme 'solarized-dark t))
 
-;; easy-on-the-eyes flymake
+;; Always disable zenburn theme. If terminal we won't use a theme. If
+;; graphical, we will use solarized. Do it here to avoid flicker.
+(disable-theme 'zenburn)
+
+;; Easy-on-the-eyes flymake
 (require 'flymake)
 
 (set-face-attribute 'flymake-errline nil :underline "red")
 (set-face-attribute 'flymake-warnline nil :underline "yellow")
 
-;; cursor
+;; Cursor
 (blink-cursor-mode -1)
 (setq-default x-stretch-cursor t)
 (setq-default cursor-type 'box)

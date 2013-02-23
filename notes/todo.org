@@ -8,6 +8,12 @@ Emacs Configuration TODO List
 * TODO [#B] Report and send in patches for getting Skim to work with SyncTeX.
 * TODO [#B] Send in patch to Prelude for not overwriting values for TeX builder.
 * TODO [#B] Send in patch to Prelude for SyncTeX.
+* TODO [#B] Fix fontset for Unicode.
+  - http://stackoverflow.com/questions/6083496/how-do-you-specify-a-fallback-font-in-emacs
+  - http://www.emacswiki.org/emacs/FontSets
+  - http://www.gnu.org/software/emacs/manual/html_node/emacs/Defining-Fontsets.html
+  - See =aquamacs/src/site-lisp/macosx/aquamacs-mac-fontsets.el= in
+    the Aquamacs distribution.
 * TODO [#C] Fix keybindings for highlight-symbol for only in highlight-symbol mode.
   - This might not be possible, because highlight-symbol doesn't have a
     mode map or even a hook.

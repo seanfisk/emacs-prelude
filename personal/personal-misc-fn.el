@@ -36,7 +36,10 @@
   (defun read-latest-flex-info ()
     "Open up the Info manual for the latest version of flex installed using Homebrew."
     (interactive)
-    (info "/usr/local/opt/flex/share/info/flex.info")))
+    ;; Using `*flex-info*' as the buffer name allows it not to
+    ;; conflict with default `*info*' buffers, and have both open at
+    ;; the same time.
+    (info "/usr/local/opt/flex/share/info/flex.info" "*flex-info*")))
 
 (provide 'personal-misc-fn)
 

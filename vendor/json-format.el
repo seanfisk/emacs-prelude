@@ -33,6 +33,7 @@
 ;;
 ;;; Code:
 
+;;;###autoload
 (defun json-format ()
   "Nicely format a JSON string."
   (interactive)

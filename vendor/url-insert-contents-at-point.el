@@ -34,6 +34,7 @@
 
 (require 'url)
 
+;;;###autoload
 (defun url-insert-contents-at-point ()
   "Insert the contents of the prompted URL at the current point
 in the buffer."

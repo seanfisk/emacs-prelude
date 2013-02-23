@@ -276,18 +276,6 @@
 
 
 ;;; Include vendorized code.
-(use-package plist)
-
-(use-package json-format)
-
-(use-package cython-mode
-  :commands cython-mode)
-
-(use-package open-next-line
-  :bind (("C-o" . open-next-line)
-         ("M-o" . open-previous-line)))
-
-(use-package url-insert-contents-at-point)
 
 ;;; comment-or-uncomment-line-or-region
 ;; I'd like this set to `C-;' or `C-c C-c'. Right now flyspell is
@@ -306,8 +294,21 @@
 (use-package comment-or-uncomment-region-or-line
   :bind ("M-;" . comment-or-uncomment-region-or-line))
 
+(use-package cython-mode
+  :commands cython-mode)
+
 (use-package ido-find-tagged-file
   :bind ("C-x p" . ido-find-tagged-file))
+
+(use-package json-format)
+
+(use-package open-next-line
+  :bind (("C-o" . open-next-line)
+         ("M-o" . open-previous-line)))
+
+(use-package plist)
+
+(use-package url-insert-contents-at-point)
 
 (provide 'personal-packages)
 

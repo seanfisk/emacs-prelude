@@ -31,5 +31,7 @@
   (interactive "P")
   (sort-lines reverse (point-min) (point-max)))
 
+(provide 'personal-misc-fn)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; personal-misc-fn.el ends here

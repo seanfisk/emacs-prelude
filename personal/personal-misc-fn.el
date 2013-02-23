@@ -31,6 +31,13 @@
   (interactive "P")
   (sort-lines reverse (point-min) (point-max)))
 
+(when (eq system-type 'darwin)
+  ;; Latest flex installed using homebrew.
+  (defun read-latest-flex-info ()
+    "Open up the Info manual for the latest version of flex installed using Homebrew."
+    (interactive)
+    (info "/usr/local/opt/flex/share/info/flex.info")))
+
 (provide 'personal-misc-fn)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

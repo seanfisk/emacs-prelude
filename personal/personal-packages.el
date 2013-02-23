@@ -64,7 +64,7 @@
          ;; My MELPA packages
          auto-complete-clang
          edit-server
-         elpy
+         ;; elpy ;; MELPA elpy (submitted by me) is now broken by some recent changes
          ;; smart-tabs-mode
          )))
 

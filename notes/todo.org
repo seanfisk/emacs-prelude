@@ -8,22 +8,17 @@ Emacs Configuration TODO List
 * TODO [#A] On my Mac, start Emacs maximized or in fullscreen.
   Fullscreen would be easy, just call =ns-toggle-fullscreen=. However,
   I'm prefer maximized.
-* TODO [#A] Check out [[https://github.com/jwiegley/use-package][use-package]].
 * TODO [#A] Keybindings for jump-char and ace-jump-mode
   They conflict with org-mode and others. Figure something out.
 ** Solution
    - Vendorize Drew Adams' misc-cmds.el.
    - Map =C-a= to toggle between indentation or beginning of line.
    - Remap =jump-char-forward= to =M-m= and =jump-char-backward= to =M-M=.
-* TODO [#B] Check out diminish.el for cutting down on the mode line.
 * TODO [#B] Check out automatic tag file switching.
 * TODO [#B] Report Aquamacs crashing during crash report.
 * TODO [#B] Report and send in patches for getting Skim to work with SyncTeX.
 * TODO [#B] Send in patch to Prelude for not overwriting values for TeX builder.
 * TODO [#B] Send in patch to Prelude for SyncTeX.
-* DONE Fix wrap, width alignment, etc. for Python-mode.
-  CLOSED: [2013-02-16 Sat 15:42]
-  It *should* be at 79 characters. Get =whitespace-mode=, =fill-column-indicator=, and =fill-paragraph= to play nicely together.
 * TODO [#C] Fillcode package.
   May not be necessary, code is filling alright using elpy.
 * TODO [#C] Fix suboptimal keybinding configuration of =comment-or-uncomment-region-or-line=.
@@ -40,3 +35,11 @@ Emacs Configuration TODO List
 * TODO [#C] Try out viper-mode.
 * TODO [#C] buffer-move and switch-window are very similar.
   Consider nuking one of them.
+* DONE [#B] Check out diminish.el for cutting down on the mode line.
+  CLOSED: [2013-02-22 Fri 20:21]
+  Done as part of use-package update.
+* DONE [#A] Check out [[https://github.com/jwiegley/use-package][use-package]].
+  CLOSED: [2013-02-22 Fri 20:20]
+* DONE Fix wrap, width alignment, etc. for Python-mode.
+  CLOSED: [2013-02-16 Sat 15:42]
+  It *should* be at 79 characters. Get =whitespace-mode=, =fill-column-indicator=, and =fill-paragraph= to play nicely together.

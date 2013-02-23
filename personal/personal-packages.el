@@ -302,6 +302,10 @@
 
 (use-package json-format)
 
+(use-package misc-cmds
+  :bind (("C-a" . beginning-or-indentation)
+         ("C-e" . end-of-line+)))
+
 (use-package open-next-line
   :bind (("C-o" . open-next-line)
          ("M-o" . open-previous-line)))

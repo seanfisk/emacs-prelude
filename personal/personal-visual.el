@@ -41,7 +41,8 @@
                           (if (eq system-type 'darwin) 240 140))
       (set-face-attribute 'default nil :family
                           (font-candidate "Inconsolata" "Monospace")))
-  (disable-theme 'zenburn))
+  (disable-theme 'zenburn)
+  (load-theme 'solarized-dark t))
 
 ;; easy-on-the-eyes flymake
 (require 'flymake)
@@ -60,8 +61,6 @@
 (defvar prelude-themes-dir (expand-file-name  "themes" prelude-dir)
   "This directory houses all of the user themes.")
 (add-to-list 'custom-theme-load-path prelude-themes-dir)
-
-(load-theme 'solarized-dark t)
 
 (provide 'personal-visual)
 

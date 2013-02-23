@@ -79,10 +79,6 @@
 (use-package diminish
   :ensure t)
 
-;;; guru-mode
-;; Turn off guru mode. I'll be a guru when I want to be.
-(setq prelude-guru nil)
-
 ;;; auto-complete
 (use-package auto-complete
   :ensure t
@@ -112,12 +108,16 @@
          ("<C-S-left>" . buf-move-left)
          ("<C-S-right>" . buf-move-right)))
 
-(use-package dtrt-indent)
+(use-package dtrt-indent
+  :ensure t
+  :defer t)
 
 ;; Haven't taken the time to learn this yet.
 ;;(use-package ecb)
 
-(use-package edit-server)
+;; Haven't used this in a while.
+;; (use-package edit-server
+;;   :ensure t)
 
 ;;; elpy
 ;; For elpy to work correctly, the following packages need to be
@@ -166,7 +166,8 @@
 ;;(define-key global-map (kbd "C-x C-/") 'goto-last-change)
 
 (use-package header2
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; highlight-symbol
 ;; I don't really want to enable highlight symbol mode globally, but
@@ -178,7 +179,8 @@
              :init (highlight-symbol-mode +1))
 
 (use-package ido-ubiquitous
-  :ensure t)
+  :ensure t
+  :init (ido-ubiquitous-mode +1))
 
 ;;; jump-char
 (use-package jump-char
@@ -191,7 +193,8 @@
   :config (add-hook 'window-setup-hook 'maximize-frame t))
 
 (use-package mo-git-blame
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; multiple-cursors
 (use-package multiple-cursors
@@ -205,7 +208,8 @@
 ;;(use-package nxhtml)
 
 (use-package org
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; smart-tabs-mode
 ;; Use the convenience function to load these automatically.
@@ -213,18 +217,13 @@
 
 ;;; smex
 (use-package smex
-             :ensure t
-             :bind (("C-x C-m" . smex)
-                    ("M-x" . smex)
-                    ("M-X" . smex-major-mode-commands)
-                    ;; This is your old M-x.
-                    ("C-c C-c M-x" . execute-extended-command))
-             :init (smex-initialize))
-;; (smex-initialize)
-;; (define-key global-map (kbd "C-x C-m") 'smex)
-;; (define-key global-map (kbd "M-x") 'smex)
-;; (define-key global-map (kbd "M-X") 'smex-major-mode-commands)
-;; (define-key global-map (kbd "C-c C-c M-x") 'execute-extended-command)
+  :ensure t
+  :bind (("C-x C-m" . smex)
+         ("M-x" . smex)
+         ("M-X" . smex-major-mode-commands)
+         ;; This is your old M-x.
+         ("C-c C-c M-x" . execute-extended-command))
+  :init (smex-initialize))
 
 ;;; smooth-scrolling
 ;; The difference between `smooth-scroll' and `smooth-scrolling' is
@@ -248,26 +247,8 @@
 ;;; undo-tree
 (use-package undo-tree
   :ensure t
+  :diminish undo-tree-mode
   :init (global-undo-tree-mode +1))
-
-;;; whitespace-mode
-;; Enable whitespace-mode, since it's disabled by default. The default
-;; visualizations for whitespace mode are now pretty sane, but we want
-;; to tweak them a bit.
-(setq prelude-whitespace t)
-;; The following code setting variables should be able to go in a
-;; :config or :init block. But since whitespace copies from variables
-;; when it is initialized, they have to be set BEFORE it is loaded.
-
-;; Annoyingly, Prelude sets the whitespace column limit to 80. Set
-;; back to nil to just inherit from `fill-column'. We are not really
-;; using this, but just do it anyway.
-(setq whitespace-line-column nil)
-;; fill-column-indicator can be used to indicate long lines, so
-;; lines-tail is not needed.
-(setq whitespace-style '(face tabs empty trailing))
-(use-package whitespace-mode
-  :diminish whitespace-mode)
 
 ;;; whole-line-or-region
 (use-package whole-line-or-region
@@ -278,7 +259,8 @@
 ;;; dired-x
 ;; C-x C-j opens dired with the cursor right on the file you're
 ;; editing.
-(use-package dired-x)
+(use-package dired-x
+  :defer t)
 
 
 
@@ -307,7 +289,8 @@
 (use-package ido-find-tagged-file
   :bind ("C-x p" . ido-find-tagged-file))
 
-(use-package json-format)
+(use-package json-format
+  :defer t)
 
 (use-package misc-cmds
   :bind (("C-a" . beginning-or-indentation)
@@ -319,7 +302,54 @@
 
 (use-package plist)
 
-(use-package url-insert-contents-at-point)
+(use-package url-insert-contents-at-point
+  :defer t)
+
+;;; Configuration for packages included by Prelude.
+
+(use-package flyspell
+  :defer t
+  :diminish flyspell-mode)
+
+;;; guru-mode
+;; Turn off guru mode. I'll be a guru when I want to be.
+(setq prelude-guru nil)
+
+(use-package prelude-mode
+  :defer t
+  :diminish prelude-mode)
+
+(use-package projectile
+  :defer t
+  :diminish projectile-mode)
+
+(use-package rainbow-mode
+  :defer t
+  :diminish rainbow-mode)
+
+(use-package volatile-highlights
+  :defer t
+  :diminish volatile-highlights-mode)
+
+;;; whitespace
+;; Enable whitespace-mode, since it's disabled by default. The default
+;; visualizations for whitespace mode are now pretty sane, but we want
+;; to tweak them a bit.
+(setq prelude-whitespace t)
+;; The following code setting variables should be able to go in a
+;; :config or :init block. But since whitespace copies from variables
+;; when it is initialized, they have to be set BEFORE it is loaded.
+
+;; Annoyingly, Prelude sets the whitespace column limit to 80. Set
+;; back to nil to just inherit from `fill-column'. We are not really
+;; using this, but just do it anyway.
+(setq whitespace-line-column nil)
+;; fill-column-indicator can be used to indicate long lines, so
+;; lines-tail is not needed.
+(setq whitespace-style '(face tabs empty trailing))
+(use-package whitespace
+  :defer t
+  :diminish whitespace-mode)
 
 (provide 'personal-packages)
 

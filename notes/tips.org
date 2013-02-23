@@ -8,6 +8,8 @@ Emacs Usage Tips
     prefix of =C-x=. Ditto for =C-c C-h=.
   - =C-S-backspace= runs =kill-whole-line=, which is very useful.
   - =C-c i= from Prelude runs =imenu= with =ido=.
+  - =C-u C-h i= to open up a specific Info file. =C-x C-f= followed by
+    =M-x Info-mode= will /not/ work.
 * Miscellaneous
   - Use directory variables by creating a =.dir-locals.el= file.
   - Use registers and bookmarks

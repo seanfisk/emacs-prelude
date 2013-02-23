@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: DEN Link to People
+# key: dpl
+# --
+* [$1](/people/#${1:$(replace-regexp-in-string " " "-" (downcase text))})

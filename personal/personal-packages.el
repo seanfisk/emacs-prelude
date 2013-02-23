@@ -180,7 +180,10 @@
 
 (use-package ido-ubiquitous
   :ensure t
-  :init (ido-ubiquitous-mode +1))
+  :init (progn
+          ;; If we have ido-ubiquitous, there's no need for icomplete.
+          (icomplete-mode -1)
+          (ido-ubiquitous-mode +1)))
 
 ;;; jump-char
 (use-package jump-char

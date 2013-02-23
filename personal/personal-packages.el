@@ -265,6 +265,11 @@
 
 
 ;;; Include vendorized code.
+;; Even if these files have autoload cookies, the autoload files are
+;; probably not generated. I believe use-package calls autoload on
+;; commands that are specified with :bind. However, for packages
+;; without bindings, probably the best idea is to use the :commands
+;; keyword of use-package. Find a better solution later.
 
 ;;; comment-or-uncomment-line-or-region
 ;; I'd like this set to `C-;' or `C-c C-c'. Right now flyspell is
@@ -290,7 +295,7 @@
   :bind ("C-x p" . ido-find-tagged-file))
 
 (use-package json-format
-  :defer t)
+  :commands json-format)
 
 (use-package misc-cmds
   :bind (("C-a" . beginning-or-indentation)
@@ -303,7 +308,7 @@
 (use-package plist)
 
 (use-package url-insert-contents-at-point
-  :defer t)
+  :commands url-insert-contents-at-point)
 
 ;;; Configuration for packages included by Prelude.
 

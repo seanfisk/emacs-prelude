@@ -25,6 +25,7 @@ Emacs Configuration TODO List
 * TODO [#C] Add note about getting spell checking working on Mac OS X.
   Done with homebrew by using =brew install aspell --lang=en=.
 * TODO [#C] nxHTML package.
+* TODO [#C] Figure out autoloads for vendorized packages.
 * TODO [#C] Try out viper-mode.
 * TODO [#C] buffer-move and switch-window are very similar.
   Consider nuking one of them.

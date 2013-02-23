@@ -33,6 +33,7 @@
 ;;
 ;;; Code:
 
+;;;###autoload
 (defun ido-find-tagged-file ()
   "Find tagged file using ido."
   (interactive)

@@ -306,6 +306,9 @@
 (use-package comment-or-uncomment-region-or-line
   :bind ("M-;" . comment-or-uncomment-region-or-line))
 
+(use-package ido-find-tagged-file
+  :bind ("C-x p" . ido-find-tagged-file))
+
 (provide 'personal-packages)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -6,6 +6,9 @@ INSTALL_DIRECTORY = $(INSTALL) -d
 # <http://lists.freebsd.org/pipermail/freebsd-ports/2007-February/038476.html>
 INSTALL_RECURSIVE = $(SHELL) -c 'find "$$1" | cpio -dmpuv "$$2"' --
 
+# Install files recursively, but only install *.el files.
+INSTALL_EL_RECURSIVE = $(SHELL) -c 'find "$$1" -name "*.el" | cpio -dmpuv "$$2"' --
+
 # pass prefix on the command-line to change install location
 # e.g.,
 # make prefix=/my/different/prefix
@@ -34,4 +37,6 @@ install-dirs :
 	$(INSTALL_RECURSIVE) snippets "$(prefix)"
 	$(INSTALL_RECURSIVE) themes "$(prefix)"
 	$(INSTALL_RECURSIVE) personal "$(prefix)"
-	$(INSTALL_RECURSIVE) vendor "$(prefix)"
+# Use EL_RECURSIVE so we don't install the git repository for
+# use-package.
+	$(INSTALL_EL_RECURSIVE) vendor "$(prefix)"

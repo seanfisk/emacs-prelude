@@ -59,8 +59,8 @@
          melpa
          multiple-cursors           ; experimental, so stay up to date
          rainbow-mode
-         yaml-mode                 ; the Marmalade version is quite old
-         yasnippet                 ; the Marmalade version is quite old
+         yaml-mode                ; the Marmalade version is quite old
+         yasnippet                ; the Marmalade version is quite old
          ;; My MELPA packages
          auto-complete-clang
          edit-server
@@ -68,71 +68,56 @@
          ;; smart-tabs-mode
          )))
 
-;; Add my own packages.
-(require 'prelude-packages)
-(setq prelude-packages
-      (append '(
-                ;; ecb
-                ;; fillcode
-                ;; flymake-ruby
-                ;; nxhtml
-                ;; smart-tabs-mode         ; MELPA
-                auto-complete
-                auto-complete-clang     ; MELPA
-                buffer-move
-                dtrt-indent
-                edit-server             ; MELPA
-                elpy
-                fill-column-indicator
-                flymake-cursor
-                flymake-shell
-                flyspell-lazy
-                goto-last-change
-                header2
-                highlight-symbol
-                ido-ubiquitous
-                jump-char
-                mo-git-blame
-                multiple-cursors        ; MELPA
-                org
-                smex
-                smooth-scrolling
-                switch-window
-                undo-tree
-                whole-line-or-region
-                zencoding-mode
-                ) prelude-packages))
+;; use-package <https://github.com/jwiegley/use-package> is a great
+;; way to manage the config. See the Github README or the commentary
+;; in the file for more documentation. Undocumented but in the code is
+;; the use of the `:ensure' plist key to automatically install through
+;; ELPA. Also, take note of the `bind-key' utility.
+(require 'use-package)
 
-;; Install all of the packages
-(prelude-install-packages)
+;; Start by installing diminish for use with use-package.
+(use-package diminish
+  :ensure t)
 
 ;;; guru-mode
 ;; Turn off guru mode. I'll be a guru when I want to be.
 (setq prelude-guru nil)
 
 ;;; auto-complete
-;; No autoloads.
-(require 'auto-complete)
-(defun personal-auto-complete-mode-setup ()
-  (local-set-key (kbd "M-/") 'auto-complete))
-(add-hook 'auto-complete-mode-hook 'personal-auto-complete-mode-setup)
-(global-auto-complete-mode +1)
+(use-package auto-complete
+  :ensure t
+  :diminish auto-complete-mode
+  :init (global-auto-complete-mode +1)
+  :config (progn
+            (defun personal-auto-complete-mode-setup ()
+              (local-set-key (kbd "M-/") 'auto-complete))
+            (add-hook 'auto-complete-mode-hook
+                      'personal-auto-complete-mode-setup)))
 
 ;;; auto-complete-clang
-(defun personal-ac-cc-mode-setup ()
-  (require 'auto-complete-clang)
-  (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
-(add-hook 'c-mode-common-hook 'personal-ac-cc-mode-setup)
+(use-package auto-complete-clang
+  :ensure t
+  :config (progn
+            (defun personal-ac-cc-mode-setup ()
+              (setq ac-sources
+                    (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
+            (add-hook 'c-mode-common-hook 'personal-ac-cc-mode-setup)))
 
 ;;; buffer-move
-(autoload 'buf-move-up "buffer-move" nil t)
-(autoload 'buf-move-down "buffer-move" nil t)
-(autoload 'buf-move-left "buffer-move" nil t)
-(autoload 'buf-move-right "buffer-move" nil t)
-(define-key global-map (kbd "<C-S-up>") 'buf-move-up)
-(define-key global-map (kbd "<C-S-down>") 'buf-move-down)
-(define-key global-map (kbd "<C-S-left>") 'buf-move-left)
-(define-key global-map (kbd "<C-S-right>") 'buf-move-right)
+(use-package buffer-move
+  :ensure t
+  :commands (buf-move-up buf-move-down buf-move-left buf-move-right)
+  :bind (("<C-S-up>" . buf-move-up)
+         ("<C-S-down>" . buf-move-down)
+         ("<C-S-left>" . buf-move-left)
+         ("<C-S-right>" . buf-move-right)))
+
+(use-package dtrt-indent)
+
+;; Haven't taken the time to learn this yet.
+;;(use-package ecb)
+
+(use-package edit-server)
 
 ;;; elpy
 ;; For elpy to work correctly, the following packages need to be
@@ -143,58 +128,99 @@
 ;;
 ;;     pip install [--user] elpy rope jedi pyflakes pep8
 ;;
-(setq python-check-command "flake8")
-(elpy-enable)
+(use-package elpy
+  :ensure t
+  :init (elpy-enable)
+  :config (progn
+            (setq python-check-command "flake8")
+            (elpy-clean-modeline)))
 
 ;;; fill-column-indicator
 ;; Specifically *don't* set `fci-fill-column' (the column at which the
 ;; line is shown). `fci-mode' will then default to using the value of
 ;; `fill-column'.
-(add-hook 'prog-mode-hook 'turn-on-fci-mode)
+(use-package fill-column-indicator
+  :ensure t
+  :config (add-hook 'prog-mode-hook 'turn-on-fci-mode))
+
+;;; No ELPA repository for this yet.
+;;(use-package fillcode)
 
 ;;; flymake-cursor
-(eval-after-load 'flymake '(require 'flymake-cursor))
+;; (eval-after-load 'flymake '(require 'flymake-cursor))
 
 ;;; flymake-shell
-(add-hook 'sh-set-shell-hook 'flymake-shell-load)
+;; (add-hook 'sh-set-shell-hook 'flymake-shell-load)
 
-;;; flyspell
-;; Out of the box, it slows down editing. That's the last thing I
-;; need. flyspell-lazy runs flyspell only when idle, preventing lag.
-(flyspell-lazy-mode +1)
+;; Out of the box, flyspell slows down editing. That's the last thing
+;; I need. flyspell-lazy runs flyspell only when idle, preventing lag.
+(use-package flyspell-lazy
+  :ensure t
+  :init (flyspell-lazy-mode +1))
 
 ;;; goto-last-change
 ;; when using AZERTY keyboard, consider C-x C-_
-(define-key global-map (kbd "C-x C-/") 'goto-last-change)
+(use-package goto-last-change
+  :ensure t
+  :bind ("C-x C-/" . goto-last-change))
+;;(define-key global-map (kbd "C-x C-/") 'goto-last-change)
 
-;;; jump-char
-(define-key global-map (kbd "M-m") 'jump-char-forward)
-(define-key global-map (kbd "M-M") 'jump-char-backward)
+(use-package header2
+  :ensure t)
 
 ;;; highlight-symbol
-(defun personal-highlight-symbol-setup ()
-  (highlight-symbol-mode +1)
-  (local-set-key (kbd "C-c C-n") 'highlight-symbol-next)
-  (local-set-key (kbd "C-c C-p") 'highlight-symbol-prev))
-(add-hook 'prog-mode-hook 'personal-highlight-symbol-setup)
+;; I don't really want to enable highlight symbol mode globally, but
+;; it appears the easiest solution at the moment.
+(use-package highlight-symbol
+             :ensure t
+             :bind (("C-c C-n" . highlight-symbol-next)
+                    ("C-c C-p" . highlight-symbol-prev))
+             :init (highlight-symbol-mode +1))
+
+(use-package ido-ubiquitous
+  :ensure t)
+
+;;; jump-char
+(use-package jump-char
+  :ensure t
+  :bind (("M-m" . jump-char-forward)
+         ("M-M" . jump-char-backward)))
+
+(use-package mo-git-blame
+  :ensure t)
 
 ;;; multiple-cursors
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this-dwim)
+(use-package multiple-cursors
+             :ensure t
+             :bind (("C-S-c C-S-c" . mc/edit-lines)
+                    ("C->" . mc/mark-next-like-this)
+                    ("C-<" . mc/mark-previous-like-this)
+                    ("C-c C-<" . mc/mark-all-like-this-dwim)))
+
+;; No ELPA package for this yet.
+;;(use-package nxhtml)
+
+(use-package org
+  :ensure t)
 
 ;;; smart-tabs-mode
 ;; Use the convenience function to load these automatically.
 ;; (smart-tabs-insinuate 'c)
 
 ;;; smex
-(smex-initialize)
-(define-key global-map (kbd "C-x C-m") 'smex)
-(define-key global-map (kbd "M-x") 'smex)
-(define-key global-map (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
-(define-key global-map (kbd "C-c C-c M-x") 'execute-extended-command)
+(use-package smex
+             :ensure t
+             :bind (("C-x C-m" . smex)
+                    ("M-x" . smex)
+                    ("M-X" . smex-major-mode-commands)
+                    ;; This is your old M-x.
+                    ("C-c C-c M-x" . execute-extended-command))
+             :init (smex-initialize))
+;; (smex-initialize)
+;; (define-key global-map (kbd "C-x C-m") 'smex)
+;; (define-key global-map (kbd "M-x") 'smex)
+;; (define-key global-map (kbd "M-X") 'smex-major-mode-commands)
+;; (define-key global-map (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;;; smooth-scrolling
 ;; The difference between `smooth-scroll' and `smooth-scrolling' is
@@ -204,44 +230,64 @@
 ;; bottom or top of the screen when using next and previous line. This
 ;; is what I want, because it allows viewing the context of the line
 ;; with the cursor.
+(use-package smooth-scrolling
+  :ensure t)
 
 ;;; switch-window
 ;; This package has no autoloads, so it doesn't "do" anything when
 ;; it's just installed through ELPA. It needs to be required, at which
 ;; point it takes over the `C-x o' binding.
-(require 'switch-window)
+;;(require 'switch-window)
+(use-package switch-window
+  :ensure t)
+
+;;; undo-tree
+(use-package undo-tree
+  :ensure t
+  :init (global-undo-tree-mode +1))
 
 ;;; whitespace-mode
 ;; Enable whitespace-mode, since it's disabled by default. The default
 ;; visualizations for whitespace mode are now pretty sane, but we want
 ;; to tweak them a bit.
 (setq prelude-whitespace t)
-;; Annoyingly, Prelude sets the whitespace column limit to 80. Set
-;; back to nil to just inherit from `fill-column'. We are not really
-;; using this, but just do it anyway.
-(setq whitespace-line-column nil)
-;; fill-column-indicator can be used to indicate long lines, so
-;; whitespace mode is not needed.
-(setq whitespace-style '(face tabs empty trailing))
-
-;;; undo-tree
-(global-undo-tree-mode +1)
+(use-package whitespace-mode
+  :diminish whitespace-mode
+  :config (progn
+            ;; Annoyingly, Prelude sets the whitespace column limit to 80. Set
+            ;; back to nil to just inherit from `fill-column'. We are not really
+            ;; using this, but just do it anyway.
+            (setq whitespace-line-column nil)
+            ;; fill-column-indicator can be used to indicate long lines, so
+            ;; whitespace mode is not needed.
+            (setq whitespace-style '(face tabs empty trailing))))
 
 ;;; whole-line-or-region
-;; Hopefully this turns it on globally.
-(whole-line-or-region-mode +1)
+(use-package whole-line-or-region
+  :ensure t
+  :diminish whole-line-or-region-mode
+  :init (whole-line-or-region-mode +1))
 
 ;;; dired-x
-;; C-x C-j opens dired with the cursor right on the file you're editing
-(require 'dired-x)
+;; C-x C-j opens dired with the cursor right on the file you're
+;; editing.
+(use-package dired-x)
 
-;; Require vendorized code.
-(require 'plist)
-(require 'json-format)
-(require 'cython-mode)
-(require 'open-next-line)
-(require 'url-insert-contents-at-point)
-(require 'comment-or-uncomment-region-or-line)
+
+
+;;; Include vendorized code.
+(use-package plist)
+
+(use-package json-format)
+
+(use-package cython-mode
+  :commands cython-mode)
+
+(use-package open-next-line
+  :bind (("C-o" . open-next-line)
+         ("M-o" . open-previous-line)))
+
+(use-package url-insert-contents-at-point)
 
 ;;; comment-or-uncomment-line-or-region
 ;; I'd like this set to `C-;' or `C-c C-c'. Right now flyspell is
@@ -257,7 +303,8 @@
 ;; function also works on lines when no region is activated. However,
 ;; I don't like overriding this key binding, so consider changing it
 ;; later.
-(define-key global-map (kbd "M-;") 'comment-or-uncomment-region-or-line)
+(use-package comment-or-uncomment-region-or-line
+  :bind ("M-;" . comment-or-uncomment-region-or-line))
 
 (provide 'personal-packages)
 

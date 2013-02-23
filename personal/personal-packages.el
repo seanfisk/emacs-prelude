@@ -255,16 +255,19 @@
 ;; visualizations for whitespace mode are now pretty sane, but we want
 ;; to tweak them a bit.
 (setq prelude-whitespace t)
+;; The following code setting variables should be able to go in a
+;; :config or :init block. But since whitespace copies from variables
+;; when it is initialized, they have to be set BEFORE it is loaded.
+
+;; Annoyingly, Prelude sets the whitespace column limit to 80. Set
+;; back to nil to just inherit from `fill-column'. We are not really
+;; using this, but just do it anyway.
+(setq whitespace-line-column nil)
+;; fill-column-indicator can be used to indicate long lines, so
+;; lines-tail is not needed.
+(setq whitespace-style '(face tabs empty trailing))
 (use-package whitespace-mode
-  :diminish whitespace-mode
-  :config (progn
-            ;; Annoyingly, Prelude sets the whitespace column limit to 80. Set
-            ;; back to nil to just inherit from `fill-column'. We are not really
-            ;; using this, but just do it anyway.
-            (setq whitespace-line-column nil)
-            ;; fill-column-indicator can be used to indicate long lines, so
-            ;; whitespace mode is not needed.
-            (setq whitespace-style '(face tabs empty trailing))))
+  :diminish whitespace-mode)
 
 ;;; whole-line-or-region
 (use-package whole-line-or-region

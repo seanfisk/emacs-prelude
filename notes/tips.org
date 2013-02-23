@@ -7,6 +7,7 @@ Emacs Usage Tips
     that prefix. For example, =C-x C-h= shows all keys bound with a
     prefix of =C-x=. Ditto for =C-c C-h=.
   - =C-S-backspace= runs =kill-whole-line=, which is very useful.
+  - =C-c i= from Prelude runs =imenu= with =ido=.
 * Miscellaneous
   - Use directory variables by creating a =.dir-locals.el= file.
   - Use registers and bookmarks

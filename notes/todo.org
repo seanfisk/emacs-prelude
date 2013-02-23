@@ -2,6 +2,7 @@ Emacs Configuration TODO List
 
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#A] Change the README to a personal one.
+* TODO [#A] Get ruby-block mode off in non-Ruby buffers.
 * TODO [#B] Check out automatic tag file switching.
 * TODO [#B] Report Aquamacs crashing during crash report.
 * TODO [#B] Report and send in patches for getting Skim to work with SyncTeX.

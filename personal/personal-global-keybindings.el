@@ -27,19 +27,21 @@
 ;;
 ;;; Code:
 
+(require 'bind-key)
+
 ;; The default key to switch buffer is C-x b, but that's not easy
 ;; enough.
-(define-key global-map (kbd "C-x b") 'ido-switch-buffer)
-(define-key global-map (kbd "C-x C-c") 'ido-switch-buffer)
-(define-key global-map (kbd "C-x B") 'ibuffer)
+(bind-key "C-x b" 'ido-switch-buffer)
+(bind-key "C-x C-c" 'ido-switch-buffer)
+(bind-key "C-x B" 'ibuffer)
 ;; An easy shortcut is needed for this common task.
-(define-key global-map (kbd "C-x j") 'kill-this-buffer)
-(define-key global-map (kbd "C-c r") 'rename-buffer)
+(bind-key "C-x j" 'kill-this-buffer)
+(bind-key "C-c r" 'rename-buffer)
 
-(define-key global-map (kbd "RET") 'newline-and-indent)
+(bind-key "RET" 'newline-and-indent)
 
 ;; Now that we've clobbered `kill-emacs', give a shortcut back.
-(define-key global-map (kbd "C-x q") 'kill-emacs)
+(bind-key "C-x q" 'kill-emacs)
 
 (provide 'personal-global-keybindings)
 

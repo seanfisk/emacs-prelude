@@ -33,7 +33,11 @@
     ;; Whitespace-mode refuses to inherit whatever the value of
     ;; `fill-column` is. However, `fill-column-indicator' does it
     ;; nicely.
-    (setq whitespace-line-column max-line-length)))
+    (setq whitespace-line-column max-line-length))
+  ;; Turn off flycheck-mode.
+  ;; TODO: Use flycheck-mode and not flymake-mode with Elpy.
+  (flycheck-mode -1)
+  )
 
 (add-hook 'python-mode-hook 'personal-python-mode-setup t)
 

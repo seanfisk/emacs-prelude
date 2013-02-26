@@ -14,6 +14,7 @@ Emacs Configuration TODO List
 * TODO [#B] Report Aquamacs crashing during crash report.
 * TODO [#B] Send in patch to Prelude for not overwriting values for TeX builder.
 * TODO [#B] Send in patch to Prelude for SyncTeX.
+* TODO [#B] Consider adding in some =eval-after-load= blocks.
 * TODO [#C] Add note about getting spell checking working on Mac OS X.
   Done with homebrew by using =brew install aspell --lang=en=.
 * TODO [#C] buffer-move and switch-window are very similar.

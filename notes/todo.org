@@ -1,6 +1,7 @@
 Emacs Configuration TODO List
 
 * TODO [#A] Get ruby-block mode off in non-Ruby buffers.
+** Submitted a pull request to a questionably official [[https://github.com/adolfosousa/ruby-block.el][ruby-block Github repo]]. Waiting on the response.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#B] Add a command to directly open up the Emacs configuration repo.
 * TODO [#B] Check out automatic tag file switching.

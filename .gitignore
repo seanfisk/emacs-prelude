@@ -17,3 +17,6 @@ places
 savefile/
 
 TAGS
+
+# Exported org-mode HTML
+/README.html

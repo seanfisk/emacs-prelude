@@ -1,42 +1,52 @@
 Emacs Configuration TODO List
 
-* TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
-* TODO [#A] Change the README to a personal one.
 * TODO [#A] Get ruby-block mode off in non-Ruby buffers.
+* TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
+* TODO [#B] Add a command to directly open up the Emacs configuration repo.
 * TODO [#B] Check out automatic tag file switching.
-* TODO [#B] Report Aquamacs crashing during crash report.
-* TODO [#B] Report and send in patches for getting Skim to work with SyncTeX.
-* TODO [#B] Send in patch to Prelude for not overwriting values for TeX builder.
-* TODO [#B] Send in patch to Prelude for SyncTeX.
 * TODO [#B] Fix fontset for Unicode.
   - http://stackoverflow.com/questions/6083496/how-do-you-specify-a-fallback-font-in-emacs
   - http://www.emacswiki.org/emacs/FontSets
   - http://www.gnu.org/software/emacs/manual/html_node/emacs/Defining-Fontsets.html
   - See =aquamacs/src/site-lisp/macosx/aquamacs-mac-fontsets.el= in
     the Aquamacs distribution.
-* TODO [#B] Add a command to directly open up the Emacs configuration repo.
+* TODO [#B] Report and send in patches for getting Skim to work with SyncTeX.
+* TODO [#B] Report Aquamacs crashing during crash report.
+* TODO [#B] Send in patch to Prelude for not overwriting values for TeX builder.
+* TODO [#B] Send in patch to Prelude for SyncTeX.
+* TODO [#C] Add note about getting spell checking working on Mac OS X.
+  Done with homebrew by using =brew install aspell --lang=en=.
+* TODO [#C] buffer-move and switch-window are very similar.
+  Consider nuking one of them.
+* TODO [#C] Consider byte compilation of init files and vendorized code.
+* TODO [#C] Figure out autoloads for vendorized packages.
+* TODO [#C] Fillcode package.
+  May not be necessary, code is filling alright using elpy.
 * TODO [#C] Fix keybindings for highlight-symbol for only in highlight-symbol mode.
   - This might not be possible, because highlight-symbol doesn't have a
     mode map or even a hook.
   - Right now they are just global.
-* TODO [#C] Fillcode package.
-  May not be necessary, code is filling alright using elpy.
 * TODO [#C] Fix suboptimal keybinding configuration of =comment-or-uncomment-region-or-line=.
   Not sure if it's suboptimal. I bound it to =M-;=, and I haven't been
   in want of =comment-region= yet.
+* TODO [#C] Fixed width font for rst-mode.
 * TODO [#C] Keep working on SyncTeX with AUCTeX and Skim.
+* TODO [#C] Learn how to use RefTeX.
+* TODO [#C] nxHTML package.
 * TODO [#C] Try out the new Aquamacs nightly build.
   Consider donating if it's good.
-* TODO [#C] Learn how to use RefTeX.
-* TODO [#C] Fixed width font for rst-mode.
-* TODO [#C] Add note about getting spell checking working on Mac OS X.
-  Done with homebrew by using =brew install aspell --lang=en=.
-* TODO [#C] nxHTML package.
-* TODO [#C] Figure out autoloads for vendorized packages.
 * TODO [#C] Try out viper-mode.
-* TODO [#C] buffer-move and switch-window are very similar.
-  Consider nuking one of them.
-* TODO [#C] Consider byte compilation of init files and vendorized code.
+* DONE [#A] Change the README to a personal one.
+  CLOSED: [2013-02-25 Mon 19:23]
+* DONE [#A] Check out [[https://github.com/jwiegley/use-package][use-package]].
+  CLOSED: [2013-02-22 Fri 20:20]
+* DONE [#A] Keybindings for jump-char and ace-jump-mode
+  CLOSED: [2013-02-22 Fri 21:30]
+  They conflict with org-mode and others. Figure something out.
+** Solution
+   - Vendorize Drew Adams' misc-cmds.el.
+   - Map =C-a= to toggle between indentation or beginning of line.
+   - Remap =jump-char-forward= to =M-m= and =jump-char-backward= to =M-M=.
 * DONE [#A] On my Mac, start Emacs maximized or in fullscreen.
   CLOSED: [2013-02-22 Fri 21:31]
   - Fullscreen would be easy, just call
@@ -45,15 +55,6 @@ Emacs Configuration TODO List
     created opens up maximized. Further frames can be maximized with
     =maximize frame= or its alias =mf=. Luckily I mostly use one
     frame.
-* DONE [#A] Keybindings for jump-char and ace-jump-mode
-  CLOSED: [2013-02-22 Fri 21:30]
-  They conflict with org-mode and others. Figure something out.
-** Solution
-   - Vendorize Drew Adams' misc-cmds.el.
-   - Map =C-a= to toggle between indentation or beginning of line.
-   - Remap =jump-char-forward= to =M-m= and =jump-char-backward= to =M-M=.
-* DONE [#A] Check out [[https://github.com/jwiegley/use-package][use-package]].
-  CLOSED: [2013-02-22 Fri 20:20]
 * DONE [#B] Check out diminish.el for cutting down on the mode line.
   CLOSED: [2013-02-22 Fri 20:21]
   Done as part of use-package update.

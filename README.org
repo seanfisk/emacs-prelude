@@ -1,0 +1,35 @@
+* Sean's Emacs Configuration
+
+This is my configuration for Editor MACroS, also known as [[http://www.gnu.org/software/emacs/][Emacs]], the
+world's greatest text editor. It is based upon [[http://batsov.com/prelude/][Emacs Prelude]] by
+Bozhidar Batsov.
+
+** Compatibility
+
+Much like Emacs Prelude, my Emacs configuration is compatible only
+with GNU Emacs 24.x.
+
+** Focus
+
+This configuration is aimed toward the following tasks:
+
+- Python programming (with [[https://github.com/jorgenschaefer/elpy][elpy]])
+- C/C++ coding (assisted by [[https://github.com/brianjcj/auto-complete-clang][auto-complete-clang]])
+- LaTeX composition (with [[http://www.gnu.org/software/auctex/][AUCTeX]])
+- Emacs Lisp programming
+- Shell scripting
+
+** Visual
+
+The beautiful [[http://www.levien.com/type/myfonts/inconsolata.html][Inconsolata font]] will be used if it is
+present. Otherwise, the default is Monospace. To install Inconsolata
+on Debian/Ubuntu, simply install the =ttf-inconsolata= package or
+=levien-inconsolata-fonts= on Fedora. On Mac OS X, I you must drag the
+[[http://www.levien.com/type/myfonts/Inconsolata.otf][open type file]] into your [[http://support.apple.com/kb/HT2435][fonts folder]].
+
+The [[https://github.com/bbatsov/solarized-emacs][Solarized Dark]] theme is enabled by default.
+
+** Todo
+
+This repository is updated frequently. I keep a list of features to
+add in =notes/todo.org=.

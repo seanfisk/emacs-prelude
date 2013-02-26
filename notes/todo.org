@@ -4,6 +4,10 @@ Emacs Configuration TODO List
 ** Submitted a pull request to a questionably official [[https://github.com/adolfosousa/ruby-block.el][ruby-block Github repo]]. Waiting on the response.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#B] Add a command to directly open up the Emacs configuration repo.
+  Could be done with something like =pwd > somefile= in the =Makefile=.
+* TODO [#B] Amend =package.el= functionality to show a buffer with just packages that need updating.
+  - This will be similar to the =U= key, which runs =package-menu-mark-upgrades=.
+  - =package-menu--find-upgrades= is the one at which you want to look.
 * TODO [#B] Check out automatic tag file switching.
 * TODO [#B] Fix fontset for Unicode.
   - http://stackoverflow.com/questions/6083496/how-do-you-specify-a-fallback-font-in-emacs

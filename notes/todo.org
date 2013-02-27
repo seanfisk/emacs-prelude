@@ -37,6 +37,9 @@ Emacs Configuration TODO List
   in want of =comment-region= yet.
 * TODO [#C] Fixed width font for rst-mode.
 * TODO [#C] Keep working on SyncTeX with AUCTeX and Skim.
+  It seems I'll have to use AppleScript. According to [[http://sourceforge.net/apps/mediawiki/skim-app/index.php?title=TeX_and_PDF_Synchronization][this page]],
+  AppleScript is the best way to get auto-revert /and/ forward search
+  (editor to viewer).
 * TODO [#C] Learn how to use RefTeX.
 * TODO [#C] nxHTML package.
 * TODO [#C] Try out the new Aquamacs nightly build.

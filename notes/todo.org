@@ -25,7 +25,12 @@ Emacs Configuration TODO List
 * TODO [#C] buffer-move and switch-window are very similar.
   Consider nuking one of them.
 * TODO [#C] Consider byte compilation of init files and vendorized code.
+  This is not recommended by the Emacs manual. I can't remember where
+  I read it though.
 * TODO [#C] Figure out autoloads for vendorized packages.
+  This is somewhat solved by =use-package=, which creates autoloads
+  using the =autload= function instead of generating an autoloads file
+  from the autoload cookies.
 * TODO [#C] Fillcode package.
   May not be necessary, code is filling alright using elpy.
 * TODO [#C] Fix keybindings for highlight-symbol for only in highlight-symbol mode.

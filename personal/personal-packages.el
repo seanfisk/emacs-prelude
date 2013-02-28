@@ -356,7 +356,7 @@
 (setq whitespace-line-column nil)
 ;; fill-column-indicator can be used to indicate long lines, so
 ;; lines-tail is not needed.
-(setq whitespace-style '(face tabs empty trailing))
+(setq whitespace-style '(face empty trailing))
 (use-package whitespace
   :defer t
   :diminish whitespace-mode)

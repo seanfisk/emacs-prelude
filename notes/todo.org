@@ -52,6 +52,7 @@ Emacs Configuration TODO List
 * TODO [#C] Try out the new Aquamacs nightly build.
   Consider donating if it's good.
 * TODO [#C] Try out viper-mode.
+* TODO [#C] Add a fill-column-indicator line of 50 to the first line of a Magit commit buffer, 80 on other lines.
 * DONE [#A] Change the README to a personal one.
   CLOSED: [2013-02-25 Mon 19:23]
 * DONE [#A] Check out [[https://github.com/jwiegley/use-package][use-package]].

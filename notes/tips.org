@@ -20,6 +20,8 @@ Emacs Usage Tips
   - Use expand-region, helm, and projectile.
   - Imenu allows jumping to a symbol in a buffer (such as a function
     in C or Python). It's awesome, and should be used heavily.
+  - =M-x overwrite-mode= to get overtype (insert key) in Emacs. Knew
+    this had to be somewhere; took me long enough to find it.
 * Aquamacs
   - Using Aquamacs, Skim, and SyncTeX together allows forward and
     backward jumping through the TeX source and output. But it's only

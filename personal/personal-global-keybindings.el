@@ -38,6 +38,8 @@
 (bind-key "C-x j" 'kill-this-buffer)
 (bind-key "C-c r" 'rename-buffer)
 
+(bind-key "C-a" 'toggle-beginning-or-indentation)
+
 (bind-key "RET" 'newline-and-indent)
 
 ;; Now that we've clobbered `kill-emacs', give a shortcut back.

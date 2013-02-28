@@ -301,8 +301,10 @@
   :commands json-format)
 
 (use-package misc-cmds
-  :bind (("C-a" . beginning-or-indentation)
-         ("C-e" . end-of-line+)))
+  :bind (("C-e" . end-of-line+)
+         ;; This doesn't quite do what I want.
+         ;;("C-a" . beginning-or-indentation)
+         ))
 
 (use-package open-next-line
   :bind (("C-o" . open-next-line)

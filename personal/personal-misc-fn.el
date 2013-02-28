@@ -41,6 +41,24 @@
     ;; the same time.
     (info "/usr/local/opt/flex/share/info/flex.info" "*flex-info*")))
 
+;; This is copied and modified from `beginning-or-indentation' from
+;; `misc-cmds.el' by Drew Adams.
+(defun toggle-beginning-or-indentation ()
+  "Move cursor to beginning of this line or to its indentation.
+If at or within the indentation, move to beginning of line.
+
+If at the beginning of the line or after the indentation, move to
+the indentation."
+  (interactive)
+  (cond ((bolp)
+         ;; We are at the beginning of the line.
+         (back-to-indentation))
+        ((save-excursion (skip-chars-backward " \t") (bolp))
+         ;; We are at or within the indentation.
+         (forward-line 0))
+        ;; Otherwise, go to indentation.
+        (t (back-to-indentation))))
+
 (provide 'personal-misc-fn)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -59,6 +59,7 @@
      ;; This was compiled from the following sources:
      ;; /Applications/Aquamacs.app/Contents/Resources/lisp/aquamacs/auctex-config.el
      ;; <http://www.cs.berkeley.edu/~prmohan/emacs/latex.html>
+     ;; <http://sourceforge.net/apps/mediawiki/skim-app/index.php?title=TeX_and_PDF_Synchronization>
      ;;
      ;; In the file mentioned above, Aquamacs uses AppleScript to talk
      ;; to Skim and has some other operations. However, there is a bug
@@ -68,6 +69,12 @@
      ;; looking for a function _name_, not an S-Expression. Using
      ;; `TeX-run-function' works just fine, but that would prevent
      ;; other viewers from being used. Argh. This is just simpler.
+     ;;
+     ;; Note that the Skim wiki (link above) suggests using a function
+     ;; which uses the `TeX-output-view-style' variable. According to
+     ;; the AUCTeX manual, this implementation is deprecated. For more
+     ;; information, run `(info "(AUCTeX)Starting Viewers")' which
+     ;; will open up the AUCTeX info page on that topic.
      (when (eq system-type 'darwin)
        (let ((skim-displayline-path
               "/Applications/Skim.app/Contents/SharedSupport/displayline")
@@ -76,7 +83,7 @@
            ;; Named Skim-displayline so as not to conflict with Skim in Aquamacs.
            (add-to-list 'TeX-view-program-list
                         `(,skim-view-program-name
-                          (,skim-displayline-path " -readingbar %n %o %b")))
+                          (,skim-displayline-path " -revert -readingbar %n %o %b")))
            ;; Now we want Skim-displayline to be the default viewer for
            ;; PDFs. Both Aquamacs and Prelude overwrite
            ;; `TeX-view-program-selection'. I want to replace the cons

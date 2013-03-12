@@ -31,8 +31,8 @@ Emacs Configuration TODO List
   I read it though.
 * TODO [#C] Figure out autoloads for vendorized packages.
   This is somewhat solved by =use-package=, which creates autoloads
-  using the =autload= function instead of generating an autoloads file
-  from the autoload cookies.
+  using the =autoload= function instead of generating an autoloads
+  file from the autoload cookies.
 * TODO [#C] Fillcode package.
   May not be necessary, code is filling alright using elpy.
 * TODO [#C] Fix keybindings for highlight-symbol for only in highlight-symbol mode.

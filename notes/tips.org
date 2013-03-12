@@ -22,12 +22,14 @@ Emacs Usage Tips
     in C or Python). It's awesome, and should be used heavily.
   - =M-x overwrite-mode= to get overtype (insert key) in Emacs. Knew
     this had to be somewhere; took me long enough to find it.
+  - When using Skim, activate backward search with Command-Shift-Click.
 * Aquamacs
   - Using Aquamacs, Skim, and SyncTeX together allows forward and
     backward jumping through the TeX source and output. But it's only
     working with *my config* when I change the View command in
     =TeX-command-list= from =TeX-run-discard-or-function= to
-    =TeX-run-function=. Not sure how to fix this yet.
+    =TeX-run-function=. Not sure how to fix this yet. See
+    =personal-tex.el= for a description of the problems.
   - If Aquamacs dies and you get the "Send Error Report" dialog, this
     can cause nightly builds (as of 2012-12-08) to crash when the dialog
     buttons are clicked. Directly run the executable in the app bundle

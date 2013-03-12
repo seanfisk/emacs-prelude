@@ -4,6 +4,7 @@ Emacs Configuration TODO List
 ** Submitted a pull request to a questionably official [[https://github.com/adolfosousa/ruby-block.el][ruby-block Github repo]]. Waiting on the response.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#A] Make an interactive command for toggling between singular and plural using =inflections=.
+  It's pretty much done, it just needs to be up to Emacs Lisp coding standards.
 * TODO [#A] Finish the Emacs Lisp Intro.
 * TODO [#B] Add a command to directly open up the Emacs configuration repo.
   Could be done with something like =pwd > somefile= in the =Makefile=.

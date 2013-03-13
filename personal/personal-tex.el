@@ -26,11 +26,6 @@
 ;;
 ;;; Code:
 
-;; If previews for preview-latex don't work, see this post on the TeX
-;; Stack Exchange:
-;;
-;; <http://tex.stackexchange.com/questions/28458/preview-latex-in-emacs-auctex-empty-boxes>
-
 ;; Recommended by the AUCTeX manual.
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
@@ -91,6 +86,14 @@
            (setq TeX-view-program-selection
                  (cons `(output-pdf ,skim-view-program-name)
                        (assq-delete-all 'output-pdf TeX-view-program-selection))))))))
+
+;; Make previews for preview-latex work. See the following post for
+;; more information:
+;;
+;; <http://tex.stackexchange.com/questions/28458/preview-latex-in-emacs-auctex-empty-boxes>
+(eval-after-load 'preview
+  '(progn
+     (setq preview-gs-options (remove "-dSAFER" preview-gs-options))))
 
 (provide 'personal-tex)
 

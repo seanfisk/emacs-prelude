@@ -7,6 +7,8 @@ Emacs Configuration TODO List
 * TODO [#A] Make an interactive command for toggling between singular and plural using =inflections=.
 * TODO [#A] Finish the Emacs Lisp Intro.
   Could be done with something like =pwd > somefile= in the =Makefile=.
+* TODO [#B] Upgrade and test with Emacs 24.3.
+* TODO [#B] Consider adding =htmlize= to the list of packages automatically installed.
 * TODO [#B] Amend =package.el= functionality to show a buffer with just packages that need updating.
   - This will be similar to the =U= key, which runs =package-menu-mark-upgrades=.
   - =package-menu--find-upgrades= is the one at which you want to look.

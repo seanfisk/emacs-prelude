@@ -69,6 +69,7 @@
                 ;; Failed to do all of these.
                 str) 1)))))
 
+;;;###autoload
 (defun toggle-plural-at-point ()
   "Toggle between the singular and plural forms of word at the point."
   (interactive)

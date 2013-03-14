@@ -37,7 +37,6 @@
 
 (require 'inflections)
 
-;; Most correct.
 (defun toggle-plural-string (str)
   "Toggle word contained in STR between singular and plural forms."
   ;; This function is not technically correct because it's impossible

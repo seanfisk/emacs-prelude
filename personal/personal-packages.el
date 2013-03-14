@@ -312,6 +312,9 @@
 
 (use-package plist)
 
+(use-package toggle-plural
+  :bind ("C-c C-s" . toggle-plural-at-point))
+
 (use-package url-insert-contents-at-point
   :commands url-insert-contents-at-point)
 

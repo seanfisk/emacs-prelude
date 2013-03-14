@@ -34,7 +34,7 @@
 ;; Make PDFs.
 (setq TeX-PDF-mode t)
 
-(eval-after-load "tex"
+(eval-after-load 'tex
   '(progn
      (add-to-list 'TeX-command-list
                   ;; `%o' expands to the output filename. See

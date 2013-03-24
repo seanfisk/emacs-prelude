@@ -26,6 +26,10 @@
 ;;
 ;;; Code:
 
+;; Turn on CUA selection mode for enhanced rectangle support.
+;; <C-RET> to start a rectangular selection.
+(cua-selection-mode +1)
+
 ;; based on <http://emacswiki.org/emacs/SetFonts#toc9>
 (require 'dash)
 (defun font-candidate (&rest fonts)

@@ -30,6 +30,12 @@
 ;; <C-RET> to start a rectangular selection.
 (cua-selection-mode +1)
 
+;; There are many ways to do line wrap. Personally, I like the
+;; default, which adds a bent arrow to the fringe (or backslash to the
+;; end in terminal mode). However, I also like word wrapping. Enable
+;; it now.
+(setq-default word-wrap t)
+
 ;; based on <http://emacswiki.org/emacs/SetFonts#toc9>
 (require 'dash)
 (defun font-candidate (&rest fonts)

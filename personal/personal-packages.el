@@ -253,6 +253,10 @@
   :diminish undo-tree-mode
   :init (global-undo-tree-mode +1))
 
+(use-package unfill
+  :ensure t
+  :bind ("M-Q" . unfill-paragraph))
+
 ;;; whole-line-or-region
 (use-package whole-line-or-region
   :ensure t

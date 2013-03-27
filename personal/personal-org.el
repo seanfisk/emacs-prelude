@@ -27,23 +27,30 @@
 ;;; Code:
 
 (eval-after-load 'org
-  '(defun personal-org-todo-sort ()
-    (interactive)
-    ;; The `save-excursion' honestly doesn't do much, since org resets
-    ;; the point to the beginning of the list it just sorted. But it
-    ;; seems right to have it there.
-    (save-excursion
-      ;; Go to the beginning of the buffer in an attempt to sort
-      ;; top-level.
-      (goto-char (point-min))
-      ;; First, priority sort. Order does matter here.
-      (org-sort-entries nil ?p)
-      ;; The point is now at the beginning of the list that just got
-      ;; sorted. So if we run sort without this next call, it will just
-      ;; sort one entry. Not what we want. Go to the beginning again.
-      (goto-char (point-min))
-      ;; Now, todo sort.
-      (org-sort-entries nil ?o))))
+  '(progn
+     ;; Don't truncate lines in org-mode; do regular line wrapping.
+     (setq org-startup-truncated nil)
+
+     ;; Start up org-mode showing everything.
+     (setq org-startup-folded nil)
+
+     (defun personal-org-todo-sort ()
+       (interactive)
+       ;; The `save-excursion' honestly doesn't do much, since org resets
+       ;; the point to the beginning of the list it just sorted. But it
+       ;; seems right to have it there.
+       (save-excursion
+         ;; Go to the beginning of the buffer in an attempt to sort
+         ;; top-level.
+         (goto-char (point-min))
+         ;; First, priority sort. Order does matter here.
+         (org-sort-entries nil ?p)
+         ;; The point is now at the beginning of the list that just got
+         ;; sorted. So if we run sort without this next call, it will just
+         ;; sort one entry. Not what we want. Go to the beginning again.
+         (goto-char (point-min))
+         ;; Now, todo sort.
+         (org-sort-entries nil ?o)))))
 
 (provide 'personal-org)
 

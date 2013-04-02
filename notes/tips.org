@@ -23,6 +23,7 @@ Emacs Usage Tips
   - =M-x overwrite-mode= to get overtype (insert key) in Emacs. Knew
     this had to be somewhere; took me long enough to find it.
   - When using Skim, activate backward search with Command-Shift-Click.
+  - Use =flush-lines= and =keep-lines= to filter lines in a file based on regex.
 * Aquamacs
   - Using Aquamacs, Skim, and SyncTeX together allows forward and
     backward jumping through the TeX source and output. But it's only

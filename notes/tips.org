@@ -11,6 +11,7 @@ Emacs Usage Tips
   - =C-u C-h i= to open up a specific Info file. =C-x C-f= followed by
     =M-x Info-mode= will /not/ work.
   - =C-c i= runs =prelude-ido-goto-symbol=, which invokes =imenu=.
+  - =C-x -= shrinks the window to the size of the buffer.
 * Miscellaneous
   - Use directory variables by creating a =.dir-locals.el= file.
   - Use registers and bookmarks

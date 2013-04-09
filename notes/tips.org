@@ -13,6 +13,7 @@ Emacs Usage Tips
   - =C-c i= runs =prelude-ido-goto-symbol=, which invokes =imenu=.
   - =C-x -= shrinks the window to the size of the buffer.
 * Miscellaneous
+  - For defining a new translation key, look at this [[http://www.emacswiki.org/emacs/PrefixKey#toc2][link on the EmacsWiki]].
   - Use directory variables by creating a =.dir-locals.el= file.
   - Use registers and bookmarks
   - Use keyboard macros (=start-kb-macro=, =end-kbd-macro=,

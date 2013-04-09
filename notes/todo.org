@@ -6,6 +6,7 @@ Emacs Configuration TODO List
 * TODO [#A] Finish the Emacs Lisp Intro.
   Could be done with something like =pwd > somefile= in the =Makefile=.
 * TODO [#A] Check out main-line or powerline.
+* TODO [#A] Add or change prefix keys for right and left arrow. See tips file for how.
 * TODO [#B] Upgrade and test with Emacs 24.3.
 * TODO [#B] Consider adding =htmlize= to the list of packages automatically installed.
 * TODO [#B] Amend =package.el= functionality to show a buffer with just packages that need updating.

@@ -46,7 +46,10 @@
                   ;; The second `t' enables for all TeX modes.
                   '("SCons" "scons %o" TeX-run-TeX nil t
                     :help "Run Scons in the current directory") t)
-     (add-to-list 'TeX-command-list '("SCons-Clean" "scons --clean"
+     ;; `scons --clean' only cleans the default target. We need to
+     ;; pass in the target name and the `--clean' flag to get it to
+     ;; clean the correct files.
+     (add-to-list 'TeX-command-list '("SCons-Clean" "scons %o --clean"
                                       TeX-run-command nil t) t)
      (add-to-list 'TeX-command-list
                   '("DocView" "(find-file \"%o\")" TeX-run-function

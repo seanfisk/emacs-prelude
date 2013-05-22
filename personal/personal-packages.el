@@ -49,24 +49,30 @@
 ;; not supported in MELPA, I'm going to prefer Marmalade packages over
 ;; MELPA whenever possible. MELPA packages will be specifically
 ;; included whenever needed.
-(require 'melpa)
-(setq package-archive-enable-alist
-      '(("melpa"
-         ;; Prelude packages
-         helm
-         helm-projectile
-         jump-char                      ; Marmalade version is old
-         melpa
-         multiple-cursors           ; experimental, so stay up to date
-         rainbow-mode
-         yaml-mode                ; the Marmalade version is quite old
-         yasnippet                ; the Marmalade version is quite old
-         ;; My MELPA packages
-         auto-complete-clang
-         edit-server
-         ;; elpy ;; MELPA elpy (submitted by me) is now broken by some recent changes
-         ;; smart-tabs-mode
-         )))
+;;
+;; The following code doesn't work. If this were used, it would need
+;; to be executed in the init.el file _before_ prelude-packages is
+;; required. That's because prelude adds melpa and installs a bunch of
+;; packages before this file gets executed.
+;;
+;; (require 'melpa)
+;; (setq package-archive-enable-alist
+;;       '(("melpa"
+;;          ;; Prelude packages
+;;          helm
+;;          helm-projectile
+;;          jump-char                      ; Marmalade version is old
+;;          melpa
+;;          multiple-cursors           ; experimental, so stay up to date
+;;          rainbow-mode
+;;          yaml-mode                ; the Marmalade version is quite old
+;;          yasnippet                ; the Marmalade version is quite old
+;;          ;; My MELPA packages
+;;          auto-complete-clang
+;;          edit-server
+;;          ;; elpy ;; MELPA elpy (submitted by me) is now broken by some recent changes
+;;          ;; smart-tabs-mode
+;;          )))
 
 ;; use-package <https://github.com/jwiegley/use-package> is a great
 ;; way to manage the config. See the Github README or the commentary

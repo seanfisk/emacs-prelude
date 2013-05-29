@@ -179,10 +179,10 @@
 ;; I don't really want to enable highlight symbol mode globally, but
 ;; it appears the easiest solution at the moment.
 (use-package highlight-symbol
-             :ensure t
-             :bind (("C-c C-n" . highlight-symbol-next)
-                    ("C-c C-p" . highlight-symbol-prev))
-             :init (highlight-symbol-mode +1))
+  :ensure t
+  :bind (("C-c C-n" . highlight-symbol-next)
+         ("C-c C-p" . highlight-symbol-prev))
+  :init (highlight-symbol-mode +1))
 
 (use-package ido-ubiquitous
   :ensure t
@@ -191,7 +191,6 @@
           (icomplete-mode -1)
           (ido-ubiquitous-mode +1)))
 
-;;; jump-char
 (use-package jump-char
   :ensure t
   :bind (("M-m" . jump-char-forward)
@@ -207,11 +206,11 @@
 
 ;;; multiple-cursors
 (use-package multiple-cursors
-             :ensure t
-             :bind (("C-S-c C-S-c" . mc/edit-lines)
-                    ("C->" . mc/mark-next-like-this)
-                    ("C-<" . mc/mark-previous-like-this)
-                    ("C-c C-<" . mc/mark-all-like-this-dwim)))
+  :ensure t
+  :bind (("C-S-c C-S-c" . mc/edit-lines)
+         ("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this-dwim)))
 
 ;; No ELPA package for this yet.
 ;;(use-package nxhtml)

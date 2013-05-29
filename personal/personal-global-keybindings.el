@@ -45,6 +45,13 @@
 ;; Now that we've clobbered `kill-emacs', give a shortcut back.
 (bind-key "C-x q" 'kill-emacs)
 
+;; key-chord is already installed by Prelude.
+(require 'key-chord)
+
+(key-chord-define-global "jf" 'jump-char-forward)
+(key-chord-define-global "jd" 'jump-char-backward)
+
+
 (provide 'personal-global-keybindings)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

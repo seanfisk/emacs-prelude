@@ -1,7 +1,10 @@
 Emacs Configuration TODO List
 
-* TODO [#A] Get ruby-block mode off in non-Ruby buffers.
+* DONE [#A] Get ruby-block mode off in non-Ruby buffers.
+  CLOSED: [2013-05-29 Wed 16:52]
 ** Submitted a pull request to a questionably official [[https://github.com/adolfosousa/ruby-block.el][ruby-block Github repo]]. Waiting on the response.
+** Response never happened.
+** Prelude authors removed ruby-block from Prelude.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#A] Finish the Emacs Lisp Intro.
   Could be done with something like =pwd > somefile= in the =Makefile=.
@@ -9,7 +12,9 @@ Emacs Configuration TODO List
 * TODO [#A] Add or change prefix keys for right and left arrow. See tips file for how.
 * TODO [#A] Get projectile to obey the .gitignore file.
 * TODO [#A] Add Melpa package restrictions back.
-* TODO [#B] Upgrade and test with Emacs 24.3.
+* DONE [#B] Upgrade and test with Emacs 24.3.
+  CLOSED: [2013-05-29 Wed 16:47]
+  Seems to work fine.
 * TODO [#B] Consider adding =htmlize= to the list of packages automatically installed.
 * TODO [#B] Amend =package.el= functionality to show a buffer with just packages that need updating.
   - This will be similar to the =U= key, which runs =package-menu-mark-upgrades=.

@@ -4,7 +4,6 @@ Emacs Configuration TODO List
 * TODO [#A] Finish the Emacs Lisp Intro.
 * TODO [#A] Check out main-line or powerline.
 * TODO [#A] Add or change prefix keys for right and left arrow. See tips file for how.
-* TODO [#A] Get projectile to obey the .gitignore file.
 * TODO [#A] Add Melpa package restrictions back.
 * TODO [#B] Consider adding =htmlize= to the list of packages automatically installed.
 * TODO [#B] Amend =package.el= functionality to show a buffer with just packages that need updating.
@@ -27,10 +26,6 @@ Emacs Configuration TODO List
 * TODO [#C] SCons AUCTeX builder currently fails if the document is already built. Fix.
 * TODO [#C] Add note about getting spell checking working on Mac OS X.
   Done with homebrew by using =brew install aspell --lang=en=.
-* TODO [#C] Write a function that unfills the paragraph or region.
-  - Based on =unfill.el=.
-  - Should fill paragraph when no region.
-  - Should fill region when region is active.
 * TODO [#C] buffer-move and switch-window are very similar.
   Consider nuking one of them.
 * TODO [#C] Consider byte compilation of init files and vendorized code.
@@ -53,6 +48,9 @@ Emacs Configuration TODO List
 * TODO [#C] Try out viper-mode.
 * TODO [#C] Add a fill-column-indicator line of 50 to the first line of a Magit commit buffer, 80 on other lines.
 * TODO [#C] Add commentary sections to personal file to pacify flycheck/checkdoc.
+* DONE [#A] Get projectile to obey the .gitignore file.
+  CLOSED: [2013-06-05 Wed 17:01]
+  This has since been fixed in projectile.
 * DONE [#A] Get ruby-block mode off in non-Ruby buffers.
   CLOSED: [2013-05-29 Wed 16:52]
 ** Submitted a pull request to a questionably official [[https://github.com/adolfosousa/ruby-block.el][ruby-block Github repo]]. Waiting on the response.
@@ -90,6 +88,11 @@ Emacs Configuration TODO List
 * DONE Fix wrap, width alignment, etc. for Python-mode.
   CLOSED: [2013-02-16 Sat 15:42]
   It *should* be at 79 characters. Get =whitespace-mode=, =fill-column-indicator=, and =fill-paragraph= to play nicely together.
+* DONE [#C] Write a function that unfills the paragraph or region.
+  CLOSED: [2013-06-05 Wed 17:16]
+  - Based on =unfill.el=.
+  - Should fill paragraph when no region.
+  - Should fill region when region is active.
 * DONE [#C] Figure out autoloads for vendorized packages.
   CLOSED: [2013-03-12 Tue 15:45]
   - This is somewhat solved by =use-package=, which creates autoloads

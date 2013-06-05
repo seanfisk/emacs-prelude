@@ -259,8 +259,7 @@
   :init (global-undo-tree-mode +1))
 
 (use-package unfill
-  :ensure t
-  :bind ("M-Q" . unfill-paragraph))
+  :ensure t)
 
 ;;; whole-line-or-region
 (use-package whole-line-or-region
@@ -323,6 +322,9 @@
 
 (use-package toggle-plural
   :bind ("C-c C-s" . toggle-plural-at-point))
+
+(use-package unfill-region-or-paragraph
+  :bind ("M-Q" . unfill-region-or-paragraph))
 
 (use-package url-insert-contents-at-point
   :commands url-insert-contents-at-point)

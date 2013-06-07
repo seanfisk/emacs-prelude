@@ -15,18 +15,18 @@ INSTALL_EL_RECURSIVE = $(SHELL) -c 'find "$$1" -name "*.el" | cpio -dmpuv "$$2"'
 prefix = $(HOME)/.emacs.d
 AQUAMACS_INSTALL_DIR = $(HOME)/Library/Preferences/Aquamacs Emacs
 
-.PHONY : first install install-dirs aquamacs
+.PHONY : first install install-dirs aquamacs emacs-repo-path
 first :
 	@echo 'Please type ...'
 	@echo "  \`make install' to install to \`$(prefix)'"
 	@echo "  \`make aquamacs' to install to \`$(AQUAMACS_INSTALL_DIR)'"
 	@echo "  \`make prefix=/my/different/prefix install' to install to a different directory."
 
-install : install-dirs
+install : install-dirs emacs-repo-path
 	$(INSTALL_DATA) init.el "$(prefix)"
 
 aquamacs : prefix = $(AQUAMACS_INSTALL_DIR)
-aquamacs : install-dirs
+aquamacs : install-dirs emacs-repo-path
 	$(INSTALL_DATA) init.el "$(prefix)/Preferences.el"
 
 install-dirs :
@@ -40,3 +40,8 @@ install-dirs :
 # Use EL_RECURSIVE so we don't install the git repository for
 # use-package.
 	$(INSTALL_EL_RECURSIVE) vendor "$(prefix)"
+
+# Write this repository's path to a file in $(prefix) so that the
+# repository can be opened directly from Emacs.
+emacs-repo-path :
+	pwd > "$(prefix)/emacs-repo-path"

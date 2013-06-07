@@ -4,6 +4,7 @@
 ;; Maintainer: Sean Fisk
 ;; Keywords: convenience, local, tools
 ;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;; Package-Requires: ((s "1.6.0"))
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -58,6 +59,14 @@ the indentation."
          (forward-line 0))
         ;; Otherwise, go to indentation.
         (t (back-to-indentation))))
+
+(defun personal-emacs-config-open ()
+  "Open my Emacs config for editing."
+  ;; note: requires s.el
+  (interactive)
+  (with-temp-buffer
+    (insert-file-contents-literally (expand-file-name "emacs-repo-path" user-emacs-directory))
+    (find-file-existing (s-trim (buffer-string)))))
 
 (provide 'personal-misc-fn)
 

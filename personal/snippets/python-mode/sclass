@@ -1,0 +1,59 @@
+# -*- coding: utf-8 -*-
+# name: Class with Sphinx docstring
+# contributor: Sean Fisk <sean@seanfisk.com>
+# contributor: Orestis Markou
+# contributor: Nishio Hirokazu
+# contributor: Yasser González Fernández <yglez@uh.cu>
+# key: sclass
+# --
+class ${1:ClassName}(${2:object}):
+    """$3
+    """
+
+    def __init__(self, $4):
+        """${4:$
+(let*
+    ((docstring-end
+      (make-string 3 ?\"))
+     (indent
+      (concat "\n" (make-string (- (current-column) 3) ? )))
+     (args
+      (mapconcat
+       '(lambda (x)
+          (if (not (string= (nth 0 x) ""))
+              (concat ":param " (nth 0 x) ": " indent ":type " (nth 0 x) ": :class:\`\`")))
+       (mapcar
+        '(lambda (x)
+           (mapcar
+            (lambda (x)
+              (replace-regexp-in-string
+               "[[:blank:]]*$" ""
+               (replace-regexp-in-string "^[[:blank:]]*" "" x))) x))
+        (mapcar
+         '(lambda (x) (split-string x "="))
+         (split-string text ",")))
+       indent)))
+  (if (string= args "")
+      docstring-end
+    (mapconcat
+     'identity
+     (list args docstring-end)
+     indent)))
+        }
+        ${4:$
+        (mapconcat
+         '(lambda (x)
+            (if (not (string= (nth 0 x) ""))
+                (concat "self._" (nth 0 x) " = " (nth 0 x))))
+         (mapcar
+          '(lambda (x)
+             (mapcar
+              '(lambda (x)
+                 (replace-regexp-in-string "[[:blank:]]*$" ""
+                  (replace-regexp-in-string "^[[:blank:]]*" "" x)))
+              x))
+          (mapcar '(lambda (x) (split-string x "="))
+                  (split-string text ",")))
+         (concat "\n" (make-string (current-column) ? )))
+        }
+        $0

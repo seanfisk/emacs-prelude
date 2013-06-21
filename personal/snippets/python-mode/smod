@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Module with Sphinx docstring
+# contributor: Sean Fisk <sean@seanfisk.com>
+# key: smod
+# --
+""":mod:\`$1\` -- $2
+"""
+

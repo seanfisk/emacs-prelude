@@ -7,8 +7,7 @@
 # key: sclass
 # --
 class ${1:ClassName}(${2:object}):
-    """$3
-    """
+    """$3"""
     def __init__(self, $4):
         """${4:$
 (let*

@@ -175,6 +175,9 @@
   :ensure t
   :defer t)
 
+(use-package highlight-indentation
+  :diminish highlight-indentation-mode)
+
 ;;; highlight-symbol
 ;; I don't really want to enable highlight symbol mode globally, but
 ;; it appears the easiest solution at the moment.
@@ -218,6 +221,10 @@
 (use-package org
   :ensure t
   :defer t)
+
+(use-package paredit
+  :ensure t
+  :diminish paredit-mode)
 
 ;;; smart-tabs-mode
 ;; Use the convenience function to load these automatically.

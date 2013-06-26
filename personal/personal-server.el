@@ -35,7 +35,14 @@
 
 (add-hook 'server-switch-hook 'personal-server-hook t)
 
-(server-start) ; boot the emacs server for use with emacsclient
+;; `server-running-p' is not autoloaded, so require server feature
+;; before using it.
+(require 'server)
+(when (not (server-running-p))
+  ;; Start the Emacs server for use with emacsclient, but only if one
+  ;; doesn't already exist. Useful for running two Emacsen, for
+  ;; example, when editing the Emacs configuration.
+  (server-start))
 
 (provide 'personal-server)
 

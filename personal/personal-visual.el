@@ -42,19 +42,22 @@
   "Return the first available font."
   (--first (find-font (font-spec :name it)) fonts))
 
-(when (display-graphic-p)
-  ;; Choose fonts
-  ;; On my Mac, the font size seems small, so make it bigger.
-  (set-face-attribute 'default nil :height
-                      (if (eq system-type 'darwin) 240))
-  (set-face-attribute 'default nil :family
-                      (font-candidate "Inconsolata" "Consolas" "Monospace"))
-  ;; Set theme.
-  (load-theme 'solarized-dark t))
+(if (display-graphic-p)
+    (progn
+      ;; Choose fonts
+      ;; On my Mac, the font size seems small, so make it bigger.
+      (set-face-attribute 'default nil :height
+                          (if (eq system-type 'darwin) 240))
+      (set-face-attribute 'default nil :family
+                          (font-candidate "Inconsolata" "Consolas" "Monospace"))
+      ;; Set theme.
+      ;; (load-theme 'solarized-dark t)
+      )
+  (disable-theme 'zenburn))
 
 ;; Always disable zenburn theme. If terminal we won't use a theme. If
 ;; graphical, we will use solarized. Do it here to avoid flicker.
-(disable-theme 'zenburn)
+;; (disable-theme 'zenburn)
 
 ;; Easy-on-the-eyes flymake
 (require 'flymake)

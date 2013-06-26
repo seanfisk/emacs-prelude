@@ -3,7 +3,6 @@ Emacs Configuration TODO List
 * TODO [#A] Customize compilation commands for running =paver test_all=.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#A] Finish the Emacs Lisp Intro.
-* TODO [#A] Check out main-line or powerline.
 * TODO [#A] Add or change prefix keys for right and left arrow. See tips file for how.
 * TODO [#A] Add Melpa package restrictions back.
 * TODO [#B] Consider adding =htmlize= to the list of packages automatically installed.
@@ -49,6 +48,9 @@ Emacs Configuration TODO List
 * TODO [#C] Try out viper-mode.
 * TODO [#C] Add a fill-column-indicator line of 50 to the first line of a Magit commit buffer, 80 on other lines.
 * TODO [#C] Add commentary sections to personal file to pacify flycheck/checkdoc.
+* DONE [#A] Check out main-line or powerline.
+  Main-line is being merged into powerline. I installed powerline.
+  CLOSED: [2013-06-25 Tue 23:43]
 * DONE [#A] Get projectile to obey the .gitignore file.
   CLOSED: [2013-06-05 Wed 17:01]
   This has since been fixed in projectile.

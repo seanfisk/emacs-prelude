@@ -23,8 +23,6 @@ Emacs Configuration TODO List
 * TODO [#B] Send in patch to Prelude for not overwriting values for TeX builder.
 * TODO [#B] Send in patch to Prelude for SyncTeX.
 * TODO [#B] Consider adding in some =eval-after-load= blocks.
-* TODO [#B] Add a command to directly open up the Emacs configuration repo.
-  Could be done with something like =pwd > somefile= in the =Makefile=.
 * TODO [#C] SCons AUCTeX builder currently fails if the document is already built. Fix.
 * TODO [#C] Add note about getting spell checking working on Mac OS X.
   Done with homebrew by using =brew install aspell --lang=en=.
@@ -84,6 +82,9 @@ Emacs Configuration TODO List
     created opens up maximized. Further frames can be maximized with
     =maximize frame= or its alias =mf=. Luckily I mostly use one
     frame.
+* DONE [#B] Add a command to directly open up the Emacs configuration repo.
+  CLOSED: [2013-06-26 Wed 22:10]
+  Could be done with something like =pwd > somefile= in the =Makefile=.
 * DONE [#B] Upgrade and test with Emacs 24.3.
   CLOSED: [2013-05-29 Wed 16:47]
   Seems to work fine.

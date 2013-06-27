@@ -1,5 +1,6 @@
 Emacs Configuration TODO List
 
+* TODO [#A] Fix powerline.
 * TODO [#A] Customize compilation commands for running =paver test_all=.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#A] Finish the Emacs Lisp Intro.

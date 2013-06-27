@@ -309,7 +309,9 @@
                       (powerline-render rhs)))))))
           ;; Run this after everything initializes or else it will
           ;; look wonky.
-          (add-hook 'after-init-hook 'powerline-sean-theme t)))
+          ;; Blowing up on my personal MacBook Pro right now.
+          ;; (add-hook 'after-init-hook 'powerline-sean-theme t)
+	  ))
 
 ;;; smart-tabs-mode
 ;; Use the convenience function to load these automatically.

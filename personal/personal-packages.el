@@ -228,7 +228,15 @@
   :config (progn
             ;; This is short enough that it will still look OK with
             ;; two vertical windows on my Macbook Pro.
-            (setq nyan-bar-length 15)))
+            (setq nyan-bar-length 15)
+            (defun nyanimate ()
+              "Toggle nyan-cat's wavy animation."
+              (interactive)
+              (if nyan-animation-timer
+                  (nyan-stop-animation)
+                (nyan-start-animation))
+              (setq nyan-wavy-trail nyan-animate-nyancat))
+            ))
 
 (use-package org
   :ensure t

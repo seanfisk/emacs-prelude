@@ -117,9 +117,11 @@
          ("<C-S-left>" . buf-move-left)
          ("<C-S-right>" . buf-move-right)))
 
-(use-package dtrt-indent
-  :ensure t
-  :defer t)
+;; Automatic installation always fails, and I barely use it, so remove
+;; it for now.
+;; (use-package dtrt-indent
+;;   :ensure t
+;;   :defer t)
 
 ;; Haven't taken the time to learn this yet.
 ;;(use-package ecb)
@@ -297,7 +299,7 @@
                                 ;; <http://nyan-mode.buildsomethingamazing.com/#sec-4>
                                 ;; <https://github.com/bodil/emacs.d/blob/master/bodil-theme.el#L188>
                                 (powerline-raw " ")
-                                (powerline-raw (nyan-create) 'r)
+                                (powerline-raw (nyan-create))
                                 ;; (powerline-raw "%6p" nil 'r)
                                 ;; (powerline-hud face2 face1)
                                 )))
@@ -309,8 +311,7 @@
                       (powerline-render rhs)))))))
           ;; Run this after everything initializes or else it will
           ;; look wonky.
-          ;; Blowing up on my personal MacBook Pro right now.
-          ;; (add-hook 'after-init-hook 'powerline-sean-theme t)
+          (add-hook 'after-init-hook 'powerline-sean-theme t)
 	  ))
 
 ;;; smart-tabs-mode

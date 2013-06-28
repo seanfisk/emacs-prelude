@@ -86,6 +86,7 @@
   :ensure t)
 
 (use-package auctex
+  :defer t
   :ensure t)
 
 ;;; auto-complete
@@ -102,6 +103,7 @@
 ;;; auto-complete-clang
 (use-package auto-complete-clang
   :ensure t
+  :defer t
   :config (progn
             (defun personal-ac-cc-mode-setup ()
               (setq ac-sources
@@ -128,6 +130,7 @@
 
 ;; Haven't used this in a while.
 ;; (use-package edit-server
+;;   :defer t
 ;;   :ensure t)
 
 ;;; elpy
@@ -152,7 +155,7 @@
 ;; `fill-column'.
 (use-package fill-column-indicator
   :ensure t
-  :config (add-hook 'prog-mode-hook 'turn-on-fci-mode))
+  :init (add-hook 'prog-mode-hook 'turn-on-fci-mode))
 
 ;;; No ELPA repository for this yet.
 ;;(use-package fillcode)
@@ -181,6 +184,7 @@
   :defer t)
 
 (use-package highlight-indentation
+  :defer t
   :diminish highlight-indentation-mode)
 
 ;;; highlight-symbol
@@ -194,6 +198,7 @@
 
 (use-package ido-ubiquitous
   :ensure t
+  :defer t
   :init (progn
           ;; If we have ido-ubiquitous, there's no need for icomplete.
           (icomplete-mode -1)
@@ -206,7 +211,7 @@
 
 (use-package maxframe
   :ensure t
-  :config (add-hook 'window-setup-hook 'maximize-frame t))
+  :init (add-hook 'window-setup-hook 'maximize-frame t))
 
 (use-package mo-git-blame
   :ensure t
@@ -225,7 +230,7 @@
 
 (use-package nyan-mode
   :ensure t
-  :config (progn
+  :init (progn
             ;; This is short enough that it will still look OK with
             ;; two vertical windows on my Macbook Pro.
             (setq nyan-bar-length 15)
@@ -244,6 +249,7 @@
 
 (use-package paredit
   :ensure t
+  :defer t
   :diminish paredit-mode)
 
 (use-package powerline
@@ -362,6 +368,7 @@
   :init (global-undo-tree-mode +1))
 
 (use-package unfill
+  :defer t
   :ensure t)
 
 ;;; whole-line-or-region

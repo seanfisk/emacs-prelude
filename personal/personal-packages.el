@@ -237,7 +237,7 @@
             (defun nyanimate ()
               "Toggle nyan-cat's wavy animation."
               (interactive)
-              (if nyan-animation-timer
+              (if nyan-animate-nyancat
                   (nyan-stop-animation)
                 (nyan-start-animation))
               (setq nyan-wavy-trail nyan-animate-nyancat))

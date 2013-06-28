@@ -1,6 +1,8 @@
 Emacs Configuration TODO List
 
-* TODO [#A] Customize compilation commands for running =paver test_all=.
+* DONE [#A] Customize compilation commands for running =paver test_all=.
+  This doesn't really work with projectile.
+  CLOSED: [2013-06-27 Thu 16:20]
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#A] Finish the Emacs Lisp Intro.
 * TODO [#A] Add or change prefix keys for right and left arrow. See tips file for how.

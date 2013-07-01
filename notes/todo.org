@@ -1,8 +1,5 @@
 Emacs Configuration TODO List
 
-* DONE [#A] Customize compilation commands for running =paver test_all=.
-  This doesn't really work with projectile.
-  CLOSED: [2013-06-27 Thu 16:20]
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#A] Finish the Emacs Lisp Intro.
 * TODO [#A] Add or change prefix keys for right and left arrow. See tips file for how.
@@ -49,6 +46,9 @@ Emacs Configuration TODO List
 * TODO [#C] Try out viper-mode.
 * TODO [#C] Add a fill-column-indicator line of 50 to the first line of a Magit commit buffer, 80 on other lines.
 * TODO [#C] Add commentary sections to personal file to pacify flycheck/checkdoc.
+* DONE [#A] Customize compilation commands for running =paver test_all=.
+  This doesn't really work with projectile.
+  CLOSED: [2013-06-27 Thu 16:20]
 * DONE [#A] Check out main-line or powerline.
   Main-line is being merged into powerline. I installed powerline.
   CLOSED: [2013-06-25 Tue 23:43]

@@ -35,9 +35,6 @@ Emacs Configuration TODO List
   - This might not be possible, because highlight-symbol doesn't have a
     mode map or even a hook.
   - Right now they are just global.
-* TODO [#C] Fix suboptimal keybinding configuration of =comment-or-uncomment-region-or-line=.
-  Not sure if it's suboptimal. I bound it to =M-;=, and I haven't been
-  in want of =comment-region= yet.
 * TODO [#C] Fixed width font for rst-mode.
 * TODO [#C] Learn how to use RefTeX.
 * TODO [#C] nxHTML package.
@@ -92,6 +89,10 @@ Emacs Configuration TODO List
 * DONE Fix wrap, width alignment, etc. for Python-mode.
   CLOSED: [2013-02-16 Sat 15:42]
   It *should* be at 79 characters. Get =whitespace-mode=, =fill-column-indicator=, and =fill-paragraph= to play nicely together.
+* DONE [#C] Fix suboptimal keybinding configuration of =comment-or-uncomment-region-or-line=.
+  CLOSED: [2013-07-02 Tue 13:31]
+  Not sure if it's suboptimal. I bound it to =M-;=, and I haven't been
+  in want of =comment-region= yet.
 * DONE [#C] Try out the new Aquamacs nightly build.
   CLOSED: [2013-07-01 Mon 14:10]
   Consider donating if it's good.

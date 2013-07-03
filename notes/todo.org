@@ -1,6 +1,5 @@
 Emacs Configuration TODO List
 
-* TODO [#A] Customize compilation commands for running =paver test_all=.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#A] Finish the Emacs Lisp Intro.
 * TODO [#A] Add or change prefix keys for right and left arrow. See tips file for how.
@@ -36,17 +35,14 @@ Emacs Configuration TODO List
   - This might not be possible, because highlight-symbol doesn't have a
     mode map or even a hook.
   - Right now they are just global.
-* TODO [#C] Fix suboptimal keybinding configuration of =comment-or-uncomment-region-or-line=.
-  Not sure if it's suboptimal. I bound it to =M-;=, and I haven't been
-  in want of =comment-region= yet.
 * TODO [#C] Fixed width font for rst-mode.
 * TODO [#C] Learn how to use RefTeX.
 * TODO [#C] nxHTML package.
-* TODO [#C] Try out the new Aquamacs nightly build.
-  Consider donating if it's good.
 * TODO [#C] Try out viper-mode.
-* TODO [#C] Add a fill-column-indicator line of 50 to the first line of a Magit commit buffer, 80 on other lines.
 * TODO [#C] Add commentary sections to personal file to pacify flycheck/checkdoc.
+* DONE [#A] Customize compilation commands for running =paver test_all=.
+  This doesn't really work with projectile.
+  CLOSED: [2013-06-27 Thu 16:20]
 * DONE [#A] Check out main-line or powerline.
   Main-line is being merged into powerline. I installed powerline.
   CLOSED: [2013-06-25 Tue 23:43]
@@ -93,6 +89,15 @@ Emacs Configuration TODO List
 * DONE Fix wrap, width alignment, etc. for Python-mode.
   CLOSED: [2013-02-16 Sat 15:42]
   It *should* be at 79 characters. Get =whitespace-mode=, =fill-column-indicator=, and =fill-paragraph= to play nicely together.
+* DONE [#C] Fix suboptimal keybinding configuration of =comment-or-uncomment-region-or-line=.
+  CLOSED: [2013-07-02 Tue 13:31]
+  Not sure if it's suboptimal. I bound it to =M-;=, and I haven't been
+  in want of =comment-region= yet.
+* DONE [#C] Try out the new Aquamacs nightly build.
+  CLOSED: [2013-07-01 Mon 14:10]
+  Consider donating if it's good.
+* DONE [#C] Add a fill-column-indicator line of 50 to the first line of a Magit commit buffer, 80 on other lines.
+  CLOSED: [2013-07-01 Mon 14:10]
 * DONE [#C] Write a function that unfills the paragraph or region.
   CLOSED: [2013-06-05 Wed 17:16]
   - Based on =unfill.el=.

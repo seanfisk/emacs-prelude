@@ -68,6 +68,27 @@ the indentation."
     (insert-file-contents-literally (expand-file-name "emacs-repo-path" user-emacs-directory))
     (find-file-existing (s-trim (buffer-string)))))
 
+(defun personal-git-merge-squash-commit-message-cleanup ()
+  "Cleanup a git merge squash commit buffer. This assumes that
+each of your commit messages is one line only! Don't use it
+otherwise!"
+  (interactive)
+  (save-excursion
+    ;; Jump to beginning of file.
+    (goto-char (point-min))
+    ;; Delete the header.
+    (delete-lines 2)
+    ;; Delete the extra junk.
+    (flush-lines "^\\(?:commit\\|Author:\\|Date:\\|$\\)")
+    ;; Replace the leading spaces with bullets.
+    (while (re-search-forward "^ \\{4\\}" nil t)
+      (replace-match "- "))
+    ;; Now, we'll be on the last line of the list. Search for the
+    ;; comment start.
+    (re-search-forward "^#")
+    ;; Reverse the list so it is chronological.
+    (reverse-region (point-min) (point))))
+
 (provide 'personal-misc-fn)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

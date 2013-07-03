@@ -5,6 +5,15 @@ Emacs Configuration TODO List
 * TODO [#A] Add or change prefix keys for right and left arrow. See tips file for how.
 * TODO [#A] Add Melpa package restrictions back.
 * TODO [#A] Fix AUCTeX use-package statement and coalesce with =personal-tex.el=.
+* TODO [#B] Add command to autowrap the current word in delimeters (or take them away).
+References
+- =paredit=
+- =thing-at-point=
+- http://stackoverflow.com/questions/2951797/wrapping-selecting-text-in-enclosing-characters-in-emacs
+- =autopair=
+- =insert-pair=
+- =wrap-region=
+- http://ggorjan.blogspot.com/2007/05/skeleton-pair-mode-in-emacs.html
 * TODO [#B] Consider adding =htmlize= to the list of packages automatically installed.
 * TODO [#B] Amend =package.el= functionality to show a buffer with just packages that need updating.
   - This will be similar to the =U= key, which runs =package-menu-mark-upgrades=.

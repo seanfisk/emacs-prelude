@@ -1,5 +1,18 @@
 Emacs Configuration TODO List
 
+* TODO [#A] Reflect my current preferences in regards to wrapping/fill-column.
+** Show fci-mode in buffers with a limit.
+** Make sure word wrap is on.
+** Make sure fill-column is set correctly. I'm pretty sure it's not in =python-mode=.
+** Modes that should adhere to a style guide should show a limit.
+*** Python
+*** Ruby
+*** Emacs Lisp?
+** Others should not.
+*** C
+*** C++
+*** Bash
+*** etc.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#A] Finish the Emacs Lisp Intro.
 * TODO [#A] Add or change prefix keys for right and left arrow. See tips file for how.

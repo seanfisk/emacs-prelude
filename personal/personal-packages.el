@@ -132,6 +132,9 @@
   :ensure t
   :init (edit-server-start))
 
+(use-package ein
+  :ensure t)
+
 ;;; elpy
 ;; For elpy to work correctly, the following packages need to be
 ;; installed. They should be installed in the user site directory for

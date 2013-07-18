@@ -1,5 +1,6 @@
 Emacs Configuration TODO List
 
+* TODO [#A] Add a =tmux-update-environment= for Emacs like I have for shell. This will be an adventure.
 * TODO [#A] Reflect my current preferences in regards to wrapping/fill-column.
 ** Show fci-mode in buffers with a limit.
 ** Make sure word wrap is on.

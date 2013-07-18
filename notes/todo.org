@@ -1,6 +1,7 @@
 Emacs Configuration TODO List
 
 * TODO [#A] Add a =tmux-update-environment= for Emacs like I have for shell. This will be an adventure.
+* TODO [#A] Fix cmake-mode. It isn't being activated when opening CMakeLists.txt.
 * TODO [#A] Reflect my current preferences in regards to wrapping/fill-column.
 ** Show fci-mode in buffers with a limit.
 ** Make sure word wrap is on.
@@ -19,6 +20,8 @@ Emacs Configuration TODO List
 * TODO [#A] Add or change prefix keys for right and left arrow. See tips file for how.
 * TODO [#A] Add Melpa package restrictions back.
 * TODO [#A] Fix AUCTeX use-package statement and coalesce with =personal-tex.el=.
+* TODO [#B] Add a kill ring cycle plugin.
+* TODO [#B] Give [[https://github.com/Golevka/emacs-clang-complete-async][emacs-clang-complete-async]] a try.
 * TODO [#B] Add command to autowrap the current word in delimeters (or take them away).
 References
 - =paredit=

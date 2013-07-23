@@ -49,8 +49,9 @@
      ;; `scons --clean' only cleans the default target. We need to
      ;; pass in the target name and the `--clean' flag to get it to
      ;; clean the correct files.
-     (add-to-list 'TeX-command-list '("SCons-Clean" "scons %o --clean"
-                                      TeX-run-command nil t) t)
+     (add-to-list 'TeX-command-list
+                  '("SCons-Clean" "scons %o --clean" TeX-run-command
+                    nil t :help "Delete the generated documents") t)
      (add-to-list 'TeX-command-list
                   '("DocView" "(find-file \"%o\")" TeX-run-function
                     nil t :help "Open document in Emacs DocView") t)

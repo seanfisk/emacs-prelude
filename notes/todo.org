@@ -47,7 +47,6 @@ References
 * TODO [#B] Send in patch to Prelude for not overwriting values for TeX builder.
 * TODO [#B] Send in patch to Prelude for SyncTeX.
 * TODO [#B] Consider adding in some =eval-after-load= blocks.
-* TODO [#C] SCons AUCTeX builder currently fails if the document is already built. Fix.
 * TODO [#C] Add note about getting spell checking working on Mac OS X.
   Done with homebrew by using =brew install aspell --lang=en=.
 * TODO [#C] buffer-move and switch-window are very similar.
@@ -66,6 +65,9 @@ References
 * TODO [#C] nxHTML package.
 * TODO [#C] Try out viper-mode.
 * TODO [#C] Add commentary sections to personal file to pacify flycheck/checkdoc.
+While doing this, add Travis-CI for running checkdoc to the Emacs configuration.
+* TODO [#C] SCons AUCTeX builder currently fails if the document is already built. Fix.
+This is very hard to do, because AUCTeX always expects normal TeX output. I don't think it uses the return code at all. I have a feeling this would require overriding the parsing of the TeX output by AUCTeX, which would be a nightmare. Going to deal with it for now.
 * DONE [#A] Customize compilation commands for running =paver test_all=.
   This doesn't really work with projectile.
   CLOSED: [2013-06-27 Thu 16:20]

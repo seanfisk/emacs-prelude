@@ -50,6 +50,10 @@
 
 (key-chord-define-global "jf" 'jump-char-forward)
 (key-chord-define-global "jd" 'jump-char-backward)
+(key-chord-define-global "kf" 'ido-switch-buffer)
+(key-chord-define-global "kd" 'prelude-switch-to-previous-buffer)
+(key-chord-define-global "ks" 'save-buffer)
+(key-chord-define-global "hf" 'helm-projectile)
 
 
 (provide 'personal-global-keybindings)

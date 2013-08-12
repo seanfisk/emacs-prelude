@@ -52,7 +52,7 @@
 (key-chord-define-global "jd" 'jump-char-backward)
 (key-chord-define-global "kf" 'ido-switch-buffer)
 (key-chord-define-global "kd" 'prelude-switch-to-previous-buffer)
-(key-chord-define-global "ks" 'save-buffer)
+(key-chord-define-global "kg" 'save-buffer)
 (key-chord-define-global "hf" 'helm-projectile)
 
 

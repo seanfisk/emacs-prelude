@@ -27,6 +27,8 @@
 ;;; Code:
 
 (setq compilation-scroll-output 'first-error)
+;; I end sentences with a single space. Sue me.
+(setq sentence-end-double-space nil)
 
 (provide 'personal-misc)
 

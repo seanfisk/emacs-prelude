@@ -1,5 +1,8 @@
 Emacs Configuration TODO List
 
+* TODO [#A] Add a real auto-save feature.
+  - http://www.emacswiki.org/emacs/AutoSave#toc7
+  - http://www.litchie.net/programs/real-auto-save.html
 * TODO [#A] Add a =tmux-update-environment= for Emacs like I have for shell. This will be an adventure.
 * TODO [#A] Fix cmake-mode. It isn't being activated when opening CMakeLists.txt.
 * TODO [#A] Reflect my current preferences in regards to wrapping/fill-column.

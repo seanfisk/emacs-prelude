@@ -89,7 +89,31 @@
            ;; cell for `output-pdf'. Let the games begin.
            (setq TeX-view-program-selection
                  (cons `(output-pdf ,skim-view-program-name)
-                       (assq-delete-all 'output-pdf TeX-view-program-selection))))))))
+                       (assq-delete-all 'output-pdf TeX-view-program-selection))))))
+
+     ;; Create a function to build and view the doc.
+     (defun personal-tex-save-build-view ()
+       (interactive)
+       (save-buffer)
+
+       ;; Make sure we call `save-excursion' around each `TeX-command' so we don't get switched to the compile buffer or anything like that.
+       ;; Otherwise the return values of `TeX-master-file' and `TeX-active-master' seem to get destroyed after compiling.
+       (let ((old-TeX-process-asynchronous TeX-process-asynchronous))
+         ;; Make the building process synchronous so we can view after it is done building.
+         (setq TeX-process-asynchronous nil)
+
+         ;; Hopefully we have the default set to a compile command, probably "SCons".
+         (save-excursion
+           (TeX-command "SCons" 'TeX-master-file 0))
+
+         ;; Restore the original setting.
+         (setq TeX-process-asynchronous old-TeX-process-asynchronous))
+
+       ;; View the file and don't confirm.
+       (TeX-view))
+
+     ;; Create a key chord for this function.
+     (key-chord-define TeX-mode-map "kv" 'personal-tex-save-build-view)))
 
 ;; Make previews for preview-latex work. See the following post for
 ;; more information:

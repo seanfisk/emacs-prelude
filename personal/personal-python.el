@@ -39,6 +39,8 @@
   (flycheck-mode -1)
   )
 
+(add-to-list 'auto-mode-alist `(,(concat (regexp-opt '("SConstruct" "SConscript")) "\\'") . python-mode))
+
 (add-hook 'python-mode-hook 'personal-python-mode-setup t)
 
 (provide 'personal-python)

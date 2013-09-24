@@ -26,16 +26,27 @@
 ;;
 ;;; Code:
 
-;; Recommended by the AUCTeX manual.
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
+(require 'package)
 
-;; Make PDFs.
-(setq TeX-PDF-mode t)
+;; We can't use `use-package' for this because it expects a file to
+;; load called `auctex'.
+(when (not (package-installed-p 'auctex))
+  (package-install 'auctex))
+
+;; AUCTeX 11.86 puts this in `auctex-autoloads.el', but AUCTeX 11.87
+;; does not, so it doesn't get loaded automatically. Go figure.
+(require 'tex-site)
 
 (eval-after-load 'tex
   '(progn
+     ;; Recommended by the AUCTeX manual.
+     (setq TeX-auto-save t)
+     (setq TeX-parse-self t)
+     (setq-default TeX-master nil)
+
+     ;; Make PDFs by default.
+     (TeX-global-PDF-mode +1)
+
      (add-to-list 'TeX-command-list
                   ;; `%o' expands to the output filename. See
                   ;; `TeX-expand-list' for more details.
@@ -120,8 +131,7 @@
 ;;
 ;; <http://tex.stackexchange.com/questions/28458/preview-latex-in-emacs-auctex-empty-boxes>
 (eval-after-load 'preview
-  '(progn
-     (setq preview-gs-options (remove "-dSAFER" preview-gs-options))))
+  '(setq preview-gs-options (remove "-dSAFER" preview-gs-options)))
 
 (provide 'personal-tex)
 

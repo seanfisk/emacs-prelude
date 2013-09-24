@@ -85,10 +85,6 @@
 (use-package diminish
   :ensure t)
 
-(use-package auctex
-  :defer t
-  :ensure t)
-
 ;;; auto-complete
 (use-package auto-complete
   :ensure t

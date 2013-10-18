@@ -1,6 +1,7 @@
 Emacs Configuration TODO List
 
-* TODO [#A] Add a real auto-save feature.
+* DONE [#A] Add a real auto-save feature.
+  CLOSED: [2013-10-18 Fri 12:36]
   - http://www.emacswiki.org/emacs/AutoSave#toc7
   - http://www.litchie.net/programs/real-auto-save.html
 * TODO [#A] Add a =tmux-update-environment= for Emacs like I have for shell. This will be an adventure.

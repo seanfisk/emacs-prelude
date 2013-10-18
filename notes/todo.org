@@ -5,19 +5,6 @@ Emacs Configuration TODO List
   - http://www.litchie.net/programs/real-auto-save.html
 * TODO [#A] Add a =tmux-update-environment= for Emacs like I have for shell. This will be an adventure.
 * TODO [#A] Fix cmake-mode. It isn't being activated when opening CMakeLists.txt.
-* TODO [#A] Reflect my current preferences in regards to wrapping/fill-column.
-** Show fci-mode in buffers with a limit.
-** Make sure word wrap is on.
-** Make sure fill-column is set correctly. I'm pretty sure it's not in =python-mode=.
-** Modes that should adhere to a style guide should show a limit.
-*** Python
-*** Ruby
-*** Emacs Lisp?
-** Others should not.
-*** C
-*** C++
-*** Bash
-*** etc.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#A] Finish the Emacs Lisp Intro.
 * TODO [#A] Add or change prefix keys for right and left arrow. See tips file for how.
@@ -71,6 +58,20 @@ References
 While doing this, add Travis-CI for running checkdoc to the Emacs configuration.
 * TODO [#C] SCons AUCTeX builder currently fails if the document is already built. Fix.
 This is very hard to do, because AUCTeX always expects normal TeX output. I don't think it uses the return code at all. I have a feeling this would require overriding the parsing of the TeX output by AUCTeX, which would be a nightmare. Going to deal with it for now.
+* DONE [#A] Reflect my current preferences in regards to wrapping/fill-column.
+  CLOSED: [2013-10-18 Fri 11:59]
+** Show fci-mode in buffers with a limit.
+** Make sure word wrap is on.
+** Make sure fill-column is set correctly. I'm pretty sure it's not in =python-mode=.
+** Modes that should adhere to a style guide should show a limit.
+*** Python
+*** Ruby
+*** Emacs Lisp?
+** Others should not.
+*** C
+*** C++
+*** Bash
+*** etc.
 * DONE [#A] Customize compilation commands for running =paver test_all=.
   This doesn't really work with projectile.
   CLOSED: [2013-06-27 Thu 16:20]

@@ -150,12 +150,8 @@
             (elpy-clean-modeline)))
 
 ;;; fill-column-indicator
-;; Specifically *don't* set `fci-fill-column' (the column at which the
-;; line is shown). `fci-mode' will then default to using the value of
-;; `fill-column'.
 (use-package fill-column-indicator
-  :ensure t
-  :init (add-hook 'prog-mode-hook 'turn-on-fci-mode))
+  :ensure t)
 
 ;;; No ELPA repository for this yet.
 ;;(use-package fillcode)

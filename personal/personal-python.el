@@ -26,14 +26,12 @@
 ;;
 ;;; Code:
 
+(require 'personal-misc-fn)
+
 (defun personal-python-mode-setup ()
-  ;; Follow PEP8 conventions.
-  (let ((max-line-length 79))
-    (setq fill-column max-line-length)
-    ;; Whitespace-mode refuses to inherit whatever the value of
-    ;; `fill-column` is. However, `fill-column-indicator' does it
-    ;; nicely.
-    (setq whitespace-line-column max-line-length))
+  ;; Follow PEP 8 conventions.
+  ;; <http://www.python.org/dev/peps/pep-0008/#maximum-line-length>
+  (personal-set-max-line-length 79)
   ;; Turn off flycheck-mode.
   ;; TODO: Use flycheck-mode and not flymake-mode with Elpy.
   (flycheck-mode -1)

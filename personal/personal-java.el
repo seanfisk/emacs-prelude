@@ -1,4 +1,4 @@
-;;; personal-ruby.el --- Ruby Customizations
+;;; personal-java.el --- Java Customizations
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
@@ -28,16 +28,16 @@
 
 (require 'personal-misc-fn)
 
-(defun personal-ruby-mode-setup ()
-  ;; Follow Ruby Style Guide conventions (enforced by Rubocop).
-  ;; <https://github.com/bbatsov/ruby-style-guide#source-code-layout>
+(defun personal-java-mode-setup ()
+  ;; Follow Java Style Guide conventions.
+  ;; <http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-136091.html#313>
   (personal-set-max-line-length 80))
 
-(add-to-list 'auto-mode-alist '("Buildfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Buildfile" . java-mode))
 
-(add-hook 'ruby-mode-hook 'personal-ruby-mode-setup t)
+(add-hook 'java-mode-hook 'personal-java-mode-setup t)
 
-(provide 'personal-ruby)
+(provide 'personal-java)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; personal-ruby.el ends here
+;;; personal-java.el ends here

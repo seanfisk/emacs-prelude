@@ -89,6 +89,20 @@ otherwise!"
     ;; Reverse the list so it is chronological.
     (reverse-region (point-min) (point))))
 
+(require 'whitespace)
+
+(defun personal-set-max-line-length (max-line-length)
+  "Set the maximum allowed line length (without warnings) in a buffer to MAX-LINE-LENGTH."
+  ;; Specifically *don't* set `fci-fill-column' (the column at which the
+  ;; line is shown). `fci-mode' will then default to using the value of
+  ;; `fill-column'.
+  (setq fill-column max-line-length)
+  (turn-on-fci-mode)
+  ;; Whitespace-mode refuses to inherit whatever the value of
+  ;; `fill-column` is. However, `fill-column-indicator' does it
+  ;; nicely.
+  (setq whitespace-line-column max-line-length))
+
 (provide 'personal-misc-fn)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

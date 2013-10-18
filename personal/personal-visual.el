@@ -46,8 +46,8 @@
     (progn
       ;; Choose fonts
       ;; On my Mac, the font size seems small, so make it bigger.
-      (set-face-attribute 'default nil :height
-                          (if (eq system-type 'darwin) 240))
+      (if (eq system-type 'darwin)
+          (set-face-attribute 'default nil :height 240))
       (set-face-attribute 'default nil :family
                           (font-candidate "Inconsolata" "Consolas" "Monospace"))
       ;; Set theme.

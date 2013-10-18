@@ -426,8 +426,8 @@
 
 (use-package plist)
 
-(use-package real-auto-save
-  :init (add-hook 'prog-mode-hook 'turn-on-real-auto-save))
+;; (use-package real-auto-save
+;;   :init (add-hook 'prog-mode-hook 'turn-on-real-auto-save))
 
 (use-package toggle-plural
   :bind ("C-c C-s" . toggle-plural-at-point))

@@ -33,7 +33,8 @@
 ;;; Code:
 
 (require 'prelude-programming)
-(prelude-ensure-module-deps '(ruby-tools inf-ruby yari ruby-end))
+
+(prelude-ensure-module-deps '(ruby-tools inf-ruby yari))
 
 ;; Rake files are ruby, too, as are gemspecs, rackup files, and gemfiles.
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
@@ -56,10 +57,7 @@
 (eval-after-load 'ruby-mode
   '(progn
      (defun prelude-ruby-mode-defaults ()
-       (inf-ruby-setup-keybindings)
-       ;; turn off the annoying input echo in irb
-       (setq comint-process-echoes t)
-       (ruby-end-mode +1)
+       (inf-ruby-minor-mode +1)
        (ruby-tools-mode +1)
        ;; CamelCase aware editing operations
        (subword-mode +1))

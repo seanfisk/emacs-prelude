@@ -16,7 +16,7 @@ install_prelude () {
 make_prelude_dirs () {
     printf " Making the required directories.\n$RESET"
     mkdir -p "$PRELUDE_INSTALL_DIR/vendor" "$PRELUDE_INSTALL_DIR/personal"
-    mkdir -p "$PRELUDE_INSTALL_DIR/themes" "$PRELUDE_INSTALL_DIR/snippets"
+    mkdir -p "$PRELUDE_INSTALL_DIR/themes"
     mkdir -p "$PRELUDE_INSTALL_DIR/savefile"
 }
 
@@ -162,7 +162,7 @@ if hash aspell 2>&-
 then
     printf "$GREEN found.$RESET\n"
 else
-    print "$RED not found. Install aspell to benefit from flyspell-mode!$RESET\n"
+    printf "$RED not found. Install aspell to benefit from flyspell-mode!$RESET\n"
 fi
 
 printf  "$CYAN Checking to see if ack is installed... "

@@ -33,28 +33,30 @@
 ;;; Code:
 
 (require 'prelude-programming)
-(prelude-ensure-module-deps '(paredit rainbow-delimiters))
+(prelude-ensure-module-deps '(rainbow-delimiters))
 
 ;; Lisp configuration
 (define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
 
+;; wrap keybindings
+(define-key lisp-mode-shared-map (kbd "M-(") (lambda (&optional arg) (interactive "P") (sp-wrap-with-pair "(")))
+(define-key lisp-mode-shared-map (kbd "M-[") (lambda (&optional arg) (interactive "P") (sp-wrap-with-pair "[")))
+(define-key lisp-mode-shared-map (kbd "M-\"") (lambda (&optional arg) (interactive "P") (sp-wrap-with-pair "\"")))
+
 ;; a great lisp coding hook
 (defun prelude-lisp-coding-defaults ()
-  (paredit-mode +1)
+  (smartparens-strict-mode +1)
   (rainbow-delimiters-mode +1))
 
 (setq prelude-lisp-coding-hook 'prelude-lisp-coding-defaults)
 
 ;; interactive modes don't need whitespace checks
 (defun prelude-interactive-lisp-coding-defaults ()
-  (paredit-mode +1)
+  (smartparens-strict-mode +1)
   (rainbow-delimiters-mode +1)
   (whitespace-mode -1))
 
 (setq prelude-interactive-lisp-coding-hook 'prelude-interactive-lisp-coding-defaults)
-
-(eval-after-load "paredit"
-  '(diminish 'paredit-mode " π"))
 
 (provide 'prelude-lisp)
 

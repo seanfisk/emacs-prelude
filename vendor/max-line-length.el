@@ -1,9 +1,15 @@
-;;; personal-ruby.el --- Ruby Customizations
+;;; max-line-length.el --- Set the maximum line length
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: languages
-;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;; Compatibility: Emacs 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Set the maximum line length.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -26,18 +32,23 @@
 ;;
 ;;; Code:
 
-(require 'max-line-length)
 
-(defun personal-ruby-mode-setup ()
-  ;; Follow Ruby Style Guide conventions (enforced by Rubocop).
-  ;; <https://github.com/bbatsov/ruby-style-guide#source-code-layout>
-  (max-line-length-set 80))
+(require 'whitespace)
+(require 'fill-column-indicator)
 
-(add-to-list 'auto-mode-alist '("Buildfile" . ruby-mode))
+(defun personal-set-max-line-length (max-line-length)
+  "Set the maximum allowed line length (without warnings) in a buffer to MAX-LINE-LENGTH."
+  ;; Specifically *don't* set `fci-fill-column' (the column at which the
+  ;; line is shown). `fci-mode' will then default to using the value of
+  ;; `fill-column'.
+  (setq fill-column max-line-length)
+  (turn-on-fci-mode)
+  ;; Whitespace-mode refuses to inherit whatever the value of
+  ;; `fill-column` is. However, `fill-column-indicator' does it
+  ;; nicely.
+  (setq whitespace-line-column max-line-length))
 
-(add-hook 'ruby-mode-hook 'personal-ruby-mode-setup t)
-
-(provide 'personal-ruby)
+(provide 'max-line-length)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; personal-ruby.el ends here
+;;; max-line-length.el ends here

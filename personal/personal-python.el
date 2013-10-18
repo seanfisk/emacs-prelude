@@ -26,12 +26,12 @@
 ;;
 ;;; Code:
 
-(require 'personal-misc-fn)
+(require 'max-line-length)
 
 (defun personal-python-mode-setup ()
   ;; Follow PEP 8 conventions.
   ;; <http://www.python.org/dev/peps/pep-0008/#maximum-line-length>
-  (personal-set-max-line-length 79)
+  (max-line-length-set 79)
   ;; Turn off flycheck-mode.
   ;; TODO: Use flycheck-mode and not flymake-mode with Elpy.
   (flycheck-mode -1)

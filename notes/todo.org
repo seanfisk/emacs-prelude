@@ -1,9 +1,5 @@
 Emacs Configuration TODO List
 
-* DONE [#A] Add a real auto-save feature.
-  CLOSED: [2013-10-18 Fri 12:36]
-  - http://www.emacswiki.org/emacs/AutoSave#toc7
-  - http://www.litchie.net/programs/real-auto-save.html
 * TODO [#A] Add a =tmux-update-environment= for Emacs like I have for shell. This will be an adventure.
 * TODO [#A] Fix cmake-mode. It isn't being activated when opening CMakeLists.txt.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).
@@ -59,6 +55,10 @@ References
 While doing this, add Travis-CI for running checkdoc to the Emacs configuration.
 * TODO [#C] SCons AUCTeX builder currently fails if the document is already built. Fix.
 This is very hard to do, because AUCTeX always expects normal TeX output. I don't think it uses the return code at all. I have a feeling this would require overriding the parsing of the TeX output by AUCTeX, which would be a nightmare. Going to deal with it for now.
+* DONE [#A] Add a real auto-save feature.
+  CLOSED: [2013-10-18 Fri 12:36]
+  - http://www.emacswiki.org/emacs/AutoSave#toc7
+  - http://www.litchie.net/programs/real-auto-save.html
 * DONE [#A] Reflect my current preferences in regards to wrapping/fill-column.
   CLOSED: [2013-10-18 Fri 11:59]
 ** Show fci-mode in buffers with a limit.

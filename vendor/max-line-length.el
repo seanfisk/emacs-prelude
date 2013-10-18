@@ -36,7 +36,7 @@
 (require 'whitespace)
 (require 'fill-column-indicator)
 
-(defun personal-set-max-line-length (max-line-length)
+(defun max-line-length-set (max-line-length)
   "Set the maximum allowed line length (without warnings) in a buffer to MAX-LINE-LENGTH."
   ;; Specifically *don't* set `fci-fill-column' (the column at which the
   ;; line is shown). `fci-mode' will then default to using the value of

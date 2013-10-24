@@ -40,6 +40,14 @@
 
 (bind-key "C-a" 'toggle-beginning-or-indentation)
 
+(require 'prelude-mode)
+
+;; Must use `(substitute-key-definition ... nil prelude-mode-map)' and not `(define-key prelude-mode-map [remap ...] nil)'.
+(substitute-key-definition 'prelude-smart-open-line nil prelude-mode-map)
+(substitute-key-definition 'prelude-smart-open-line-above nil prelude-mode-map)
+(bind-key "C-o" 'prelude-smart-open-line)
+(bind-key "M-o" 'prelude-smart-open-line-above)
+
 (bind-key "RET" 'newline-and-indent)
 
 ;; Now that we've clobbered `kill-emacs', give a shortcut back.

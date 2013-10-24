@@ -9,6 +9,7 @@ Emacs Configuration TODO List
 * TODO [#A] Fix AUCTeX use-package statement and coalesce with =personal-tex.el=.
 * TODO [#B] Add a kill ring cycle plugin.
 * TODO [#B] Give [[https://github.com/Golevka/emacs-clang-complete-async][emacs-clang-complete-async]] a try.
+* TODO [#B] Remove vendored =open-next-line.el= if not being used.
 * TODO [#B] Add command to autowrap the current word in delimeters (or take them away).
 References
 - =paredit=

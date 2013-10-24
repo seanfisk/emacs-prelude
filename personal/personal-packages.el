@@ -420,10 +420,6 @@
          ;;("C-a" . beginning-or-indentation)
          ))
 
-(use-package open-next-line
-  :bind (("C-o" . open-next-line)
-         ("M-o" . open-previous-line)))
-
 (use-package plist)
 
 ;; (use-package real-auto-save

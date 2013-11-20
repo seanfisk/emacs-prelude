@@ -27,6 +27,7 @@
 ;;; Code:
 
 (require 'max-line-length)
+(require 'virtualenv)
 
 (defun personal-python-mode-setup ()
   ;; Follow PEP 8 conventions.
@@ -37,9 +38,13 @@
   (flycheck-mode -1)
   )
 
+(add-hook 'python-mode-hook 'personal-python-mode-setup t)
+
+;; Add automatic python-mode for SCons files.
 (add-to-list 'auto-mode-alist `(,(concat (regexp-opt '("SConstruct" "SConscript")) "\\'") . python-mode))
 
-(add-hook 'python-mode-hook 'personal-python-mode-setup t)
+;; Virtual environments use pyenv, not virtualenvwrapper.
+(setq virtualenv-root "~/.pyenv/versions")
 
 (provide 'personal-python)
 

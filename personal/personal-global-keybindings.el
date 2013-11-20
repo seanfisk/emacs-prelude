@@ -55,6 +55,8 @@
 
 ;; key-chord is already installed by Prelude.
 (require 'key-chord)
+;; Make the delay for two keys longer.
+(setq key-chord-two-keys-delay 0.2)
 
 (key-chord-define-global "jf" 'jump-char-forward)
 (key-chord-define-global "jd" 'jump-char-backward)

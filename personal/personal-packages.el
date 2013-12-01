@@ -367,11 +367,14 @@
   :defer t
   :ensure t)
 
-;;; whole-line-or-region
 (use-package whole-line-or-region
   :ensure t
   :diminish whole-line-or-region-mode
   :init (whole-line-or-region-mode +1))
+
+(use-package yasnippet
+  :ensure t
+  :init (yas-global-mode +1))
 
 ;;; dired-x
 ;; C-x C-j opens dired with the cursor right on the file you're

@@ -1,5 +1,6 @@
 Emacs Configuration TODO List
 
+* TODO [#A] Consider switching from use-package's require to Cask.
 * TODO [#A] Add a =tmux-update-environment= for Emacs like I have for shell. This will be an adventure.
 * TODO [#A] Fix cmake-mode. It isn't being activated when opening CMakeLists.txt.
 * TODO [#A] Learn about flycheck as a substitute for flymake (with elpy).

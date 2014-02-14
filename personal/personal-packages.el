@@ -85,6 +85,13 @@
 (use-package diminish
   :ensure t)
 
+;;; This package is used by projectile. However, projectile uses the
+;;; variable `ack-and-a-half-arguments', which results in error if the
+;;; package loading is deferred by autoloads. Therefore, we just need
+;;; to load it now.
+(use-package ack-and-a-half
+  :ensure t)
+
 ;;; auto-complete
 (use-package auto-complete
   :ensure t

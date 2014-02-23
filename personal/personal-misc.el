@@ -30,6 +30,21 @@
 ;; I end sentences with a single space. Sue me.
 (setq sentence-end-double-space nil)
 
+;; Open info files in "real" Info-mode
+;; Credit: http://stackoverflow.com/a/1921156
+;; TODO: This works, but it usually dumps this to the terminal from emacsclient:
+;;
+;;     *ERROR*: Wrong type argument: stringp, nil
+;;
+;; Will have to work on this.
+(defun bootstrap-Info-mode ()
+  (interactive)
+  (let ((file-name (buffer-file-name)))
+    (kill-buffer (current-buffer))
+    (info file-name)))
+
+(add-to-list 'auto-mode-alist '("\\.info\\'" . bootstrap-Info-mode))
+
 (provide 'personal-misc)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

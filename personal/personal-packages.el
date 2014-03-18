@@ -492,6 +492,10 @@
   :defer t
   :diminish whitespace-mode)
 
+;; For loading gettext's po-mode on Mac OS X, installed with Homebrew
+(add-to-list 'load-path "/usr/local/opt/gettext/share/emacs/site-lisp")
+(load "start-po" t) ;; the t prevents this command from erroring
+
 (provide 'personal-packages)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

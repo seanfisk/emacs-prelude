@@ -8,7 +8,7 @@
 (require 'prelude-emacs-lisp)
 (require 'prelude-erc)
 ;; (require 'prelude-erlang)
-;; (require 'prelude-haskell)
+(require 'prelude-haskell)
 (require 'prelude-helm)
 (require 'prelude-js)
 (require 'prelude-key-chord)

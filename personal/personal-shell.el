@@ -27,8 +27,10 @@
 ;;; Code:
 
 (defun personal-sh-hook ()
-  (setq sh-basic-offset 2)
-  (setq tab-width 2)
+  (let ((offset 2))
+    (setq sh-basic-offset offset)
+    (setq sh-indentation offset)
+    (setq tab-width offset))
   (setq indent-tabs-mode t)
   ;; correct for a bug in `whitespace.el'
   ;; shouldn't have to do this, but make sure we use tabs even in

@@ -16,6 +16,7 @@ Emacs Configuration TODO List
     =maximize frame= or its alias =mf=. Luckily I mostly use one
     frame.
   - But now on 10.9 (Mavericks), it's broken again. The top of the window ends up above the menu bar. Whoops, disabling for now.
+* TODO [#B] Make file/buffer names relative to project root if it exists, otherwise relative to the home directory.
 * TODO [#B] Add a kill ring cycle plugin.
 * TODO [#B] Give [[https://github.com/Golevka/emacs-clang-complete-async][emacs-clang-complete-async]] a try.
 * TODO [#B] Remove vendored =open-next-line.el= if not being used.

@@ -27,7 +27,7 @@
 ;;; Code:
 
 (require 'max-line-length)
-(require 'virtualenv)
+;; (require 'virtualenv)
 
 (defun personal-python-mode-setup ()
   ;; Follow PEP 8 conventions.
@@ -44,7 +44,7 @@
 (add-to-list 'auto-mode-alist `(,(concat (regexp-opt '("SConstruct" "SConscript")) "\\'") . python-mode))
 
 ;; Virtual environments use pyenv, not virtualenvwrapper.
-(setq virtualenv-root "~/.pyenv/versions")
+;; (setq virtualenv-root "~/.pyenv/versions")
 
 (provide 'personal-python)
 

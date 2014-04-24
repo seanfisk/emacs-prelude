@@ -182,6 +182,9 @@
   :bind ("C-x C-/" . goto-last-change))
 ;;(define-key global-map (kbd "C-x C-/") 'goto-last-change)
 
+(use-package graphviz-dot-mode
+  :ensure t)
+
 (use-package header2
   :ensure t
   :defer t)

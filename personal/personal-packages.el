@@ -122,6 +122,9 @@
          ("<C-S-left>" . buf-move-left)
          ("<C-S-right>" . buf-move-right)))
 
+(use-package cmake-mode
+  :ensure t)
+
 ;; Automatic installation always fails, and I barely use it, so remove
 ;; it for now.
 ;; (use-package dtrt-indent

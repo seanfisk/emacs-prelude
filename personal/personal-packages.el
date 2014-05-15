@@ -134,6 +134,9 @@
 ;; Haven't taken the time to learn this yet.
 ;;(use-package ecb)
 
+(use-package editorconfig
+  :ensure t)
+
 (use-package edit-server
   :ensure t
   :init (edit-server-start)

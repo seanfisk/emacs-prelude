@@ -157,10 +157,7 @@
 ;;
 (use-package elpy
   :ensure t
-  :init (elpy-enable)
-  :config (progn
-            (setq python-check-command "flake8")
-            (elpy-clean-modeline)))
+  :init (elpy-enable))
 
 ;;; fill-column-indicator
 (use-package fill-column-indicator

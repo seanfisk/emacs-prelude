@@ -77,6 +77,18 @@
   "This directory houses all of the user themes.")
 (add-to-list 'custom-theme-load-path prelude-themes-dir)
 
+;; Maximize new frames when they are created. We previously used
+;; maxframe for this: https://github.com/rmm5t/maxframe.el
+(defun personal-maximize-frame (frame)
+  (interactive)
+  ;; Adapted from `toggle-frame-maximized'.
+  (modify-frame-parameters frame '((fullscreen . maximized))))
+
+;; Maximize initial frame.
+(personal-maximize-frame nil)
+;; Maximize all new frames as well.
+(add-hook 'after-make-frame-functions 'personal-maximize-frame t)
+
 (provide 'personal-visual)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

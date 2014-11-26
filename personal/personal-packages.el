@@ -218,12 +218,6 @@
   :bind (("M-m" . jump-char-forward)
          ("M-M" . jump-char-backward)))
 
-(when (not (eq system-type 'darwin))
-  ;; maxframe is broken in Mac OS 10.9 Mavericks. Waiting for Emacs 24.4 where `toggle-frame-maximized' is implemented.
-  (use-package maxframe
-    :ensure t
-    :init (add-hook 'window-setup-hook 'maximize-frame t)))
-
 (use-package mo-git-blame
   :ensure t
   :defer t)

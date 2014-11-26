@@ -8,14 +8,6 @@ Emacs Configuration TODO List
 * TODO [#A] Add Melpa package restrictions back.
 * TODO [#B] Learn about flycheck as a substitute for flymake (with elpy).
 * TODO [#B] Fix AUCTeX use-package statement and coalesce with =personal-tex.el=.
-* TODO [#B] On my Mac, start Emacs maximized or in fullscreen.
-  - Fullscreen would be easy, just call
-    =ns-toggle-fullscreen=. However, I'd prefer maximized.
-  - Got it to work with [[https://github.com/rmm5t/maxframe.el][maxframe.el]]. However, only the first frame
-    created opens up maximized. Further frames can be maximized with
-    =maximize frame= or its alias =mf=. Luckily I mostly use one
-    frame.
-  - But now on 10.9 (Mavericks), it's broken again. The top of the window ends up above the menu bar. Whoops, disabling for now.
 * TODO [#B] Make file/buffer names relative to project root if it exists, otherwise relative to the home directory.
 * TODO [#B] Add a kill ring cycle plugin.
 * TODO [#B] Give [[https://github.com/Golevka/emacs-clang-complete-async][emacs-clang-complete-async]] a try.
@@ -116,6 +108,15 @@ This is very hard to do, because AUCTeX always expects normal TeX output. I don'
    - Vendorize Drew Adams' misc-cmds.el.
    - Map =C-a= to toggle between indentation or beginning of line.
    - Remap =jump-char-forward= to =M-m= and =jump-char-backward= to =M-M=.
+* DONE [#B] On my Mac, start Emacs maximized or in fullscreen.
+  CLOSED: [2014-11-25 Tue 20:22]
+  - Fullscreen would be easy, just call
+    =ns-toggle-fullscreen=. However, I'd prefer maximized.
+  - Got it to work with [[https://github.com/rmm5t/maxframe.el][maxframe.el]]. However, only the first frame
+    created opens up maximized. Further frames can be maximized with
+    =maximize frame= or its alias =mf=. Luckily I mostly use one
+    frame.
+  - But now on 10.9 (Mavericks), it's broken again. The top of the window ends up above the menu bar. Whoops, disabling for now.
 * DONE [#B] Add a command to directly open up the Emacs configuration repo.
   CLOSED: [2013-06-26 Wed 22:10]
   Could be done with something like =pwd > somefile= in the =Makefile=.

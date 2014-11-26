@@ -426,6 +426,10 @@
 (use-package cython-mode
   :commands cython-mode)
 
+(use-package tty-format) ; Dependency of e-sink
+(use-package e-sink
+  :commands e-sink-start)
+
 (use-package ido-find-tagged-file
   :bind ("C-x p" . ido-find-tagged-file))
 

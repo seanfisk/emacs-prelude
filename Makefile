@@ -15,19 +15,23 @@ INSTALL_EL_RECURSIVE = $(SHELL) -c 'find "$$1" -name "*.el" | cpio -dmpuv "$$2"'
 prefix = $(HOME)/.emacs.d
 AQUAMACS_INSTALL_DIR = $(HOME)/Library/Preferences/Aquamacs Emacs
 
-.PHONY : first install install-dirs aquamacs emacs-repo-path
+.PHONY : first install install-dirs install-e-sink-script aquamacs emacs-repo-path
 first :
 	@echo 'Please type ...'
 	@echo "  \`make install' to install to \`$(prefix)'"
 	@echo "  \`make aquamacs' to install to \`$(AQUAMACS_INSTALL_DIR)'"
 	@echo "  \`make prefix=/my/different/prefix install' to install to a different directory."
 
-install : install-dirs emacs-repo-path
+install : install-dirs emacs-repo-path install-e-sink-script
 	$(INSTALL_DATA) init.el "$(prefix)"
 
 aquamacs : prefix = $(AQUAMACS_INSTALL_DIR)
 aquamacs : install-dirs emacs-repo-path
 	$(INSTALL_DATA) init.el "$(prefix)/Preferences.el"
+
+install-e-sink-script:
+	$(INSTALL_DIRECTORY) $(HOME)/bin
+	$(INSTALL_PROGRAM) vendor/e-sink/e-sink.pl $(HOME)/bin/e-sink
 
 install-dirs :
 	$(INSTALL_DIRECTORY) "$(prefix)"
@@ -37,8 +41,7 @@ install-dirs :
 	$(INSTALL_RECURSIVE) snippets "$(prefix)"
 	$(INSTALL_RECURSIVE) themes "$(prefix)"
 	$(INSTALL_RECURSIVE) personal "$(prefix)"
-# Use EL_RECURSIVE so we don't install the git repository for
-# use-package.
+# Use EL_RECURSIVE so we don't install the git repositories.
 	$(INSTALL_EL_RECURSIVE) vendor "$(prefix)"
 
 # Write this repository's path to a file in $(prefix) so that the

@@ -1,5 +1,6 @@
 Emacs Configuration TODO List
 
+* TODO [#A] projectile-replace will produce inconsistent results (and doesn't work with regexp with ag)
 * TODO [#A] Install and configure [[https://github.com/areina/helm-dash][helm-dash]]. Check out [[http://jwintz.me/blog/2014/02/16/helm-dash-makes-you-efficient/][this article]] too.
 * TODO [#A] Flyspell seems not to be working.
 * TODO [#A] Switch from use-package to [[http://cask.readthedocs.org/en/latest/][Cask]] and [[https://github.com/rdallasgray/pallet][Pallet]].
@@ -37,6 +38,7 @@ References
 * TODO [#B] Send in patch to Prelude for not overwriting values for TeX builder.
 * TODO [#B] Send in patch to Prelude for SyncTeX.
 * TODO [#B] Consider adding in some =eval-after-load= blocks.
+* TODO [#C] point dired to an ls that supports in on Mac
 * TODO [#C] Add a =tmux-update-environment= for Emacs like I have for shell. This will be an adventure.
 * TODO [#C] Finish the Emacs Lisp Intro.
 * TODO [#C] Fix Python virtualenv root directory.

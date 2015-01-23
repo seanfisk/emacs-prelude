@@ -137,11 +137,12 @@
 (use-package editorconfig
   :ensure t)
 
-(use-package edit-server
-  :ensure t
-  :init (edit-server-start)
-  ;; Finish the edit-server buffer when we press the key for `kill-this-buffer'.
-  :config (define-key edit-server-edit-mode-map [remap kill-this-buffer] 'edit-server-done))
+;; Haven't been using Chrome lately, so there's no need for this.
+;; (use-package edit-server
+;;   :ensure t
+;;   :init (edit-server-start)
+;;   ;; Finish the edit-server buffer when we press the key for `kill-this-buffer'.
+;;   :config (define-key edit-server-edit-mode-map [remap kill-this-buffer] 'edit-server-done))
 
 (use-package ein
   :ensure t)

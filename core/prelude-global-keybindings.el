@@ -1,6 +1,6 @@
 ;;; prelude-global-keybindings.el --- Emacs Prelude: some useful keybindings.
 ;;
-;; Copyright © 2011-2013 Bozhidar Batsov
+;; Copyright © 2011-2015 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
@@ -48,7 +48,8 @@
 (global-set-key (kbd "C-^") 'prelude-top-join-line)
 
 ;; Start proced in a similar manner to dired
-(global-set-key (kbd "C-x p") 'proced)
+(unless (eq system-type 'darwin)
+    (global-set-key (kbd "C-x p") 'proced))
 
 ;; Start eshell or switch to it if it's active.
 (global-set-key (kbd "C-x m") 'eshell)
@@ -65,14 +66,19 @@
 ;; A complementary binding to the apropos-command (C-h a)
 (define-key 'help-command "A" 'apropos)
 
-(global-set-key (kbd "C-h C-f") 'find-function)
-(global-set-key (kbd "C-h C-k") 'find-function-on-key)
-(global-set-key (kbd "C-h C-v") 'find-variable)
-(global-set-key (kbd "C-h C-l") 'find-library)
+;; A quick major mode help with discover-my-major
+(define-key 'help-command (kbd "C-m") 'discover-my-major)
 
-;; a complement to the zap-to-char command, that doesn't eat up the target character
-(autoload 'zap-up-to-char "misc" "Kill up to, but not including ARGth occurrence of CHAR.")
-(global-set-key (kbd "M-Z") 'zap-up-to-char)
+(define-key 'help-command (kbd "C-f") 'find-function)
+(define-key 'help-command (kbd "C-k") 'find-function-on-key)
+(define-key 'help-command (kbd "C-v") 'find-variable)
+(define-key 'help-command (kbd "C-l") 'find-library)
+
+(define-key 'help-command (kbd "C-i") 'info-display-manual)
+
+;; replace zap-to-char functionaity with the more powerful zop-to-char
+(global-set-key (kbd "M-z") 'zop-up-to-char)
+(global-set-key (kbd "M-Z") 'zop-to-char)
 
 ;; kill lines backward
 (global-set-key (kbd "C-<backspace>") (lambda ()
@@ -106,13 +112,9 @@
 
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-;; make C-x C-x usable with transient-mark-mode
-(define-key global-map
-  [remap exchange-point-and-mark]
-  'prelude-exchange-point-and-mark)
-
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
-(global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+(global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-1)
+(global-set-key (kbd "s-.") 'avy-goto-word-or-subword-1)
+(global-set-key (kbd "s-w") 'ace-window)
 
 (provide 'prelude-global-keybindings)
 

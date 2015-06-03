@@ -1,4 +1,4 @@
-;;; prelude-org.el --- Emacs Prelude: org-mode configuration.
+;;; prelude-company.el --- company-mode setup
 ;;
 ;; Copyright © 2011-2015 Bozhidar Batsov
 ;;
@@ -11,7 +11,7 @@
 
 ;;; Commentary:
 
-;; Some basic configuration for org-mode.
+;; company-mode config.
 
 ;;; License:
 
@@ -31,27 +31,18 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
+(prelude-require-packages '(company))
 
-(add-to-list 'auto-mode-alist '("\\.org\\’" . org-mode))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(setq org-log-done t)
+(require 'company)
 
-(defun prelude-org-mode-defaults ()
-  (let ((oldmap (cdr (assoc 'prelude-mode minor-mode-map-alist)))
-        (newmap (make-sparse-keymap)))
-    (set-keymap-parent newmap oldmap)
-    (define-key newmap (kbd "C-c +") nil)
-    (define-key newmap (kbd "C-c -") nil)
-    (make-local-variable 'minor-mode-overriding-map-alist)
-    (push `(prelude-mode . ,newmap) minor-mode-overriding-map-alist))
-)
+(setq company-idle-delay 0.5)
+(setq company-tooltip-limit 10)
+(setq company-minimum-prefix-length 2)
+;; invert the navigation direction if the the completion popup-isearch-match
+;; is displayed on top (happens near the bottom of windows)
+(setq company-tooltip-flip-when-above t)
 
-(setq prelude-org-mode-hook 'prelude-org-mode-defaults)
+(global-company-mode 1)
 
-(add-hook 'org-mode-hook (lambda () (run-hooks 'prelude-org-mode-hook)))
-
-(provide 'prelude-org)
-
-;;; prelude-org.el ends here
+(provide 'prelude-company)
+;;; prelude-company.el ends here

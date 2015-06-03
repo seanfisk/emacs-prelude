@@ -1,17 +1,16 @@
-;;; prelude-css.el --- Emacs Prelude: css support
+;;; prelude-elixir.el --- Emacs Prelude: Elixir programming support.
 ;;
-;; Copyright © 2011-2015 Bozhidar Batsov
+;; Copyright © 2014-2015 Samuel Tonini
 ;;
-;; Author: Bozhidar Batsov <bozhidar@batsov.com>
-;; URL: http://www.batsov.com/emacs-prelude
+;; Author: Samuel Tonini <tonini.samuel@gmail.com>
 ;; Version: 1.0.0
-;; Keywords: convenience
+;; Keywords: convenience elixir
 
 ;; This file is not part of GNU Emacs.
 
 ;;; Commentary:
 
-;; Some basic configuration for css-mode.
+;; Some basic configuration for Elixir development.
 
 ;;; License:
 
@@ -32,20 +31,10 @@
 
 ;;; Code:
 
-(eval-after-load 'css-mode
-  '(progn
-     (prelude-require-packages '(rainbow-mode))
+(require 'prelude-programming)
 
-     (setq css-indent-offset 2)
+(prelude-require-packages '(elixir-mode alchemist))
 
-     (defun prelude-css-mode-defaults ()
-       (rainbow-mode +1)
-       (run-hooks 'prelude-prog-mode-hook))
+(provide 'prelude-elixir)
 
-     (setq prelude-css-mode-hook 'prelude-css-mode-defaults)
-
-     (add-hook 'css-mode-hook (lambda ()
-                                (run-hooks 'prelude-css-mode-hook)))))
-
-(provide 'prelude-css)
-;;; prelude-css.el ends here
+;;; prelude-elixir.el ends here

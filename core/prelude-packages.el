@@ -1,6 +1,6 @@
 ;;; prelude-packages.el --- Emacs Prelude: default package selection.
 ;;
-;; Copyright © 2011-2013 Bozhidar Batsov
+;; Copyright © 2011-2015 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
@@ -36,19 +36,42 @@
 (require 'package)
 
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "http://melpa.org/packages/") t)
 ;; set package-user-dir to be relative to Prelude install path
 (setq package-user-dir (expand-file-name "elpa" prelude-dir))
 (package-initialize)
 
 (defvar prelude-packages
-  '(ace-jump-mode ack-and-a-half anzu dash diminish elisp-slime-nav
-    epl expand-region flx-ido flycheck gist
-    gitconfig-mode gitignore-mode grizzl
-    guru-mode projectile ido-ubiquitous
-    magit move-text rainbow-mode
-    smartparens smex undo-tree
-    volatile-highlights zenburn-theme)
+  '(ace-window
+    avy
+    anzu
+    browse-kill-ring
+    dash
+    discover-my-major
+    diff-hl
+    diminish
+    easy-kill
+    epl
+    expand-region
+    flycheck
+    gist
+    git-timemachine
+    gitconfig-mode
+    gitignore-mode
+    god-mode
+    grizzl
+    guru-mode
+    ov
+    projectile
+    magit
+    move-text
+    operate-on-number
+    smartparens
+    smartrep
+    undo-tree
+    volatile-highlights
+    zenburn-theme
+    zop-to-char)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -67,7 +90,7 @@
 Missing packages are installed automatically."
   (mapc #'prelude-require-package packages))
 
-(defalias 'prelude-ensure-module-deps 'prelude-require-packages)
+(define-obsolete-function-alias 'prelude-ensure-module-deps 'prelude-require-packages)
 
 (defun prelude-install-packages ()
   "Install all packages listed in `prelude-packages'."
@@ -103,17 +126,23 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
 
 (defvar prelude-auto-install-alist
   '(("\\.clj\\'" clojure-mode clojure-mode)
+    ("\\.cmake\\'" cmake-mode cmake-mode)
+    ("CMakeLists\\.txt\\'" cmake-mode cmake-mode)
     ("\\.coffee\\'" coffee-mode coffee-mode)
     ("\\.css\\'" css-mode css-mode)
     ("\\.csv\\'" csv-mode csv-mode)
     ("\\.d\\'" d-mode d-mode)
     ("\\.dart\\'" dart-mode dart-mode)
+    ("\\.ex\\'" elixir-mode elixir-mode)
+    ("\\.exs\\'" elixir-mode elixir-mode)
+    ("\\.elixir\\'" elixir-mode elixir-mode)
     ("\\.erl\\'" erlang erlang-mode)
     ("\\.feature\\'" feature-mode feature-mode)
     ("\\.go\\'" go-mode go-mode)
     ("\\.groovy\\'" groovy-mode groovy-mode)
     ("\\.haml\\'" haml-mode haml-mode)
     ("\\.hs\\'" haskell-mode haskell-mode)
+    ("\\.kv\\'" kivy-mode kivy-mode)
     ("\\.latex\\'" auctex LaTeX-mode)
     ("\\.less\\'" less-css-mode less-css-mode)
     ("\\.lua\\'" lua-mode lua-mode)
@@ -122,19 +151,28 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
     ("\\.ml\\'" tuareg tuareg-mode)
     ("\\.pp\\'" puppet-mode puppet-mode)
     ("\\.php\\'" php-mode php-mode)
+    ("\\.proto\\'" protobuf-mode protobuf-mode)
+    ("\\.pyd\\'" cython-mode cython-mode)
+    ("\\.pyi\\'" cython-mode cython-mode)
+    ("\\.pyx\\'" cython-mode cython-mode)
     ("PKGBUILD\\'" pkgbuild-mode pkgbuild-mode)
+    ("\\.rs\\'" rust-mode rust-mode)
     ("\\.sass\\'" sass-mode sass-mode)
     ("\\.scala\\'" scala-mode2 scala-mode)
     ("\\.scss\\'" scss-mode scss-mode)
     ("\\.slim\\'" slim-mode slim-mode)
+    ("\\.swift\\'" swift-mode swift-mode)
     ("\\.textile\\'" textile-mode textile-mode)
-    ("\\.yml\\'" yaml-mode yaml-mode)))
+    ("\\.thrift\\'" thrift thrift-mode)
+    ("\\.yml\\'" yaml-mode yaml-mode)
+    ("\\.yaml\\'" yaml-mode yaml-mode)
+    ("Dockerfile\\'" dockerfile-mode dockerfile-mode)))
 
 ;; markdown-mode doesn't have autoloads for the auto-mode-alist
 ;; so we add them manually if it's already installed
 (when (package-installed-p 'markdown-mode)
-  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . gfm-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode)))
 
 (when (package-installed-p 'pkgbuild-mode)
   (add-to-list 'auto-mode-alist '("PKGBUILD\\'" . pkgbuild-mode)))

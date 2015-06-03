@@ -1,6 +1,6 @@
 ;;; prelude-osx.el --- Emacs Prelude: OSX specific settings.
 ;;
-;; Copyright © 2011-2013 Bozhidar Batsov
+;; Copyright © 2011-2015 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
@@ -34,12 +34,17 @@
 
 ;; On OS X Emacs doesn't use the shell PATH if it's not started from
 ;; the shell. Let's fix that:
-(prelude-ensure-module-deps '(exec-path-from-shell))
+(prelude-require-packages '(exec-path-from-shell vkill))
+
 (require 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
 
 ;; It's all in the Meta
 (setq ns-function-modifier 'hyper)
+
+;; proced-mode doesn't work on OS X so we use vkill instead
+(autoload 'vkill "vkill" nil t)
+(global-set-key (kbd "C-x p") 'vkill)
 
 (defun prelude-swap-meta-and-super ()
   "Swap the mapping of Meta and Super.

@@ -1,6 +1,6 @@
 ;;; prelude-scheme.el --- Emacs Prelude: Some defaults for Scheme.
 ;;
-;; Copyright © 2011-2013 Bozhidar Batsov
+;; Copyright © 2011-2015 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
@@ -31,8 +31,17 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
+(prelude-require-package 'geiser)
 
 (require 'prelude-lisp)
+(require 'geiser)
+
+;; geiser replies on a REPL to provide autodoc and completion
+(setq geiser-mode-start-repl-p t)
+
+;; keep the home clean
+(setq geiser-repl-history-filename
+      (expand-file-name "geiser-history" prelude-savefile-dir))
 
 (add-hook 'scheme-mode-hook (lambda () (run-hooks 'prelude-lisp-coding-hook)))
 

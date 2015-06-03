@@ -1,4 +1,4 @@
-;;; prelude-org.el --- Emacs Prelude: org-mode configuration.
+;;; prelude-shell.el --- Emacs Prelude: sh-mode configuration.
 ;;
 ;; Copyright © 2011-2015 Bozhidar Batsov
 ;;
@@ -11,7 +11,7 @@
 
 ;;; Commentary:
 
-;; Some basic configuration for org-mode.
+;; Some basic configuration for cc-mode and the modes derived from it.
 
 ;;; License:
 
@@ -32,26 +32,20 @@
 
 ;;; Code:
 
-(add-to-list 'auto-mode-alist '("\\.org\\’" . org-mode))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(setq org-log-done t)
+(require 'sh-script)
 
-(defun prelude-org-mode-defaults ()
-  (let ((oldmap (cdr (assoc 'prelude-mode minor-mode-map-alist)))
-        (newmap (make-sparse-keymap)))
-    (set-keymap-parent newmap oldmap)
-    (define-key newmap (kbd "C-c +") nil)
-    (define-key newmap (kbd "C-c -") nil)
-    (make-local-variable 'minor-mode-overriding-map-alist)
-    (push `(prelude-mode . ,newmap) minor-mode-overriding-map-alist))
-)
+;; recognize pretzo files as zsh scripts
+(defvar prelude-pretzo-files '("zlogin" "zlogin" "zlogout" "zpretzorc" "zprofile" "zshenv" "zshrc"))
 
-(setq prelude-org-mode-hook 'prelude-org-mode-defaults)
+(mapc (lambda (file)
+        (add-to-list 'auto-mode-alist `(,(format "\\%s\\'" file) . sh-mode)))
+      prelude-pretzo-files)
 
-(add-hook 'org-mode-hook (lambda () (run-hooks 'prelude-org-mode-hook)))
+(add-hook 'sh-mode-hook
+          (lambda ()
+            (if (and buffer-file-name
+                     (member (file-name-nondirectory buffer-file-name) prelude-pretzo-files))
+                (sh-set-shell "zsh"))))
 
-(provide 'prelude-org)
-
-;;; prelude-org.el ends here
+(provide 'prelude-shell)
+;;; prelude-shell.el ends here

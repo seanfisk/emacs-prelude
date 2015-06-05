@@ -504,6 +504,8 @@
 ;; Add George Brandl's improvements to po-mode, which include an autowrap.
 ;; (eval-after-load 'po-mode '(load "gb-po-mode"))
 
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 (provide 'personal-packages)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

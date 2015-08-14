@@ -18,7 +18,8 @@ out = 'build' # pylint: disable=invalid-name
 default_prefix = os.path.expanduser('~/.emacs.d') # pylint: disable=invalid-name
 
 def configure(ctx):
-    ctx.load('emacs', tooldir='waf-tools')
+    ctx.load(['python', 'emacs'], tooldir='waf-tools')
+    ctx.check_python_version(version=('3', '4'))
     ctx.check_emacs_version(('24',))
     ctx.env.REPO_DIR = ctx.srcnode.abspath()
 

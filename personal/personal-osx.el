@@ -1,9 +1,15 @@
-;;; personal-osx.el --- Specific customizations for Mac OS X
+;;; personal-osx.el --- Specific customizations for OS X
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: convenience, local
-;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Configure Emacs for OS X.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

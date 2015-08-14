@@ -1,9 +1,15 @@
-;;; personal-visual.el --- Visual customizations
+;;; personal-visual.el --- Visual configuration
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: local
-;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Configure visual appearance of the editor.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -39,7 +45,7 @@
 ;; based on <http://emacswiki.org/emacs/SetFonts#toc9>
 (require 'dash)
 (defun font-candidate (&rest fonts)
-  "Return the first available font."
+  "Return the first available font from FONTS."
   (--first (find-font (font-spec :name it)) fonts))
 
 (if (display-graphic-p)
@@ -54,10 +60,6 @@
       ;; (load-theme 'solarized-dark t)
       )
   (disable-theme 'zenburn))
-
-;; Always disable zenburn theme. If terminal we won't use a theme. If
-;; graphical, we will use solarized. Do it here to avoid flicker.
-;; (disable-theme 'zenburn)
 
 ;; Easy-on-the-eyes flymake
 (require 'flymake)
@@ -80,6 +82,7 @@
 ;; Maximize new frames when they are created. We previously used
 ;; maxframe for this: https://github.com/rmm5t/maxframe.el
 (defun personal-maximize-frame (frame)
+  "Maximize FRAME within the screen."
   (interactive)
   ;; Adapted from `toggle-frame-maximized'.
   (modify-frame-parameters frame '((fullscreen . maximized))))

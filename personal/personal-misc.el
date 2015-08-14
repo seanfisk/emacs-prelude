@@ -1,9 +1,15 @@
-;;; personal-misc.el --- Miscellaneous customizations
+;;; personal-misc.el --- Miscellaneous configuration
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: convenience
-;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Configure things that don't fit anywhere else.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -26,19 +32,21 @@
 ;;
 ;;; Code:
 
+(defvar compilation-scroll-output)
 (setq compilation-scroll-output 'first-error)
+
 ;; I end sentences with a single space. Sue me.
 (setq sentence-end-double-space nil)
 
-;; Open info files in "real" Info-mode
-;; Credit: http://stackoverflow.com/a/1921156
-;; TODO: This works, but it usually dumps this to the terminal from emacsclient:
-;;
-;;     *ERROR*: Wrong type argument: stringp, nil
-;;
-;; Will have to work on this.
 (defun bootstrap-Info-mode ()
+  "Open info files in \"real\" Info-mode."
   (interactive)
+  ;; Credit: http://stackoverflow.com/a/1921156
+  ;; TODO: This works, but it usually dumps this to the terminal from emacsclient:
+  ;;
+  ;;     *ERROR*: Wrong type argument: stringp, nil
+  ;;
+  ;; Will have to work on this.
   (let ((file-name (buffer-file-name)))
     (kill-buffer (current-buffer))
     (info file-name)))

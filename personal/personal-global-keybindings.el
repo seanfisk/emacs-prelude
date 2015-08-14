@@ -4,7 +4,13 @@
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: convenience, local
-;; Compatibility:
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Set up key bindings used throughout the editor.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -29,11 +35,6 @@
 
 (require 'bind-key)
 
-;; The default key to switch buffer is C-x b, but that's not easy
-;; enough.
-(bind-key "C-x b" 'ido-switch-buffer)
-(bind-key "C-x C-c" 'ido-switch-buffer)
-(bind-key "C-x B" 'ibuffer)
 ;; An easy shortcut is needed for this common task.
 (bind-key "C-x j" 'kill-this-buffer)
 (bind-key "C-c r" 'rename-buffer)
@@ -60,11 +61,9 @@
 
 (key-chord-define-global "jf" 'jump-char-forward)
 (key-chord-define-global "jd" 'jump-char-backward)
-(key-chord-define-global "kf" 'ido-switch-buffer)
-(key-chord-define-global "kd" 'prelude-switch-to-previous-buffer)
+(key-chord-define-global "kf" 'switch-to-buffer)
 (key-chord-define-global "kg" 'save-buffer)
 (key-chord-define-global "hf" 'helm-projectile)
-
 
 (provide 'personal-global-keybindings)
 

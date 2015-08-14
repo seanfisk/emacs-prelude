@@ -3,7 +3,13 @@
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: languages
-;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Configure org-mode.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -26,31 +32,33 @@
 ;;
 ;;; Code:
 
-(eval-after-load 'org
-  '(progn
-     ;; Don't truncate lines in org-mode; do regular line wrapping.
-     (setq org-startup-truncated nil)
+(eval-when-compile
+  (require 'org))
 
-     ;; Start up org-mode showing everything.
-     (setq org-startup-folded nil)
+;; Don't truncate lines in org-mode; do regular line wrapping.
+(setq org-startup-truncated nil)
 
-     (defun personal-org-todo-sort ()
-       (interactive)
-       ;; The `save-excursion' honestly doesn't do much, since org resets
-       ;; the point to the beginning of the list it just sorted. But it
-       ;; seems right to have it there.
-       (save-excursion
-         ;; Go to the beginning of the buffer in an attempt to sort
-         ;; top-level.
-         (goto-char (point-min))
-         ;; First, priority sort. Order does matter here.
-         (org-sort-entries nil ?p)
-         ;; The point is now at the beginning of the list that just got
-         ;; sorted. So if we run sort without this next call, it will just
-         ;; sort one entry. Not what we want. Go to the beginning again.
-         (goto-char (point-min))
-         ;; Now, todo sort.
-         (org-sort-entries nil ?o)))))
+;; Start up org-mode showing everything.
+(setq org-startup-folded nil)
+
+(defun personal-org-todo-sort ()
+  "Sort todos by completion then priority."
+  (interactive)
+  ;; The `save-excursion' honestly doesn't do much, since org resets
+  ;; the point to the beginning of the list it just sorted. But it
+  ;; seems right to have it there.
+  (save-excursion
+    ;; Go to the beginning of the buffer in an attempt to sort
+    ;; top-level.
+    (goto-char (point-min))
+    ;; First, priority sort. Order does matter here.
+    (org-sort-entries nil ?p)
+    ;; The point is now at the beginning of the list that just got
+    ;; sorted. So if we run sort without this next call, it will just
+    ;; sort one entry. Not what we want. Go to the beginning again.
+    (goto-char (point-min))
+    ;; Now, todo sort.
+    (org-sort-entries nil ?o)))
 
 (provide 'personal-org)
 

@@ -3,7 +3,13 @@
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: bib, docs, tex, local
-;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Configure AUCTeX.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -25,13 +31,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-
-(require 'package)
-
-;; We can't use `use-package' for this because it expects a file to
-;; load called `auctex'.
-(when (not (package-installed-p 'auctex))
-  (package-install 'auctex))
 
 ;; AUCTeX 11.86 puts this in `auctex-autoloads.el', but AUCTeX 11.87
 ;; does not, so it doesn't get loaded automatically. Go figure.

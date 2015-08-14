@@ -4,13 +4,13 @@
 ;; Maintainer: Sean Fisk
 ;; URL: http://www.emacswiki.org/emacs/MacOSXPlist
 ;; Keywords: data, files, unix
-;; Compatibility: GNU Emacs: 23.x, 24.x; Aquamacs: 2.x, 3.x
+;; Compatibility: GNU Emacs: 24.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; Mac OS X uses compressed XML property list files (plists) to store
+;; OS X uses compressed XML property list files (plists) to store
 ;; settings. This extension allows editing files in the compressed
 ;; format using transparent compression.
 ;;

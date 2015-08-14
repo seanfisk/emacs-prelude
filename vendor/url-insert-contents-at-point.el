@@ -3,7 +3,7 @@
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: convenience, hypermedia, local
-;; Compatibility: GNU Emacs: 23.x, 24.x; Aquamacs: 2.x, 3.x
+;; Compatibility: GNU Emacs: 24.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -36,8 +36,7 @@
 
 ;;;###autoload
 (defun url-insert-contents-at-point ()
-  "Insert the contents of the prompted URL at the current point
-in the buffer."
+  "Insert contents of the URL at the current point in the buffer."
   (interactive)
   ;; The reading of the URL was inspired (read: stolen) from
   ;; `prelude-view-url'.

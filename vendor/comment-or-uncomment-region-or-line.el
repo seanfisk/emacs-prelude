@@ -4,7 +4,7 @@
 ;; Maintainer: Sean Fisk
 ;; URL: http://stackoverflow.com/questions/9688748/emacs-comment-uncomment-current-line
 ;; Keywords: abbrev, convenience, local
-;; Compatibility:
+;; Compatibility: GNU Emacs: 24.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

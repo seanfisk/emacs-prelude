@@ -4,7 +4,7 @@
 ;; Maintainer: Sean Fisk
 ;; URL: https://raw.github.com/cython/cython/master/Tools/cython-mode.el
 ;; Keywords: c, languages, tools
-;; Compatibility: GNU Emacs: 23.x, 24.x; Aquamacs: 2.x, 3.x
+;; Compatibility: GNU Emacs: 24.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

@@ -1,16 +1,15 @@
-;;; personal-packages.el --- Personal list of package.el packages.
+;;; personal-packages.el --- Third-party package configurations
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: local
-;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;; Compatibility: GNU Emacs: 24.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; List of packages to install using package.el from ELPA, Marmalade,
-;; and MELPA.
+;; Configure packages installed with Cask.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -33,119 +32,41 @@
 ;;
 ;;; Code:
 
-(require 'package)
-;; Add Marmalade <http://marmalade-repo.org/>
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-
-;; Add org ELPA <http://orgmode.org/elpa.html>
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-
-;; The decision here is whether to use packages from MELPA or from
-;; Marmalade. I'd like to use MELPA exclusively because I believe it's
-;; the future of Emacs packaging. However, MELPA does not currently
-;; support stable versions of packages. It's a planned feature, but
-;; currently not supported. Therefore, as long as stable packages are
-;; not supported in MELPA, I'm going to prefer Marmalade packages over
-;; MELPA whenever possible. MELPA packages will be specifically
-;; included whenever needed.
-;;
-;; The following code doesn't work. If this were used, it would need
-;; to be executed in the init.el file _before_ prelude-packages is
-;; required. That's because prelude adds melpa and installs a bunch of
-;; packages before this file gets executed.
-;;
-;; (require 'melpa)
-;; (setq package-archive-enable-alist
-;;       '(("melpa"
-;;          ;; Prelude packages
-;;          helm
-;;          helm-projectile
-;;          jump-char                      ; Marmalade version is old
-;;          melpa
-;;          multiple-cursors           ; experimental, so stay up to date
-;;          rainbow-mode
-;;          yaml-mode                ; the Marmalade version is quite old
-;;          yasnippet                ; the Marmalade version is quite old
-;;          ;; My MELPA packages
-;;          auto-complete-clang
-;;          edit-server
-;;          ;; elpy ;; MELPA elpy (submitted by me) is now broken by some recent changes
-;;          ;; smart-tabs-mode
-;;          )))
-
 ;; use-package <https://github.com/jwiegley/use-package> is a great
-;; way to manage the config. See the Github README or the commentary
-;; in the file for more documentation. Undocumented but in the code is
-;; the use of the `:ensure' plist key to automatically install through
-;; ELPA. Also, take note of the `bind-key' utility.
-(require 'use-package)
-
-;; Start by installing diminish for use with use-package.
-(use-package diminish
-  :ensure t)
-
-;;; This package is used by projectile. However, projectile uses the
-;;; variable `ack-and-a-half-arguments', which results in error if the
-;;; package loading is deferred by autoloads. Therefore, we just need
-;;; to load it now.
-(use-package ack-and-a-half
-  :ensure t)
+;; way to manage the configuration of third-party packages. See the
+;; Github README or the commentary in the file for more documentation.
+(eval-when-compile
+  (require 'use-package))
+(require 'diminish)
 
 ;;; auto-complete
-(use-package auto-complete
-  :ensure t
-  :diminish auto-complete-mode
-  :init (global-auto-complete-mode +1)
-  :config (progn
-            (defun personal-auto-complete-mode-setup ()
-              (local-set-key (kbd "M-/") 'auto-complete))
-            (add-hook 'auto-complete-mode-hook
-                      'personal-auto-complete-mode-setup)))
+;; (use-package auto-complete
+;;   :ensure t
+;;   :diminish auto-complete-mode
+;;   :init (global-auto-complete-mode +1)
+;;   :config (progn
+;;             (defun personal-auto-complete-mode-setup ()
+;;               (local-set-key (kbd "M-/") 'auto-complete))
+;;             (add-hook 'auto-complete-mode-hook
+;;                       'personal-auto-complete-mode-setup)))
 
 ;;; auto-complete-clang
-(use-package auto-complete-clang
-  :ensure t
-  :defer t
-  :config (progn
-            (defun personal-ac-cc-mode-setup ()
-              (setq ac-sources
-                    (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
-            (add-hook 'c-mode-common-hook 'personal-ac-cc-mode-setup)))
+;; (use-package auto-complete-clang
+;;   :ensure t
+;;   :defer t
+;;   :config (progn
+;;             (defun personal-ac-cc-mode-setup ()
+;;               (setq ac-sources
+;;                     (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
+;;             (add-hook 'c-mode-common-hook 'personal-ac-cc-mode-setup)))
 
 ;;; buffer-move
 (use-package buffer-move
-  :ensure t
   :commands (buf-move-up buf-move-down buf-move-left buf-move-right)
   :bind (("<C-S-up>" . buf-move-up)
          ("<C-S-down>" . buf-move-down)
          ("<C-S-left>" . buf-move-left)
          ("<C-S-right>" . buf-move-right)))
-
-(use-package cmake-mode
-  :ensure t)
-
-;; Automatic installation always fails, and I barely use it, so remove
-;; it for now.
-;; (use-package dtrt-indent
-;;   :ensure t
-;;   :defer t)
-
-;; Haven't taken the time to learn this yet.
-;;(use-package ecb)
-
-(use-package editorconfig
-  :ensure t)
-
-;; Haven't been using Chrome lately, so there's no need for this.
-;; (use-package edit-server
-;;   :ensure t
-;;   :init (edit-server-start)
-;;   ;; Finish the edit-server buffer when we press the key for `kill-this-buffer'.
-;;   :config (define-key edit-server-edit-mode-map [remap kill-this-buffer] 'edit-server-done))
-
-(use-package ein
-  :ensure t)
 
 ;;; elpy
 ;; For elpy to work correctly, the following packages need to be
@@ -156,87 +77,44 @@
 ;;
 ;;     pip install [--user] elpy rope jedi pyflakes pep8
 ;;
-(use-package elpy
-  :ensure t
-  :init (elpy-enable))
-
-;;; fill-column-indicator
-(use-package fill-column-indicator
-  :ensure t)
-
-;;; No ELPA repository for this yet.
-;;(use-package fillcode)
-
-;;; flymake-cursor
-;; (eval-after-load 'flymake '(require 'flymake-cursor))
-
-;;; flymake-shell
-;; (add-hook 'sh-set-shell-hook 'flymake-shell-load)
+;; (use-package elpy
+;;   :ensure t
+;;   :init (elpy-enable))
 
 ;; Out of the box, flyspell slows down editing. That's the last thing
 ;; I need. flyspell-lazy runs flyspell only when idle, preventing lag.
 (use-package flyspell-lazy
-  :ensure t
-  :init (flyspell-lazy-mode +1))
+  :config (flyspell-lazy-mode +1))
 
 ;;; goto-last-change
-;; when using AZERTY keyboard, consider C-x C-_
 (use-package goto-last-change
-  :ensure t
   :bind ("C-x C-/" . goto-last-change))
-;;(define-key global-map (kbd "C-x C-/") 'goto-last-change)
-
-(use-package graphviz-dot-mode
-  :ensure t)
-
-(use-package header2
-  :ensure t
-  :defer t)
 
 (use-package highlight-indentation
-  :defer t
+  :config (highlight-indentation-mode +1)
   :diminish highlight-indentation-mode)
 
 ;;; highlight-symbol
 ;; I don't really want to enable highlight symbol mode globally, but
 ;; it appears the easiest solution at the moment.
 (use-package highlight-symbol
-  :ensure t
   :bind (("C-c C-n" . highlight-symbol-next)
          ("C-c C-p" . highlight-symbol-prev))
-  :init (highlight-symbol-mode +1))
-
-(use-package ido-ubiquitous
-  :ensure t
-  :defer t
-  :init (progn
-          ;; If we have ido-ubiquitous, there's no need for icomplete.
-          (icomplete-mode -1)
-          (ido-ubiquitous-mode +1)))
+  :config (highlight-symbol-mode +1))
 
 (use-package jump-char
-  :ensure t
   :bind (("M-m" . jump-char-forward)
          ("M-M" . jump-char-backward)))
 
-(use-package mo-git-blame
-  :ensure t
-  :defer t)
-
 ;;; multiple-cursors
 (use-package multiple-cursors
-  :ensure t
   :bind (("C-c m" . mc/edit-lines)
          ("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this-dwim)))
 
-;; No ELPA package for this yet.
-;;(use-package nxhtml)
-
 (use-package nyan-mode
-  :ensure t
-  :init (progn
+  :config (progn
             ;; This is short enough that it will still look OK with
             ;; two vertical windows on my Macbook Pro.
             (setq nyan-bar-length 15)
@@ -249,18 +127,11 @@
               (setq nyan-wavy-trail nyan-animate-nyancat))
             ))
 
-(use-package org
-  :ensure t
-  :defer t)
-
 (use-package paredit
-  :ensure t
-  :defer t
   :diminish paredit-mode)
 
 (use-package powerline
-  :ensure t
-  :init (progn
+  :config (progn
           (defun powerline-sean-theme ()
             "Set up mode line with nyan-mode."
             ;; This is mostly a copy of `powerline-default-theme' with
@@ -334,63 +205,16 @@
           (add-hook 'after-init-hook 'powerline-sean-theme t)
 	  ))
 
-;;; smart-tabs-mode
-;; Use the convenience function to load these automatically.
-;; (smart-tabs-insinuate 'c)
-
-;;; smex
-(use-package smex
-  :ensure t
-  :bind (("C-x C-m" . smex)
-         ("M-x" . smex)
-         ("M-X" . smex-major-mode-commands)
-         ;; This is your old M-x.
-         ("C-c C-c M-x" . execute-extended-command))
-  :init (smex-initialize))
-
-;;; smooth-scrolling
-;; The difference between `smooth-scroll' and `smooth-scrolling' is
-;; this: `smooth-scroll' changes "Page Up" and "Page Down" to show all
-;; the area scrolled when using those operations. I don't like
-;; this. `smooth-scrolling' prevents the cursor from hitting the
-;; bottom or top of the screen when using next and previous line. This
-;; is what I want, because it allows viewing the context of the line
-;; with the cursor.
-(use-package smooth-scrolling
-  :ensure t)
-
-;;; switch-window
-;; This package has no autoloads, so it doesn't "do" anything when
-;; it's just installed through ELPA. It needs to be required, at which
-;; point it takes over the `C-x o' binding.
-;;(require 'switch-window)
-(use-package switch-window
-  :ensure t)
-
-;;; undo-tree
 (use-package undo-tree
-  :ensure t
   :diminish undo-tree-mode
-  :init (global-undo-tree-mode +1))
-
-(use-package unfill
-  :defer t
-  :ensure t)
+  :config (global-undo-tree-mode +1))
 
 (use-package whole-line-or-region
-  :ensure t
   :diminish whole-line-or-region-mode
-  :init (whole-line-or-region-mode +1))
+  :config (whole-line-or-region-mode +1))
 
 (use-package yasnippet
-  :ensure t
-  :init (yas-global-mode +1))
-
-;;; dired-x
-;; C-x C-j opens dired with the cursor right on the file you're
-;; editing.
-(use-package dired-x
-  :defer t)
+  :config (yas-global-mode +1))
 
 
 
@@ -428,19 +252,10 @@
 (use-package ido-find-tagged-file
   :bind ("C-x p" . ido-find-tagged-file))
 
-(use-package json-format
-  :commands json-format)
-
 (use-package misc-cmds
-  :bind (("C-e" . end-of-line+)
-         ;; This doesn't quite do what I want.
-         ;;("C-a" . beginning-or-indentation)
-         ))
+  :bind ("C-e" . end-of-line+))
 
 (use-package plist)
-
-;; (use-package real-auto-save
-;;   :init (add-hook 'prog-mode-hook 'turn-on-real-auto-save))
 
 (use-package toggle-plural
   :bind ("C-c C-s" . toggle-plural-at-point))
@@ -451,30 +266,26 @@
 (use-package url-insert-contents-at-point
   :commands url-insert-contents-at-point)
 
+
+
 ;;; Configuration for packages included by Prelude.
 
 (use-package flyspell
-  :defer t
   :diminish flyspell-mode)
 
-;;; guru-mode
 ;; Turn off guru mode. I'll be a guru when I want to be.
 (setq prelude-guru nil)
 
 (use-package prelude-mode
-  :defer t
   :diminish prelude-mode)
 
 (use-package projectile
-  :defer t
   :diminish projectile-mode)
 
 (use-package rainbow-mode
-  :defer t
   :diminish rainbow-mode)
 
 (use-package volatile-highlights
-  :defer t
   :diminish volatile-highlights-mode)
 
 ;;; whitespace
@@ -494,10 +305,10 @@
 ;; lines-tail is not needed.
 (setq whitespace-style '(face empty trailing))
 (use-package whitespace
-  :defer t
   :diminish whitespace-mode)
 
-;; For loading gettext's po-mode on Mac OS X, installed with Homebrew
+;; For loading gettext's po-mode on OS X, installed with Homebrew
+;; XXX Don't hard-code this
 (add-to-list 'load-path "/usr/local/opt/gettext/share/emacs/site-lisp")
 (load "start-po" t) ;; the t prevents this command from erroring
 

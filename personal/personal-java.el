@@ -1,9 +1,15 @@
-;;; personal-java.el --- Java Customizations
+;;; personal-java.el --- Java configuration
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: languages
-;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Configure java-mode.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -29,6 +35,7 @@
 (require 'max-line-length)
 
 (defun personal-java-mode-setup ()
+  "Configure `java-mode'."
   ;; Follow Java Style Guide conventions.
   ;; <http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-136091.html#313>
   (max-line-length-set 80))

@@ -3,8 +3,13 @@
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: convenience, local, tools
-;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
-;; Package-Requires: ((s "1.6.0"))
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Assorted functions that are generally useful.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -28,19 +33,9 @@
 ;;; Code:
 
 (defun sort-buffer (reverse)
-  "Sort lines in buffer alphabetically; argument means descending order."
+  "Sort lines in buffer alphabetically; REVERSE means descending order."
   (interactive "P")
   (sort-lines reverse (point-min) (point-max)))
-
-(when (eq system-type 'darwin)
-  ;; Latest flex installed using homebrew.
-  (defun read-latest-flex-info ()
-    "Open up the Info manual for the latest version of flex installed using Homebrew."
-    (interactive)
-    ;; Using `*flex-info*' as the buffer name allows it not to
-    ;; conflict with default `*info*' buffers, and have both open at
-    ;; the same time.
-    (info "/usr/local/opt/flex/share/info/flex.info" "*flex-info*")))
 
 ;; This is copied and modified from `beginning-or-indentation' from
 ;; `misc-cmds.el' by Drew Adams.
@@ -60,18 +55,19 @@ the indentation."
         ;; Otherwise, go to indentation.
         (t (back-to-indentation))))
 
+(require 's)
+
 (defun personal-emacs-config-open ()
   "Open my Emacs config for editing."
-  ;; note: requires s.el
   (interactive)
   (with-temp-buffer
     (insert-file-contents-literally (expand-file-name "emacs-repo-path" user-emacs-directory))
     (find-file-existing (s-trim (buffer-string)))))
 
 (defun personal-git-merge-squash-commit-message-cleanup ()
-  "Cleanup a git merge squash commit buffer. This assumes that
-each of your commit messages is one line only! Don't use it
-otherwise!"
+  "Clean up a git merge squash commit buffer.
+This assumes that each of your commit messages is one line only!
+Don't use it otherwise!"
   (interactive)
   (save-excursion
     ;; Jump to beginning of file.

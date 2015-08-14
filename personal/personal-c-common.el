@@ -1,9 +1,15 @@
-;;; personal-c-common.el --- C and C++ customizations
+;;; personal-c-common.el --- C-like language configuration
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: c, languages, local
-;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Configure cc-mode derivatives.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -26,7 +32,12 @@
 ;;
 ;;; Code:
 
+(eval-when-compile
+  (require 'cc-mode)
+  (require 'whitespace))
+
 (defun personal-c-common-hook ()
+  "Configure `c-mode'."
   (setq c-default-style "bsd")
   (setq c-basic-offset 2)
   (setq indent-tabs-mode t)

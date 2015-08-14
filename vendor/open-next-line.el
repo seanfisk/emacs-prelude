@@ -4,7 +4,7 @@
 ;; Maintainer: Sean Fisk
 ;; URL: http://www.emacswiki.org/emacs/OpenNextLine
 ;; Keywords: convenience, local
-;; Compatibility: GNU Emacs: 23.x, Aquamacs: 2.x
+;; Compatibility: GNU Emacs: 24.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

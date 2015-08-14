@@ -1,9 +1,15 @@
-;;; personal-shell.el --- Shell-mode customizations
+;;; personal-shell.el --- Shell-mode configuration
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: local, processes, terminals, unix
-;; Compatibility: GNU Emacs: 24.x; Aquamacs: 3.x
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Configure sh-mode.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -26,7 +32,12 @@
 ;;
 ;;; Code:
 
+(eval-when-compile
+  (require 'sh-script)
+  (require 'whitespace))
+
 (defun personal-sh-hook ()
+  "Configure `sh-mode'."
   (let ((offset 2))
     (setq sh-basic-offset offset)
     (setq sh-indentation offset)

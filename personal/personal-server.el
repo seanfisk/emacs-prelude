@@ -1,9 +1,15 @@
-;;; personal-server.el --- Emacs server customizations
+;;; personal-server.el --- Emacs server configuration
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: convenience, local, tools
-;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Configure the Emacs server.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -27,14 +33,15 @@
 ;;; Code:
 
 ;; `server-running-p' and `server-buffer-clients' are not autoloaded,
-;; so require server feature before using it.
+;; so require `server' feature before using it.
 (require 'server)
 
 (defun personal-server-hook ()
+  "Configure the Emacs server."
   (when (current-local-map)
     (use-local-map (copy-keymap (current-local-map))))
   (when server-buffer-clients
-    ;; use the same shortcut as kill-this-buffer
+    ;; Use the same shortcut as kill-this-buffer
     (local-set-key [remap kill-this-buffer] 'server-edit)))
 
 (add-hook 'server-switch-hook 'personal-server-hook t)

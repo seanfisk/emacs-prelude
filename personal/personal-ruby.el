@@ -1,9 +1,15 @@
-;;; personal-ruby.el --- Ruby Customizations
+;;; personal-ruby.el --- Ruby configuration
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: languages
-;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Configure ruby-mode.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -29,6 +35,7 @@
 (require 'max-line-length)
 
 (defun personal-ruby-mode-setup ()
+  "Configure `ruby-mode'."
   ;; Attempt to follow Ruby Style Guide conventions (enforced by Rubocop).
   ;; <https://github.com/bbatsov/ruby-style-guide#source-code-layout>
   ;;

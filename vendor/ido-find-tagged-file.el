@@ -3,7 +3,7 @@
 ;; Maintainer: Sean Fisk
 ;; URL: http://emacswiki.org/emacs/InteractivelyDoThings#toc11
 ;; Keywords: convenience, local, tools
-;; Compatibility: GNU Emacs: 23.x, 24.x; Aquamacs: 2.x, 3.x
+;; Compatibility: GNU Emacs: 24.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

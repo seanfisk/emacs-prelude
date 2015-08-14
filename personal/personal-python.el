@@ -1,9 +1,15 @@
-;;; personal-python.el --- Python Customizations
+;;; personal-python.el --- Python configuration
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
 ;; Keywords: languages
-;; Compatibility: GNU Emacs: 24.x, Aquamacs: 3.x
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Configure python-mode.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -27,24 +33,17 @@
 ;;; Code:
 
 (require 'max-line-length)
-;; (require 'virtualenv)
 
 (defun personal-python-mode-setup ()
+  "Configure `python-mode'."
   ;; Follow PEP 8 conventions.
   ;; <http://www.python.org/dev/peps/pep-0008/#maximum-line-length>
-  (max-line-length-set 79)
-  ;; Turn off flycheck-mode.
-  ;; TODO: Use flycheck-mode and not flymake-mode with Elpy.
-  (flycheck-mode -1)
-  )
+  (max-line-length-set 79))
 
 (add-hook 'python-mode-hook 'personal-python-mode-setup t)
 
 ;; Add automatic python-mode for SCons files.
 (add-to-list 'auto-mode-alist `(,(concat (regexp-opt '("SConstruct" "SConscript")) "\\'") . python-mode))
-
-;; Virtual environments use pyenv, not virtualenvwrapper.
-;; (setq virtualenv-root "~/.pyenv/versions")
 
 (provide 'personal-python)
 

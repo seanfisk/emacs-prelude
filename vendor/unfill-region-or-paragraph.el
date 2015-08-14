@@ -32,6 +32,8 @@
 ;;
 ;;; Code:
 
+(require 'unfill)
+
 ;;;###autoload
 (defun unfill-region-or-paragraph ()
   "Unfill the current region if it exists, otherwise the current paragraph."

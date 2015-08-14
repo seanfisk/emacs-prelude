@@ -26,3 +26,21 @@ TAGS
 
 # Exported org-mode HTML
 /README.html
+
+# pyenv version file
+/.python-version
+
+# Python Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Waf
+## Build dir
+/build/
+## Unpackaged waflib
+## It's dot-hidden on Unix-like system, but on Windows it is just
+## labelled as a hidden directory (no dot).
+/.waf*-*-*/
+/waf*-*-*/
+## Lock file
+/.lock-waf*

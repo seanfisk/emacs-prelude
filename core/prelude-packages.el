@@ -35,12 +35,6 @@
 (require 'cl)
 (require 'package)
 
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-;; set package-user-dir to be relative to Prelude install path
-(setq package-user-dir (expand-file-name "elpa" prelude-dir))
-(package-initialize)
-
 (defvar prelude-packages
   '(ace-window
     avy
@@ -102,9 +96,6 @@ Missing packages are installed automatically."
     (message "%s" " done.")
     ;; install the missing packages
     (prelude-require-packages prelude-packages)))
-
-;; run package installation
-(prelude-install-packages)
 
 (defun prelude-list-foreign-packages ()
   "Browse third-party packages not bundled with Prelude.

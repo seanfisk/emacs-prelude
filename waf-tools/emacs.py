@@ -1,7 +1,6 @@
 """Check for a minimum Emacs version."""
 
 from waflib.Configure import conf
-from waflib.Errors import WafError
 
 import shlex
 import re

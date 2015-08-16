@@ -113,19 +113,19 @@
          ("C-<" . mc/mark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this-dwim)))
 
-(use-package nyan-mode
-  :config (progn
-            ;; This is short enough that it will still look OK with
-            ;; two vertical windows on my Macbook Pro.
-            (setq nyan-bar-length 15)
-            (defun nyanimate ()
-              "Toggle nyan-cat's wavy animation."
-              (interactive)
-              (if nyan-animate-nyancat
-                  (nyan-stop-animation)
-                (nyan-start-animation))
-              (setq nyan-wavy-trail nyan-animate-nyancat))
-            ))
+;; (use-package nyan-mode
+;;   :config (progn
+;;             ;; This is short enough that it will still look OK with
+;;             ;; two vertical windows on my Macbook Pro.
+;;             (setq nyan-bar-length 15)
+;;             (defun nyanimate ()
+;;               "Toggle nyan-cat's wavy animation."
+;;               (interactive)
+;;               (if nyan-animate-nyancat
+;;                   (nyan-stop-animation)
+;;                 (nyan-start-animation))
+;;               (setq nyan-wavy-trail nyan-animate-nyancat))
+;;             ))
 
 (use-package paredit
   :diminish paredit-mode)

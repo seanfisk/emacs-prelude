@@ -1,0 +1,42 @@
+;;; personal-brew.el --- Load Homebrew Emacs packages
+;;
+;; Author: Sean Fisk
+;; Maintainer: Sean Fisk
+;; Keywords: local
+;; Compatibility: GNU Emacs: 24.x
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; Add Homebrew Emacs packages to `load-path'.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or (at
+;; your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Code:
+
+(defvar personal-brew-dir "@BREW_SITE_LISP_PATH")
+(add-to-list 'load-path personal-brew-dir)
+
+;; Use `declare-function' to silence Flycheck and the compiler
+(declare-function prelude-add-subfolders-to-load-path personal-brew-dir)
+@GETTEXT_COMMANDS@
+(provide 'personal-brew)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; personal-brew.el ends here

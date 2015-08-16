@@ -24,9 +24,8 @@ def configure(ctx):
     ctx.load(['python', 'emacs'], tooldir=WAF_TOOLDIR)
     ctx.check_python_version(version=('3', '4'))
     ctx.check_emacs_version(('24',))
-    ctx.load('cask', tooldir=WAF_TOOLDIR)
+    ctx.load(['brew', 'cask'], tooldir=WAF_TOOLDIR)
     ctx.env.REPO_DIR = ctx.srcnode.abspath()
-
 
 def build(ctx):
     # Install *.el files.
@@ -35,8 +34,8 @@ def build(ctx):
         # Preserve the directory hierarchy.
         relative_trick=True)
 
-    # Create and install cask init file.
-    ctx.load('cask', tooldir=WAF_TOOLDIR)
+    # Create and install generated files.
+    ctx.load(['brew', 'cask'], tooldir=WAF_TOOLDIR)
 
     # Install e-sink script.
     ctx.install_as(os.path.expanduser('~/bin/e-sink'),

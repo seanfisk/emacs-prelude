@@ -307,11 +307,6 @@
 (use-package whitespace
   :diminish whitespace-mode)
 
-;; For loading gettext's po-mode on OS X, installed with Homebrew
-;; XXX Don't hard-code this
-(add-to-list 'load-path "/usr/local/opt/gettext/share/emacs/site-lisp")
-(load "start-po" t) ;; the t prevents this command from erroring
-
 ;; Add George Brandl's improvements to po-mode, which include an autowrap.
 ;; (eval-after-load 'po-mode '(load "gb-po-mode"))
 

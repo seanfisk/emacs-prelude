@@ -1,5 +1,6 @@
 """Detect and configure Homebrew Emacs packages."""
 
+from pathlib import Path
 from os import path
 
 import waflib
@@ -11,9 +12,9 @@ def configure(ctx):
 
     prefix = ctx.cmd_and_log(
         cmd + ['--prefix'], quiet=waflib.Context.STDOUT).rstrip()
-    site_lisp_path = path.join(prefix, 'share', 'emacs', 'site-lisp')
-    if path.isdir(site_lisp_path):
-        ctx.env.BREW_SITE_LISP_PATH = site_lisp_path
+    site_lisp_path = Path(prefix, 'share', 'emacs', 'site-lisp')
+    if site_lisp_path.is_dir():
+        ctx.env.BREW_SITE_LISP_PATH = str(site_lisp_path)
 
     # Check for gettext, which isn't for some reason included in Homebrew's
     # 'site-lisp' directory.
@@ -40,11 +41,13 @@ def build(ctx):
         target=out_node,
         source=in_node,
         GETTEXT_COMMANDS=('''
-;; We need to add this to the `load-path' instead of just requiring it, as
-;; other files in this directory are needed.
-(add-to-list 'load-path "{}")
-;; We can't use `require' here as `start-po' has no `provides' and is therefore
-;; not a feature.
+;; We need to add this to the `load-path' instead of just requiring
+;; it, as other files in this directory are needed.
+(add-to-list
+ 'load-path
+ "{}")
+;; We can't use `require' here as `start-po' has no `provides' and is
+;; therefore not a feature.
 (load-library "start-po")
 '''.format(ctx.env.BREW_GETTEXT_PREFIX)
                           if ctx.env.BREW_GETTEXT_PREFIX else ''))

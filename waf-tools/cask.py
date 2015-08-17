@@ -1,7 +1,7 @@
 """Detect and configure Cask."""
 
 import os
-from os import path
+from pathlib import Path
 
 import waflib
 
@@ -14,31 +14,17 @@ def run_cask(self, subcommand):
 
 def configure(ctx):
     cmd = ctx.find_program('cask')
-    prefix = None
-    if ctx.env.BREW:
-        try:
-            # If Cask is installed using Homebrew, use the opt/ directory
-            # instead of a directory with a specific version in the path. This
-            # allows our file to survive upgrades of the tool.
-            out = ctx.cmd_and_log(ctx.env.BREW + ['--prefix', 'cask'],
-                                  quiet=waflib.Context.STDOUT)
-        except waflib.Errors.WafError:
-            pass
-        else:
-            prefix = out.rstrip()
-    if prefix is None:
+    require = None
+    if ctx.env.BREW and ctx.exec_command(
+            ctx.env.BREW + ['list', '--versions', 'cask']) == 0:
+        ctx.env.CASK_REQUIRE = '''\
+; Installed with Homebrew, and already on the `load-path'.
+(require 'cask)'''
+    else:
         # Otherwise just find the prefix based upon the location of the 'cask'
         # executable.
-        prefix = path.dirname(path.dirname(path.realpath(cmd[0])))
-
-    el_name = 'cask.el'
-    el_path = path.join(prefix, el_name)
-    el_node = ctx.root.find_node(el_path)
-    ctx.msg("Checking for '{}'".format(el_name),
-            el_node.abspath() if el_node else False)
-    if el_node is None:
-        ctx.fatal("Cask file not found: {}".format(el_path))
-    ctx.env.CASK_EL_PATH = el_path
+        el_path = Path(cmd[0]).resolve().parents[1] / 'cask.el'
+        ctx.env.CASK_REQUIRE = '(require \'cask "{}")'.format(el_path)
 
 def build(ctx):
     in_node = ctx.path.find_resource([

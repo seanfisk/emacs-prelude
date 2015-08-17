@@ -35,7 +35,8 @@
 ;; empirically.
 (setq package-enable-at-startup nil)
 
-(require 'cask "@CASK_EL_PATH@")
+@CASK_REQUIRE@
+
 ;; Initialize Cask. This adds all ELPA packages to `load-path', and
 ;; from what I can tell replaces the need to call
 ;; `package-initialize'.

@@ -9,7 +9,7 @@ import waflib
 @waflib.Configure.conf
 def run_cask(self, cask_args):
     args = self.env.CASK + cask_args
-    emacs = self.env.EMACS[0]
+    emacs = self.env.EMACS_EXE[0]
     cwd = self.env.PREFIX
 
     env = os.environ.copy()

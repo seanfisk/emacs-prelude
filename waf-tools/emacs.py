@@ -12,7 +12,11 @@ def _format_version(version_tuple):
 
 @conf
 def check_emacs_version(self, version):
-    emacs_path = self.find_program('emacs')
+    # When running a compilation from within Emacs, Emacs set the EMACS
+    # environment variable to 't', which causes it to be picked up here if
+    # using the default environment variable. Change it to EMACS_EXE to avoid
+    # this problem.
+    emacs_path = self.find_program('emacs', var='EMACS_EXE')
     cmd = emacs_path + ['--version']
     out = self.cmd_and_log(cmd)
     match = VERSION_RE.match(out)

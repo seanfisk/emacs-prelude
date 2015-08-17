@@ -91,7 +91,7 @@ def build(ctx):
             env['HOME'] = str(temp_path)
             emacs_args = ['--debug-init']
             if platform.system() == 'Darwin':
-                # XXX This ignores the Emacs set by ctx.env.EMACS
+                # XXX This ignores the Emacs set by ctx.env.EMACS_EXE
                 ctx.exec_command(
                     [
                         'open', '-a', 'Emacs',
@@ -102,7 +102,7 @@ def build(ctx):
                     env=env)
             else:
                 ctx.exec_command(
-                    ctx.env.EMACS + emacs_args,
+                    ctx.env.EMACS_EXE + emacs_args,
                     # Don't buffer the program's output.
                     stdout=None, stderr=None,
                     env=env)

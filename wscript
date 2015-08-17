@@ -5,6 +5,7 @@
 import os
 from tempfile import TemporaryDirectory
 from pathlib import Path
+import platform
 
 import waflib
 from waflib.Errors import WafError
@@ -80,11 +81,23 @@ def build(ctx):
             # Remapping HOME is the easiest way to load an alternate init file.
             # http://stackoverflow.com/a/17149070/879885
             env['HOME'] = str(temp_path)
-            ctx.exec_command(
-                ctx.env.EMACS + ['--debug-init'],
-                # Don't buffer the program's output.
-                stdout=None, stderr=None,
-                env=env)
+            emacs_args = ['--debug-init']
+            if platform.system() == 'Darwin':
+                # XXX This ignores the Emacs set by ctx.env.EMACS
+                ctx.exec_command(
+                    [
+                        'open', '-a', 'Emacs',
+                        '-n', # Start a new instance
+                        '-W', # Wait (block) until closed
+                        '--args'
+                    ] + emacs_args,
+                    env=env)
+            else:
+                ctx.exec_command(
+                    ctx.env.EMACS + emacs_args,
+                    # Don't buffer the program's output.
+                    stdout=None, stderr=None,
+                    env=env)
             ctx.to_log("Removing '{}'\n".format(str(temp_path)))
             temp_dir.cleanup()
 

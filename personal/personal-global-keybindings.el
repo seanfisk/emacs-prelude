@@ -49,8 +49,6 @@
 (bind-key "C-o" 'prelude-smart-open-line)
 (bind-key "M-o" 'prelude-smart-open-line-above)
 
-(bind-key "RET" 'newline-and-indent)
-
 ;; Now that we've clobbered `kill-emacs', give a shortcut back.
 (bind-key "C-x q" 'kill-emacs)
 

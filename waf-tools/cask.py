@@ -10,7 +10,7 @@ def run_cask(self, subcommand):
     env = os.environ.copy()
     # Manually specify Emacs executable for Cask.
     env['EMACS'] = self.env.EMACS[0]
-    self.exec_command(self.env.CASK + subcommand, cwd=self.env.USER_EMACS_DIR)
+    self.exec_command(self.env.CASK + subcommand, cwd=self.env.PREFIX)
 
 def configure(ctx):
     cmd = ctx.find_program('cask')

@@ -75,6 +75,9 @@ def build(ctx):
         tsk.outputs[0].write(tsk.env.REPO_DIR)
     ctx.install_node(repo_path_node)
 
+    # Run 'cask install' after installing the configuration.
+    ctx.add_post_fun(lambda ctx: ctx.run_cask(['install']))
+
     if ctx.cmd == 'try':
         def run(ctx):
             env = os.environ.copy()

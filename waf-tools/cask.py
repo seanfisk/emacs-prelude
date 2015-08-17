@@ -14,7 +14,6 @@ def run_cask(self, subcommand):
 
 def configure(ctx):
     cmd = ctx.find_program('cask')
-    require = None
     if ctx.env.BREW and ctx.exec_command(
             ctx.env.BREW + ['list', '--versions', 'cask']) == 0:
         ctx.env.CASK_REQUIRE = '''\

@@ -105,3 +105,11 @@ def build(ctx):
             temp_dir.cleanup()
 
         ctx.add_post_fun(run)
+
+class CaskupContext(waflib.Build.BuildContext):
+    """updates Cask packages"""
+    cmd = 'caskup'
+    fun = 'caskup'
+
+def caskup(ctx):
+    ctx.run_cask(['update'])

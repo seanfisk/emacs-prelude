@@ -2,15 +2,32 @@
 
 import os
 from pathlib import Path
+import shlex
 
 import waflib
 
 @waflib.Configure.conf
-def run_cask(self, subcommand):
+def run_cask(self, cask_args):
+    args = self.env.CASK + cask_args
+    emacs = self.env.EMACS[0]
+    cwd = self.env.PREFIX
+
     env = os.environ.copy()
     # Manually specify Emacs executable for Cask.
-    env['EMACS'] = self.env.EMACS[0]
-    self.exec_command(self.env.CASK + subcommand, cwd=self.env.PREFIX)
+    env['EMACS'] = emacs
+    self.to_log('''\
+Running cask:
+  args: {}
+  emacs: {}
+  cwd: {}
+'''.format(shlex.quote(' '.join(shlex.quote(arg) for arg in args)),
+           emacs, cwd))
+    self.exec_command(
+        args,
+        # Don't buffer output.
+        stdout=None, stderr=None,
+        cwd=cwd,
+        env=env)
 
 def configure(ctx):
     cmd = ctx.find_program('cask')

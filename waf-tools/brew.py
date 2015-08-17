@@ -48,4 +48,4 @@ def build(ctx):
 (load-library "start-po")
 '''.format(ctx.env.BREW_GETTEXT_PREFIX)
                           if ctx.env.BREW_GETTEXT_PREFIX else ''))
-    ctx.install_as(path.join(ctx.env.PREFIX, out_node.relpath()), out_node)
+    ctx.install_node(out_node)

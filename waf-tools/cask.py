@@ -1,8 +1,16 @@
 """Detect and configure Cask."""
 
+import os
 from os import path
 
 import waflib
+
+@waflib.Configure.conf
+def run_cask(self, subcommand):
+    env = os.environ.copy()
+    # Manually specify Emacs executable for Cask.
+    env['EMACS'] = self.env.EMACS[0]
+    self.exec_command(self.env.CASK + subcommand, cwd=self.env.USER_EMACS_DIR)
 
 def configure(ctx):
     cmd = ctx.find_program('cask')
@@ -37,4 +45,6 @@ def build(ctx):
         'personal', 'preload', 'personal-cask.el.in'])
     out_node = in_node.change_ext('')
     ctx(features='subst', target=out_node, source=in_node)
-    ctx.install_as(path.join(ctx.env.PREFIX, out_node.relpath()), out_node)
+    ctx.install_node(out_node)
+
+    ctx.install_node(ctx.path.find_resource('Cask'))

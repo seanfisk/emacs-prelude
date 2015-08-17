@@ -3,6 +3,8 @@
 """Waf build file"""
 
 import os
+from tempfile import TemporaryDirectory
+from pathlib import Path
 
 import waflib
 from waflib.Errors import WafError
@@ -20,7 +22,12 @@ default_prefix = os.path.expanduser('~/.emacs.d') # pylint: disable=invalid-name
 
 WAF_TOOLDIR = 'waf-tools'
 
+class TryContext(waflib.Build.InstallContext):
+    """try it before you buy it"""
+    cmd = 'try'
+
 def configure(ctx):
+    ctx.msg('Setting prefix to', ctx.env.PREFIX)
     ctx.load(['python', 'emacs'], tooldir=WAF_TOOLDIR)
     ctx.check_python_version(version=('3', '4'))
     ctx.check_emacs_version(('24',))
@@ -28,11 +35,29 @@ def configure(ctx):
     ctx.env.REPO_DIR = ctx.srcnode.abspath()
 
 def build(ctx):
+    if ctx.cmd == 'try':
+        # Create temporary directory.
+        temp_dir = TemporaryDirectory(prefix='emacs-config-')
+        temp_path = Path(temp_dir.name)
+        ctx.to_log("Writing files to '{}'\n".format(temp_path))
+        input('Press Enter to continue.')
+        emacs_path = temp_path / '.emacs.d'
+        emacs_path.mkdir()
+        # Symlink the real '.cask' directory to the fake one.
+        ctx.symlink_as(str(emacs_path / '.cask'),
+                       os.path.join(ctx.env.PREFIX, '.cask'))
+        # Reset prefix.
+        ctx.env.PREFIX = str(emacs_path)
+
+    ctx.load('base', tooldir=WAF_TOOLDIR)
+
     # Install *.el files.
-    ctx.install_files(
-        ctx.env.PREFIX, ctx.path.ant_glob(incl='**/*.el', excl='sample/*'),
-        # Preserve the directory hierarchy.
-        relative_trick=True)
+    el_nodes = ctx.path.ant_glob(
+        incl='**/*.el',
+        # Make sure to exclude the build directory.
+        excl=['sample', out])
+    for node in el_nodes:
+        ctx.install_node(node)
 
     # Create and install generated files.
     ctx.load(['brew', 'cask'], tooldir=WAF_TOOLDIR)
@@ -47,4 +72,20 @@ def build(ctx):
     @ctx.rule(target=repo_path_node, vars='REPO_DIR')
     def _make_repo_path(tsk):
         tsk.outputs[0].write(tsk.env.REPO_DIR)
-    ctx.install_files(ctx.env.PREFIX, repo_path_node)
+    ctx.install_node(repo_path_node)
+
+    if ctx.cmd == 'try':
+        def run(ctx):
+            env = os.environ.copy()
+            # Remapping HOME is the easiest way to load an alternate init file.
+            # http://stackoverflow.com/a/17149070/879885
+            env['HOME'] = str(temp_path)
+            ctx.exec_command(
+                ctx.env.EMACS + ['--debug-init'],
+                # Don't buffer the program's output.
+                stdout=None, stderr=None,
+                env=env)
+            ctx.to_log("Removing '{}'\n".format(str(temp_path)))
+            temp_dir.cleanup()
+
+        ctx.add_post_fun(run)

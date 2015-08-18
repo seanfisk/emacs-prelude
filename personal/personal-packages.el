@@ -199,10 +199,6 @@
 ;;           (add-hook 'after-init-hook 'powerline-sean-theme t)
 ;; 	  ))
 
-(use-package undo-tree
-  :diminish undo-tree-mode
-  :config (global-undo-tree-mode +1))
-
 (use-package whole-line-or-region
   :diminish whole-line-or-region-mode
   :config (whole-line-or-region-mode +1))
@@ -252,9 +248,6 @@
 
 (use-package rainbow-mode
   :diminish rainbow-mode)
-
-(use-package volatile-highlights
-  :diminish volatile-highlights-mode)
 
 (use-package whitespace
   :diminish whitespace-mode

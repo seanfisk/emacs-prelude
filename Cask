@@ -114,10 +114,11 @@
 (depends-on "markdown-mode")
 (depends-on "misc-cmds")
 (depends-on "multiple-cursors")
-;; nyan-mode can't install because it's missing a package version.
-;; (depends-on nyan-mode)
+(depends-on "nyan-mode")
 (depends-on "paredit")
 (depends-on "s")
+;; Not currently using, but may interactively or in the future.
+(depends-on "smart-mode-line-powerline-theme")
 ;; The difference between `smooth-scroll' and `smooth-scrolling' is
 ;; this: `smooth-scroll' changes "Page Up" and "Page Down" to show all
 ;; the area scrolled when using those operations. I don't like this.

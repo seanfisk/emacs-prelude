@@ -123,12 +123,17 @@
   (size-indication-mode -1)
   (scroll-bar-mode -1)
 
-  (defun personal-nyanimate ()
-    "Toggle nyan-cat's wavy animation."
-    (interactive)
+  (defun personal-nyanimate (toggle-music)
+    "Toggle nyan-cat's wavy animation (and optionally music)."
+    (interactive "P")
     (if nyan-animate-nyancat
-        (nyan-stop-animation)
-      (nyan-start-animation))
+        (progn
+          (nyan-stop-animation)
+          (when toggle-music
+            (nyan-stop-music)))
+      (nyan-start-animation)
+      (when toggle-music
+        (nyan-start-music)))
     (setq nyan-wavy-trail nyan-animate-nyancat))
   )
 

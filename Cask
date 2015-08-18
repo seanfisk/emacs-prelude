@@ -13,7 +13,7 @@
 ;;
 ;; Order appears not to matter for this list. Packages are chosen by
 ;; the highest version.
-(source gnu) ; for let-alist
+(source gnu) ; for let-alist and csv-mode
 (source melpa)
 (source org)
 

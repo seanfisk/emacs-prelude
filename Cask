@@ -111,6 +111,7 @@
 ;; nyan-mode can't install because it's missing a package version.
 ;; (depends-on nyan-mode)
 (depends-on "paredit")
+(depends-on "pp-c-l")
 (depends-on "s")
 ;; The difference between `smooth-scroll' and `smooth-scrolling' is
 ;; this: `smooth-scroll' changes "Page Up" and "Page Down" to show all

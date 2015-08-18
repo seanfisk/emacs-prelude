@@ -44,7 +44,8 @@ def configure(ctx):
 def build(ctx):
     # Run 'cask install' after installing the configuration. Add this post_fun
     # before adding the one for the 'try' command.
-    ctx.add_post_fun(lambda ctx: ctx.run_cask(['install']))
+    if ctx.cmd in ('install', 'try'):
+        ctx.add_post_fun(lambda ctx: ctx.run_cask(['install']))
 
     if ctx.cmd == 'try':
         # Create temporary directory.

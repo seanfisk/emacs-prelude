@@ -2,6 +2,7 @@
 
 """Waf build file"""
 
+import sys
 import os
 from tempfile import TemporaryDirectory
 from pathlib import Path
@@ -41,12 +42,23 @@ def configure(ctx):
     ctx.env.REPO_DIR = ctx.srcnode.abspath()
 
 def build(ctx):
+    # Run 'cask install' after installing the configuration. Add this post_fun
+    # before adding the one for the 'try' command.
+    ctx.add_post_fun(lambda ctx: ctx.run_cask(['install']))
+
     if ctx.cmd == 'try':
         # Create temporary directory.
         temp_dir = TemporaryDirectory(prefix='emacs-config-')
         temp_path = Path(temp_dir.name)
         ctx.to_log("Writing files to '{}'\n".format(temp_path))
-        input('Press Enter to continue.')
+
+        full_screen_terminal = platform.system() != 'Darwin'
+        # There's no point in waiting for the user to see the temp dir path if
+        # the user can't answer the prompt or we're not full-screening the
+        # terminal.
+        if full_screen_terminal and sys.stdin.isatty():
+            input('Press Enter to continue.')
+
         emacs_path = temp_path / '.emacs.d'
         emacs_path.mkdir()
         # Symlink the real '.cask' directory to the fake one.
@@ -54,6 +66,33 @@ def build(ctx):
                        os.path.join(ctx.env.PREFIX, '.cask'))
         # Reset prefix.
         ctx.env.PREFIX = str(emacs_path)
+
+        def run(ctx):
+            env = os.environ.copy()
+            # Remapping HOME is the easiest way to load an alternate init file.
+            # http://stackoverflow.com/a/17149070/879885
+            env['HOME'] = str(temp_path)
+            emacs_args = ['--debug-init']
+            if full_screen_terminal:
+                ctx.exec_command(
+                    ctx.env.EMACS_EXE + emacs_args,
+                    # Don't buffer the program's output.
+                    stdout=None, stderr=None,
+                    env=env)
+            else:
+                # XXX This ignores the Emacs set by ctx.env.EMACS_EXE
+                ctx.exec_command(
+                    [
+                        'open', '-a', 'Emacs',
+                        '-n', # Start a new instance
+                        '-W', # Wait (block) until closed
+                        '--args'
+                    ] + emacs_args,
+                    env=env)
+            ctx.to_log("Removing '{}'\n".format(str(temp_path)))
+            temp_dir.cleanup()
+
+        ctx.add_post_fun(run)
 
     ctx.load('base', tooldir=WAF_TOOLDIR)
 
@@ -79,37 +118,6 @@ def build(ctx):
     def _make_repo_path(tsk):
         tsk.outputs[0].write(tsk.env.REPO_DIR)
     ctx.install_node(repo_path_node)
-
-    # Run 'cask install' after installing the configuration.
-    ctx.add_post_fun(lambda ctx: ctx.run_cask(['install']))
-
-    if ctx.cmd == 'try':
-        def run(ctx):
-            env = os.environ.copy()
-            # Remapping HOME is the easiest way to load an alternate init file.
-            # http://stackoverflow.com/a/17149070/879885
-            env['HOME'] = str(temp_path)
-            emacs_args = ['--debug-init']
-            if platform.system() == 'Darwin':
-                # XXX This ignores the Emacs set by ctx.env.EMACS_EXE
-                ctx.exec_command(
-                    [
-                        'open', '-a', 'Emacs',
-                        '-n', # Start a new instance
-                        '-W', # Wait (block) until closed
-                        '--args'
-                    ] + emacs_args,
-                    env=env)
-            else:
-                ctx.exec_command(
-                    ctx.env.EMACS_EXE + emacs_args,
-                    # Don't buffer the program's output.
-                    stdout=None, stderr=None,
-                    env=env)
-            ctx.to_log("Removing '{}'\n".format(str(temp_path)))
-            temp_dir.cleanup()
-
-        ctx.add_post_fun(run)
 
 class CaskupContext(waflib.Build.BuildContext):
     """updates Cask packages"""

@@ -2,6 +2,7 @@
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
+;; Package-Requires: ((f "0.17.2"))
 ;; Keywords: convenience, local, tools
 ;; Compatibility: GNU Emacs: 24.x
 ;;
@@ -65,14 +66,12 @@ the indentation."
         ;; Otherwise, go to indentation.
         (t (back-to-indentation))))
 
-(require 's)
+(require 'f)
 
 (defun personal-emacs-config-open ()
   "Open my Emacs config for editing."
   (interactive)
-  (with-temp-buffer
-    (insert-file-contents-literally (expand-file-name "emacs-repo-path" user-emacs-directory))
-    (find-file-existing (s-trim (buffer-string)))))
+  (magit-status (f-read (f-expand "emacs-repo-path" user-emacs-directory))))
 
 (defun personal-git-merge-squash-commit-message-cleanup ()
   "Clean up a git merge squash commit buffer.

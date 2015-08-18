@@ -39,7 +39,9 @@
 
 ;; Initialize Cask. This adds all ELPA packages to `load-path', and
 ;; from what I can tell replaces the need to call
-;; `package-initialize'.
+;; `package-initialize'. See here for an (albeit old, so maybe not
+;; accurate) explanation:
+;; https://github.com/cask/cask/issues/147#issuecomment-28623004
 (cask-initialize)
 
 (provide 'personal-cask)

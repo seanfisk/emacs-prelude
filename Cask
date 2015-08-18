@@ -47,6 +47,8 @@
 (depends-on "magit")
 (depends-on "move-text")
 (depends-on "operate-on-number")
+;; Chosen over a number alternatives; see here
+;; https://github.com/Fuco1/smartparens#smartparens
 (depends-on "smartparens")
 (depends-on "smartrep")
 (depends-on "smart-mode-line") ; chosen over `powerline'
@@ -115,7 +117,6 @@
 (depends-on "misc-cmds")
 (depends-on "multiple-cursors")
 (depends-on "nyan-mode")
-(depends-on "paredit")
 (depends-on "s")
 ;; Not currently using, but may interactively or in the future.
 (depends-on "smart-mode-line-powerline-theme")

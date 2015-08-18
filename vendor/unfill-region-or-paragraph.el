@@ -1,8 +1,10 @@
 ;;; unfill-region-or-paragraph.el --- Unfill current region or paragraph
 ;;
+;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
+;; Package-Requires: ((unfill "0.1"))
 ;; Keywords: abbrev, convenience, local
-;; Compatibility:
+;; Compatibility: GNU Emacs: 24.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

@@ -32,14 +32,24 @@
 ;;
 ;;; Code:
 
-(defun sort-buffer (reverse)
+(defun personal-set-fill-column (value)
+  "Set `fill-column' for a mode to VALUE.
+
+This also turns on `fci-mode'."
+  (setq fill-column value)
+  ;; Specifically *don't* set `fci-rule-column' (the column at which
+  ;; the line is shown). `fci-mode' will then default to using the
+  ;; value of `fill-column'.
+  (turn-on-fci-mode))
+
+(defun personal-sort-buffer (reverse)
   "Sort lines in buffer alphabetically; REVERSE means descending order."
   (interactive "P")
   (sort-lines reverse (point-min) (point-max)))
 
 ;; This is copied and modified from `beginning-or-indentation' from
 ;; `misc-cmds.el' by Drew Adams.
-(defun toggle-beginning-or-indentation ()
+(defun personal-toggle-beginning-or-indentation ()
   "Move cursor to beginning of this line or to its indentation.
 If at or within the indentation, move to beginning of line.
 

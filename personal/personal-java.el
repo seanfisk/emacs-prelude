@@ -32,13 +32,11 @@
 ;;
 ;;; Code:
 
-(require 'max-line-length)
-
 (defun personal-java-mode-setup ()
   "Configure `java-mode'."
   ;; Follow Java Style Guide conventions.
   ;; <http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-136091.html#313>
-  (max-line-length-set 80))
+  (personal-set-fill-column 80))
 
 (add-to-list 'auto-mode-alist '("Buildfile" . java-mode))
 

@@ -84,14 +84,18 @@
 ;;; My required packages
 (depends-on "auctex")
 (depends-on "bind-key")
+(depends-on "comment-dwim-2")
 (depends-on "cmake-mode")
 (depends-on "csv-mode")
+(depends-on "cython-mode")
 (depends-on "dash-at-point")
 (depends-on "dtrt-indent")
 (depends-on "editorconfig")
 (depends-on "ein")
 (depends-on "f")
 (depends-on "fill-column-indicator")
+;; Out of the box, flyspell slows down editing. That's the last thing
+;; I need. flyspell-lazy runs flyspell only when idle, preventing lag.
 (depends-on "flyspell-lazy")
 (depends-on "git-timemachine")
 (depends-on "goto-last-change")
@@ -102,6 +106,7 @@
 (depends-on "inflections")
 (depends-on "jump-char")
 (depends-on "markdown-mode")
+(depends-on "misc-cmds")
 (depends-on "multiple-cursors")
 ;; nyan-mode can't install because it's missing a package version.
 ;; (depends-on nyan-mode)

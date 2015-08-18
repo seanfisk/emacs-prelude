@@ -32,13 +32,11 @@
 ;;
 ;;; Code:
 
-(require 'max-line-length)
-
 (defun personal-python-mode-setup ()
   "Configure `python-mode'."
   ;; Follow PEP 8 conventions.
   ;; <http://www.python.org/dev/peps/pep-0008/#maximum-line-length>
-  (max-line-length-set 79))
+  (personal-set-fill-column 79))
 
 (add-hook 'python-mode-hook 'personal-python-mode-setup t)
 

@@ -2,9 +2,9 @@
 ;;
 ;; Author: Sean Fisk
 ;; Maintainer: Sean Fisk
-;; URL: http://github.com/seanfisk/emacs
+;; Package-Requires: ((inflections "2.3"))
 ;; Keywords: abbrev, convenience, wp
-;; Compatibility: GNU Emacs 24.x
+;; Compatibility: GNU Emacs: 24.x
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

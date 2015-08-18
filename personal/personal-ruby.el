@@ -32,8 +32,6 @@
 ;;
 ;;; Code:
 
-(require 'max-line-length)
-
 (defun personal-ruby-mode-setup ()
   "Configure `ruby-mode'."
   ;; Attempt to follow Ruby Style Guide conventions (enforced by Rubocop).
@@ -42,7 +40,7 @@
   ;; In the Ruby Style Guide, it specifies the max length as 80, but
   ;; Rubocop defaults to 79. It doesn't really matter, so we'll set it
   ;; at 79 to comply with default Rubocop.
-  (max-line-length-set 79))
+  (personal-set-fill-column 79))
 
 (add-to-list 'auto-mode-alist '("Buildfile" . ruby-mode))
 

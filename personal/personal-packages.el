@@ -37,7 +37,6 @@
 ;; Github README or the commentary in the file for more documentation.
 (eval-when-compile
   (require 'use-package))
-(require 'diminish)
 
 ;;; auto-complete
 ;; (use-package auto-complete
@@ -60,13 +59,8 @@
 ;;                     (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
 ;;             (add-hook 'c-mode-common-hook 'personal-ac-cc-mode-setup)))
 
-;;; buffer-move
-(use-package buffer-move
-  :commands (buf-move-up buf-move-down buf-move-left buf-move-right)
-  :bind (("<C-S-up>" . buf-move-up)
-         ("<C-S-down>" . buf-move-down)
-         ("<C-S-left>" . buf-move-left)
-         ("<C-S-right>" . buf-move-right)))
+(use-package comment-dwim-2
+  :config (define-key prog-mode-map [remap comment-dwim] 'comment-dwim-2))
 
 ;;; elpy
 ;; For elpy to work correctly, the following packages need to be
@@ -81,12 +75,9 @@
 ;;   :ensure t
 ;;   :init (elpy-enable))
 
-;; Out of the box, flyspell slows down editing. That's the last thing
-;; I need. flyspell-lazy runs flyspell only when idle, preventing lag.
 (use-package flyspell-lazy
   :config (flyspell-lazy-mode +1))
 
-;;; goto-last-change
 (use-package goto-last-change
   :bind ("C-x C-/" . goto-last-change))
 
@@ -94,19 +85,22 @@
   :config (highlight-indentation-mode +1)
   :diminish highlight-indentation-mode)
 
-;;; highlight-symbol
-;; I don't really want to enable highlight symbol mode globally, but
-;; it appears the easiest solution at the moment.
 (use-package highlight-symbol
   :bind (("C-c C-n" . highlight-symbol-next)
          ("C-c C-p" . highlight-symbol-prev))
-  :config (highlight-symbol-mode +1))
+  :config
+  ;; I don't really want to enable highlight symbol mode globally, but
+  ;; it appears the easiest solution at the moment.
+  (highlight-symbol-mode +1)
+  :diminish highlight-symbol-mode)
 
 (use-package jump-char
   :bind (("M-m" . jump-char-forward)
          ("M-M" . jump-char-backward)))
 
-;;; multiple-cursors
+(use-package misc-cmds
+  :bind ("C-e" . end-of-line+))
+
 (use-package multiple-cursors
   :bind (("C-c m" . mc/edit-lines)
          ("C->" . mc/mark-next-like-this)
@@ -225,37 +219,11 @@
 ;; without bindings, probably the best idea is to use the :commands
 ;; keyword of use-package. Find a better solution later.
 
-;;; comment-or-uncomment-line-or-region
-;; I'd like this set to `C-;' or `C-c C-c'. Right now flyspell is
-;; overriding the first one. See
-;; <http://stackoverflow.com/questions/683425/globally-override-key-binding-in-emacs>
-;; for a way to fix it.
-;;
-;; This should also be in prog-mode map instead of the global map.
-;;
-;; This is overriding `comment-dwim' right now. The only thing that
-;; `comment-dwim' does that `comment-or-uncomment-region-or-line' does
-;; is add trailing comments, which I use sparingly anyway. And this
-;; function also works on lines when no region is activated. However,
-;; I don't like overriding this key binding, so consider changing it
-;; later.
-(use-package comment-or-uncomment-region-or-line
-  :bind ("M-;" . comment-or-uncomment-region-or-line))
-
-(use-package cython-mode
-  :commands cython-mode)
-
-(use-package tty-format) ; Dependency of e-sink
 (use-package e-sink
   :commands e-sink-start)
 
-(use-package ido-find-tagged-file
-  :bind ("C-x p" . ido-find-tagged-file))
-
-(use-package misc-cmds
-  :bind ("C-e" . end-of-line+))
-
-(use-package plist)
+;; Disabled for now; this compresses plists which were not initially compressed.
+;;(use-package plist)
 
 (use-package toggle-plural
   :bind ("C-c C-s" . toggle-plural-at-point))
@@ -288,29 +256,20 @@
 (use-package volatile-highlights
   :diminish volatile-highlights-mode)
 
-;;; whitespace
-;; Enable whitespace-mode, since it's disabled by default. The default
-;; visualizations for whitespace mode are now pretty sane, but we want
-;; to tweak them a bit.
-(setq prelude-whitespace t)
-;; The following code setting variables should be able to go in a
-;; :config or :init block. But since whitespace copies from variables
-;; when it is initialized, they have to be set BEFORE it is loaded.
-
-;; Annoyingly, Prelude sets the whitespace column limit to 80. Set
-;; back to nil to just inherit from `fill-column'. We are not really
-;; using this, but just do it anyway.
-(setq whitespace-line-column nil)
-;; fill-column-indicator can be used to indicate long lines, so
-;; lines-tail is not needed.
-(setq whitespace-style '(face empty trailing))
 (use-package whitespace
-  :diminish whitespace-mode)
+  :diminish whitespace-mode
+  :config
+  ;; The variable `whitespace-line-column' is supposed to be able to
+  ;; be set to nil to inherit the value of `fill-column'. However,
+  ;; this hasn't worked for me at all, no matter where I try to set
+  ;; it. `fci-mode', on the other hand, inherits `fill-column' just
+  ;; fine and works great, so `lines-tail' is not needed.
+  (setq whitespace-style '(face empty trailing lines))
+)
 
 ;; Add George Brandl's improvements to po-mode, which include an autowrap.
-;; (eval-after-load 'po-mode '(load "gb-po-mode"))
-
-(setq magit-last-seen-setup-instructions "1.4.0")
+(with-eval-after-load 'po-mode
+  (load "gb-po-mode"))
 
 (provide 'personal-packages)
 

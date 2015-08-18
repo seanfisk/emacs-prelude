@@ -1,6 +1,3 @@
-[submodule "vendor/use-package"]
-	path = vendor/use-package
-	url = https://github.com/jwiegley/use-package.git
 [submodule "vendor/e-sink"]
 	path = vendor/e-sink
 	url = https://github.com/lewang/e-sink.git

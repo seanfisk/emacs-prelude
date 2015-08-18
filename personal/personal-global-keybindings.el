@@ -33,13 +33,11 @@
 ;;
 ;;; Code:
 
-(require 'bind-key)
-
 ;; An easy shortcut is needed for this common task.
 (bind-key "C-x j" 'kill-this-buffer)
 (bind-key "C-c r" 'rename-buffer)
 
-(bind-key "C-a" 'toggle-beginning-or-indentation)
+(bind-key "C-a" 'personal-toggle-beginning-or-indentation)
 
 (require 'prelude-mode)
 
@@ -49,11 +47,11 @@
 (bind-key "C-o" 'prelude-smart-open-line)
 (bind-key "M-o" 'prelude-smart-open-line-above)
 
-;; Now that we've clobbered `kill-emacs', give a shortcut back.
 (bind-key "C-x q" 'kill-emacs)
 
-;; key-chord is already installed by Prelude.
-(require 'key-chord)
+(eval-when-compile
+  (require 'key-chord))
+
 ;; Make the delay for two keys longer.
 (setq key-chord-two-keys-delay 0.2)
 

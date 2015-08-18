@@ -97,6 +97,12 @@
 ;; Out of the box, flyspell slows down editing. That's the last thing
 ;; I need. flyspell-lazy runs flyspell only when idle, preventing lag.
 (depends-on "flyspell-lazy")
+;; Chosen over https://github.com/wasamasa/form-feed#alternatives
+;; pp-c-l's header is kind of ugly, and page-break-lines displays in
+;; such a way that the display wraps, which isn't right. form-feed
+;; does not display correctly in terminal, but looks great in
+;; graphical, which is an OK compromise.
+(depends-on "form-feed")
 (depends-on "git-timemachine")
 (depends-on "goto-last-change")
 (depends-on "graphviz-dot-mode")
@@ -111,7 +117,6 @@
 ;; nyan-mode can't install because it's missing a package version.
 ;; (depends-on nyan-mode)
 (depends-on "paredit")
-(depends-on "pp-c-l")
 (depends-on "s")
 ;; The difference between `smooth-scroll' and `smooth-scrolling' is
 ;; this: `smooth-scroll' changes "Page Up" and "Page Down" to show all

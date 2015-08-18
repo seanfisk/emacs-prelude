@@ -78,6 +78,11 @@
 (use-package flyspell-lazy
   :config (flyspell-lazy-mode +1))
 
+(use-package form-feed
+  :config
+  ;; I've really only seen the form feed character used in Emacs Lisp.
+  (add-hook 'emacs-lisp-mode-hook 'form-feed-mode))
+
 (use-package goto-last-change
   :bind ("C-x C-/" . goto-last-change))
 

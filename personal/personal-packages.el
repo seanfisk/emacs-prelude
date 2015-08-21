@@ -181,6 +181,11 @@
 ;; Turn off guru mode. I'll be a guru when I want to be.
 (setq prelude-guru nil)
 
+(use-package magit
+  :config
+  ;; Stop magit from nagging when pushing.
+  (setq magit-push-always-verify nil))
+
 (use-package prelude-mode
   :diminish prelude-mode)
 

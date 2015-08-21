@@ -208,7 +208,7 @@
   ;; this hasn't worked for me at all, no matter where I try to set
   ;; it. `fci-mode', on the other hand, inherits `fill-column' just
   ;; fine and works great, so `lines-tail' is not needed.
-  (setq whitespace-style '(face empty trailing lines))
+  (setq whitespace-style '(face empty trailing))
 )
 
 ;; Add George Brandl's improvements to po-mode, which include an autowrap.

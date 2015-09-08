@@ -113,6 +113,7 @@
 (depends-on "highlight-symbol")
 (depends-on "inflections")
 (depends-on "jump-char")
+;; (depends-on "magit-gh-pulls")
 (depends-on "markdown-mode")
 (depends-on "misc-cmds")
 (depends-on "multiple-cursors")

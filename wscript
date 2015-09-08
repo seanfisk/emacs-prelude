@@ -9,7 +9,6 @@ from pathlib import Path
 import platform
 
 import waflib
-from waflib.Errors import WafError
 
 # Avoid having unnecessary public attributes in this file, else they will be
 # picked up as Waf commands.

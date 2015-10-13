@@ -24,7 +24,7 @@ def configure(ctx):
     except waflib.Errors.WafError:
         gettext_prefix = False
     else:
-        gettext_prefix = path.join(out.rstrip(), 'share', 'emacs', 'site-lisp')
+        gettext_prefix = path.join(out.rstrip(), 'share', 'emacs', 'site-lisp', 'gettext')
 
     ctx.msg('Checking for Homebrew gettext', gettext_prefix)
     if gettext_prefix:

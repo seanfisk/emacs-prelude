@@ -3,19 +3,6 @@
 Find an ``ls`` compatible with dired.
 """
 
-def _emacs_repr(obj):
-    """Convert a Python object to an Emacs source representation.
-
-    Supports None, bool, and str."""
-    if obj is None:
-        return 'nil'
-    if isinstance(obj, bool):
-        return 't' if obj else 'nil'
-    if isinstance(obj, str):
-        # XXX Presumptuous quoting
-        return '"{}"'.format(obj)
-    raise ValueError('Unsupported type {}'.format(type(obj)))
-
 def configure(ctx):
     # Don't display find_program's messages
     ctx.in_msg = 1
@@ -39,7 +26,7 @@ def build(ctx):
     out_node = in_node.change_ext('')
     use_ls = bool(ctx.env.LS)
     ctx(features='subst', target=out_node, source=in_node,
-        USE_LS=_emacs_repr(use_ls),
-        SET_LS='(setq insert-directory-program {})'.format(_emacs_repr(
+        USE_LS=ctx.emacs_repr(use_ls),
+        SET_LS='(setq insert-directory-program {})'.format(ctx.emacs_repr(
             ctx.env.LS[0])) if use_ls else '')
     ctx.install_node(out_node)

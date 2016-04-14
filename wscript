@@ -30,7 +30,7 @@ class TryContext(waflib.Build.InstallContext):
 def configure(ctx):
     ctx.msg('Setting prefix to', ctx.env.PREFIX)
     ctx.load(['python', 'emacs'], tooldir=WAF_TOOLDIR)
-    ctx.check_python_version(version=('3', '4'))
+    ctx.check_python_version(version=('3', '5'))
     # Emacs 24.4 adds (from NEWS, press `C-h n'):
     # - The default file coding for Emacs Lisp files is now utf-8.
     # - New package eww.el provides a built-in web browser.

@@ -62,6 +62,9 @@
 (use-package comment-dwim-2
   :config (define-key prog-mode-map [remap comment-dwim] 'comment-dwim-2))
 
+(use-package editorconfig
+  :config (editorconfig-mode +1))
+
 ;;; elpy
 ;; For elpy to work correctly, the following packages need to be
 ;; installed. They should be installed in the user site directory for

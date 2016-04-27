@@ -31,12 +31,10 @@ def configure(ctx):
     ctx.msg('Setting prefix to', ctx.env.PREFIX)
     ctx.load(['python', 'emacs'], tooldir=WAF_TOOLDIR)
     ctx.check_python_version(version=('3', '5'))
-    # Emacs 24.4 adds (from NEWS, press `C-h n'):
-    # - The default file coding for Emacs Lisp files is now utf-8.
-    # - New package eww.el provides a built-in web browser.
-    # - Support for filesystem notifications.
-    # - New macro `with-eval-after-load'.
-    ctx.check_emacs_version(('24', '4'))
+    # Emacs 25 adds support for file notifications use kqueue. Using glib for
+    # file notifications was possible since 24.4, but did not actually work on
+    # OS X.
+    ctx.check_emacs_version(('25', '0'))
     ctx.load(['brew', 'cask', 'dired', 'git'], tooldir=WAF_TOOLDIR)
     ctx.env.REPO_DIR = ctx.srcnode.abspath()
 

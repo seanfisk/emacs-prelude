@@ -33,7 +33,15 @@
 ;;; Code:
 
 (with-eval-after-load 'magit-git
-  (setq magit-git-executable @GIT@))
+  (setq magit-git-executable @GIT@)
+  ;; See the note here:
+  ;; https://magit.vc/manual/2.4/magit/Automatic-Reverting-of-File_002dVisiting-Buffers.html#index-magit_002dauto_002drevert_002dimmediately
+  (setq magit-auto-revert-immediately nil)
+  )
+
+;; Enable file notifications
+(with-eval-after-load 'autorevert
+  (setq auto-revert-use-notify t))
 
 (provide 'personal-magit)
 

@@ -118,6 +118,7 @@
 (depends-on "misc-cmds")
 (depends-on "multiple-cursors")
 (depends-on "nyan-mode")
+(depends-on "powershell")
 (depends-on "s")
 ;; Not currently using, but may interactively or in the future.
 (depends-on "smart-mode-line-powerline-theme")

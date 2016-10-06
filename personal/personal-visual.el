@@ -53,9 +53,9 @@
       ;; Choose fonts
       ;; On my Mac, the font size seems small, so make it bigger.
       (if (eq system-type 'darwin)
-          (set-face-attribute 'default nil :height 240))
+          (set-face-attribute 'default nil :height 260))
       (set-face-attribute 'default nil :family
-                          (font-candidate "Inconsolata" "Consolas" "Monospace"))
+                          (font-candidate "mononoki" "Inconsolata" "Consolas" "Monospace"))
       ;; Set theme.
       ;; (load-theme 'solarized-dark t)
       )

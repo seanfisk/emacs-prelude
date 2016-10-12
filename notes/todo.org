@@ -1,5 +1,6 @@
 Emacs Configuration TODO List
 
+* TODO [#A] Globally enabled smooth-scrolling (doesn't work right now)
 * TODO [#A] projectile-replace will produce inconsistent results (and doesn't work with regexp with ag)
 * TODO [#A] Install and configure [[https://github.com/areina/helm-dash][helm-dash]]. Check out [[http://jwintz.me/blog/2014/02/16/helm-dash-makes-you-efficient/][this article]] too.
 * TODO [#A] Flyspell seems not to be working.

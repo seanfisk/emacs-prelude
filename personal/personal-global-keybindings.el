@@ -49,6 +49,8 @@
 
 (bind-key "C-x q" 'kill-emacs)
 
+(bind-key "C-x m" 'man)
+
 (eval-when-compile
   (require 'key-chord))
 

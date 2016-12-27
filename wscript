@@ -35,7 +35,7 @@ def configure(ctx):
     # file notifications was possible since 24.4, but did not actually work on
     # OS X.
     ctx.check_emacs_version(('25', '0'))
-    ctx.load(['brew', 'cask', 'dired', 'git'], tooldir=WAF_TOOLDIR)
+    ctx.load(['brew', 'cask', 'dired', 'git', 'markdown'], tooldir=WAF_TOOLDIR)
     ctx.env.REPO_DIR = ctx.srcnode.abspath()
 
 def build(ctx):
@@ -103,7 +103,7 @@ def build(ctx):
         ctx.install_node(node)
 
     # Create and install generated files.
-    ctx.load(['emacs_repr', 'brew', 'cask', 'dired', 'git'],
+    ctx.load(['emacs_repr', 'brew', 'cask', 'dired', 'git', 'markdown'],
              tooldir=WAF_TOOLDIR)
 
     # Install e-sink script.

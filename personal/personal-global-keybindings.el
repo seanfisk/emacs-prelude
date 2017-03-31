@@ -33,9 +33,9 @@
 ;;
 ;;; Code:
 
-;; An easy shortcut is needed for this common task.
 (bind-key "C-x j" 'kill-this-buffer)
 (bind-key "C-c r" 'rename-buffer)
+(bind-key "C-c q" 'sp-rewrap-sexp)
 
 (bind-key "C-a" 'personal-toggle-beginning-or-indentation)
 

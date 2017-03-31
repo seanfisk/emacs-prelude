@@ -131,6 +131,7 @@
 ;; want, because it allows viewing the context of the line with the
 ;; cursor.
 (depends-on "smooth-scrolling")
+(depends-on "typescript-mode")
 (depends-on "undo-tree")
 (depends-on "unfill")
 (depends-on "use-package")

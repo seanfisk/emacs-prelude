@@ -30,9 +30,10 @@
 ;;
 ;;; Code:
 
-(add-to-list
- 'load-path
- "@BREW_SITE_LISP_PATH@")
+;; Need to add the "cask" sub-directory when using the Homebrew Cask;
+;; for some reason we didn't need this when using the formula.
+(dolist (path '("@BREW_SITE_LISP_PATH@" "@BREW_SITE_LISP_PATH@/cask"))
+ (add-to-list 'load-path path))
 
 ;; Use `declare-function' to silence Flycheck and the compiler.
 (declare-function

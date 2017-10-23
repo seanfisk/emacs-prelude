@@ -37,7 +37,10 @@
   ;; See the note here:
   ;; https://magit.vc/manual/2.4/magit/Automatic-Reverting-of-File_002dVisiting-Buffers.html#index-magit_002dauto_002drevert_002dimmediately
   (setq magit-auto-revert-immediately nil)
-  )
+  ;; https://emacsair.me/2016/12/07/magit-2.9/#improved-and-consistent-behavior-of-ret
+  ;; https://emacs.stackexchange.com/a/30052
+  ;; I want the old behavior
+  (setq magit-visit-ref-behavior '(checkout-any focus-on-ref)))
 
 ;; Enable file notifications
 (with-eval-after-load 'autorevert

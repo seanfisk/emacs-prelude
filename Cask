@@ -57,7 +57,6 @@
 (depends-on "zenburn-theme")
 (depends-on "zop-to-char")
 (depends-on "exec-path-from-shell") ; From 'core/prelude-osx.el'
-(depends-on "vkill") ; From 'core/prelude-osx.el'
 ;; Now Prelude packages required by Prelude modules that we are using.
 (depends-on "rainbow-mode") ; css, emacs-lisp
 (depends-on "elisp-slime-nav") ; emacs-lisp
@@ -108,7 +107,6 @@
 (depends-on "git-timemachine")
 (depends-on "goto-last-change")
 (depends-on "graphviz-dot-mode")
-(depends-on "header2")
 (depends-on "highlight-indentation")
 (depends-on "highlight-symbol")
 (depends-on "inflections")
@@ -116,7 +114,6 @@
 (depends-on "kotlin-mode")
 ;; (depends-on "magit-gh-pulls")
 (depends-on "markdown-mode")
-(depends-on "misc-cmds")
 (depends-on "multiple-cursors")
 (depends-on "nyan-mode")
 (depends-on "powershell")

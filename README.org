@@ -1,5 +1,7 @@
 * Sean's Emacs Configuration
 
+DEPRECATED: See [[https://github.com/seanfisk/combootcha][Combootcha]] for my new configuration, including Emacs!
+
 This is my configuration for Editor MACroS, also known as [[http://www.gnu.org/software/emacs/][Emacs]], the
 world's greatest text editor. It is based upon [[http://batsov.com/prelude/][Emacs Prelude]] by
 Bozhidar Batsov.
